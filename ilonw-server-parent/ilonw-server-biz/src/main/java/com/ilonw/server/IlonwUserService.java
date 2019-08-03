@@ -1,14 +1,15 @@
 package com.ilonw.server;
 
 import com.ilonw.server.bo.IlonwUserBO;
-import com.ilonw.server.bto.IlonwUserBTO;
+import com.ilonw.server.page.PageBean;
+import com.ilonw.server.page.PageData;
 
 import java.util.List;
 import java.util.Map;
 
 public interface IlonwUserService {
 
-    public List<IlonwUserBO> findAllIlonwUserInfo();
+    public PageBean<IlonwUserBO> findAllIlonwUserInfo(PageData pageData);
 
     /**
      * 用户登录  根据账号密码

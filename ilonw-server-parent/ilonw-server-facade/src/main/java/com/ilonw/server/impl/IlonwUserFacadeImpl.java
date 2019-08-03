@@ -5,6 +5,9 @@ import com.ilonw.server.IlonwUserService;
 import com.ilonw.server.bo.IlonwUserBO;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.ilonw.server.convert.IlonwUserConvert;
+import com.ilonw.server.page.PageBean;
+import com.ilonw.server.page.PageConvert;
+import com.ilonw.server.page.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +21,13 @@ public class IlonwUserFacadeImpl implements IlonwUserFacade {
     @Autowired
     private IlonwUserService ilonwUserService;
 
-    public List<IlonwUserBTO> findAllIlonwUserInfo(){
+    public PageBean<IlonwUserBTO> findAllIlonwUserInfo(PageData pageData){
         List<IlonwUserBTO> listBTO = new ArrayList<>();
-        List<IlonwUserBO> listBO =  ilonwUserService.findAllIlonwUserInfo();
-        for(IlonwUserBO bto : listBO){
+        PageBean<IlonwUserBO> listBO =  ilonwUserService.findAllIlonwUserInfo(pageData);
+        for(IlonwUserBO bto : listBO.getItems()){
             listBTO.add(IlonwUserConvert.convertBO(bto));
         }
-        return listBTO;
+        return PageConvert.getPageBean(listBO,listBTO);
     }
 
     public Map<String,Object> loginIlonwUserByPhoneAndEmailAndCode(IlonwUserBTO record){

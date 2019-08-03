@@ -1,14 +1,14 @@
 package com.ilonw.server;
 
-import com.ilonw.server.bo.IlonwUserBO;
 import com.ilonw.server.bto.IlonwUserBTO;
+import com.ilonw.server.page.PageBean;
+import com.ilonw.server.page.PageData;
 
-import java.util.List;
 import java.util.Map;
 
 public interface IlonwUserFacade {
 
-    public List<IlonwUserBTO> findAllIlonwUserInfo();
+    public PageBean<IlonwUserBTO> findAllIlonwUserInfo(PageData pageData);
 
     public Map<String,Object> loginIlonwUserByPhoneAndEmailAndCode(IlonwUserBTO record);
 

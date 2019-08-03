@@ -3,6 +3,8 @@ package com.ilonw.api.controller;
 import com.ilonw.api.base.BaseController;
 import com.ilonw.server.IlonwUserFacade;
 import com.ilonw.server.bto.IlonwUserBTO;
+import com.ilonw.server.page.PageBean;
+import com.ilonw.server.page.PageData;
 import com.server.tools.cache.Cache;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
@@ -28,16 +30,17 @@ public class UserController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/query_user", method = RequestMethod.POST)
     @ApiOperation(value="查询所有用户接口", notes="用户接口详细描述")
-    public APIBaseResult queryAllUser(HttpServletRequest requestIp) {
-        List<IlonwUserBTO> listUser = new ArrayList<IlonwUserBTO>();
+    public APIBaseResult queryAllUser( @RequestBody PageData pageData,HttpServletRequest requestIp) {
+        PageBean<IlonwUserBTO> listUser = new PageBean<>();
         Map<String,Object> map = new HashMap<String,Object>();
         long now = System.currentTimeMillis();
         Object obj = Cache.get("query_user");
         if(null == obj){
-            listUser = ilonwUserFacade.findAllIlonwUserInfo();
-            Cache.put("query_user",listUser,1000*60*60);
+            listUser = ilonwUserFacade.findAllIlonwUserInfo(pageData);
+            //Cache.put("query_user",listUser,1000*60*60);
+            Cache.put("query_user",listUser,1000);
         }else{
-            listUser = (List)obj;
+            listUser = (PageBean)obj;
         }
         map.put("userAllList",listUser);
         return getIntefaceData(requestIp,listUser, "/user", "/query_user",now,"无参数","用户接口详细描述");
