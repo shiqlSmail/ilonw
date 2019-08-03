@@ -16,6 +16,12 @@ public interface IlonwUserRepository {
     List<IlonwUserBO> findAllIlonwUserInfo();
 
     /**
+     * 查询所有用户的条数
+     * @return
+     */
+    Integer countAllIlonwUserInfo();
+
+    /**
      * 判断手机号码、邮箱、code是否存在
      * @param record
      * @return
