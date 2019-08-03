@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ilonw-server-module" />
+        <module name="ilonw-pay-api" />
+        <module name="ilonw-server-core-dubbo" />
+        <module name="ilonw-server-common-tools" />
+        <module name="ilonw-server-biz" />
+        <module name="ilonw-server-test" />
+        <module name="ilonw-user-api" />
+        <module name="ilonw-sms-api" />
+        <module name="ilonw-server-facade" />
+        <module name="ilonw-server-dal" />
+        <module name="ilonw-file-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ilonw-main-api" target="1.8" />
+      <module name="ilonw-send-api" target="1.8" />
+      <module name="ilonw-shop-api" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ilonw-file-api" options="-parameters" />
+      <module name="ilonw-main-api" options="-parameters" />
+      <module name="ilonw-pay-api" options="-parameters" />
+      <module name="ilonw-send-api" options="-parameters" />
+      <module name="ilonw-server-biz" options="-parameters" />
+      <module name="ilonw-server-common-tools" options="-parameters" />
+      <module name="ilonw-server-core-dubbo" options="-parameters" />
+      <module name="ilonw-server-dal" options="-parameters" />
+      <module name="ilonw-server-facade" options="-parameters" />
+      <module name="ilonw-server-module" options="-parameters" />
+      <module name="ilonw-server-test" options="-parameters" />
+      <module name="ilonw-shop-api" options="-parameters" />
+      <module name="ilonw-sms-api" options="-parameters" />
+      <module name="ilonw-user-api" options="-parameters" />
+    </option>
+  </component>
+</project>

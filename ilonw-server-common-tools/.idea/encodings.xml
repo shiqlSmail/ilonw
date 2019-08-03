@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../ilonw-getway-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-getway-api/ilonw-file-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-getway-api/ilonw-pay-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-getway-api/ilonw-sms-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-getway-api/ilonw-user-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-core-dubbo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-dal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ilonw-server-parent/ilonw-server-test" charset="UTF-8" />
+  </component>
+</project>

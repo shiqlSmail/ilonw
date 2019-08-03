@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	   default-lazy-init="false">
+
+	<!--  用户服务注册中心 -->
+	<dubbo:service  interface="com.ilonw.server.IlonwUserFacade" ref="ilonwUserFacade"/>
+
+	<!--  订单服务注册中心 -->
+	<dubbo:service  interface="com.ilonw.server.OrderFacade" ref="orderFacade"/>
+
+	<!--  支付宝支付服务注册中心 -->
+	<dubbo:service  interface="com.ilonw.server.AlipayOrderFacade" ref="alipayOrderFacade"/>
+
+	<!--  微信支付服务注册中心 -->
+	<dubbo:service  interface="com.ilonw.server.WxPayOrderFacade" ref="wxPayOrderFacade"/>
+
+	<!--  文件上传/下载注册中心 -->
+	<dubbo:service  interface="com.ilonw.server.SysIlonwTableFileFacade" ref="sysIlonwTableFileFacade"/>
+
+	<!-- 日志服务注册中心   服务暴漏，但不对外使用-->
+	<dubbo:service  interface="com.ilonw.server.SysIlonwLogsFacade" ref="sysIlonwLogsFacade"/>
+
+	<!-- 短信/邮箱服务注册中心   服务暴漏，但不对外使用-->
+	<dubbo:service  interface="com.ilonw.server.SysSmsFacade" ref="sysSmsFacade"/>
+</beans>

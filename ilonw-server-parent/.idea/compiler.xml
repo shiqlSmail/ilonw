@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ilonw-server-module" />
+        <module name="ilonw-server-dal" />
+        <module name="ilonw-server-biz" />
+        <module name="ilonw-server-common-tools" />
+        <module name="ilonw-server-facade" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

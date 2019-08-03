@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                     http://www.springframework.org/schema/beans/spring-beans.xsd"
+                   default-autowire="byName">
+
+	<bean id="wxconfig" name="wxconfig" class="com.github.binarywang.wxpay.config.WxPayConfig">
+		<property name="mchId" value="${wechatpay.mchId}"/>
+		<property name="mchKey" value="${wechatpay.mchKey}"/>
+		<property name="appId" value="${wechatpay.appId}"/>
+	</bean>
+
+    <bean id="wxPayService" name="wxPayService" class="com.github.binarywang.wxpay.service.impl.WxPayServiceImpl">
+        <property name="config" ref="wxconfig"/>
+    </bean>
+</beans>
