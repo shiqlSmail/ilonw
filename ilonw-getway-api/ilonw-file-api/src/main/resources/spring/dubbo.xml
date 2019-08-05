@@ -9,4 +9,6 @@
 
 	<import resource="dubbo-common.xml"/>
 	<import resource="dubbo-provider.xml"/>
+
+	<import resource="dispatcher-servlet.xml"/>
 </beans>

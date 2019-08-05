@@ -13,7 +13,7 @@ import java.util.Properties;
 @SpringBootApplication
 @ServletComponentScan
 @ImportResource(locations = {"classpath:druid-bean.xml"})
-@EnableScheduling //开启定时任务
+//@EnableScheduling //开启定时任务
 public class IlonwServerCoreDubboApplication {
 
     public static void main(String[] args) throws Exception {

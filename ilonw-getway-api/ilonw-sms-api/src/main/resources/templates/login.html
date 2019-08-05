@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>登录</title>
 
-    <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/login.css}" rel="stylesheet" type="text/css"/>
     <script th:src="@{/js/jquery.js}" type="text/javascript"></script>
     <script th:src="@{/js/tips.js}" type="text/javascript"></script>
 </head>
 <style>
-    #login_btn{
-        cursor:pointer;
+    #login_btn {
+        cursor: pointer;
     }
 </style>
 <body>
-<img class="bgone" src="/img/1.jpg" />
-<img class="pic" src="/img/a.png" />
+<img class="bgone" src="/img/1.jpg"/>
+<img class="pic" src="/img/a.png"/>
 <div class="table">
     <div class="wel">ILONW短信/邮箱管理系统</div>
     <div class="user">
-        <div id="yonghu" style=""><img src="/img/yhm.png" /></div>
+        <div id="yonghu" style=""><img src="/img/yhm.png"/></div>
         <input type="text" name="" placeholder="请输入账号" id="username"/>
     </div>
     <div class="password">
-        <div id="yonghu"><img src="/img/mm.png" /></div>
+        <div id="yonghu"><img src="/img/mm.png"/></div>
         <input type="password" name="密码" placeholder="请输入密码" id="password"/>
     </div>
     <input class="btn" type="button" name="登录" value="登录" id="login_btn" onClick="requestServer();"/>
@@ -33,20 +33,20 @@
     function check() {
         if ($("#username").val() == "") {
             $("#username").tips({
-                side : 2,
-                msg : "请输入用户名！",
-                bg : '#FF5080',
-                time : 3
+                side: 2,
+                msg: "请输入用户名！",
+                bg: '#FF5080',
+                time: 3
             });
             $("#username").focus();
             return false;
         }
         if ($("#password").val() == "") {
             $("#password").tips({
-                side : 2,
-                msg : "请输入密码！",
-                bg : '#FF5080',
-                time : 3
+                side: 2,
+                msg: "请输入密码！",
+                bg: '#FF5080',
+                time: 3
             });
             $("#password").focus();
             return false;
@@ -54,37 +54,39 @@
         return true;
     }
 
-    function requestServer(){
-        if(check()){
+    function requestServer() {
+        if (check()) {
             //请求参数
             var params = {
-                "username" : $("#username").val(),
-                "password" : $("#password").val()
+                "username": $("#username").val(),
+                "password": $("#password").val()
             };
 
             $.ajax({
                 //请求方式
-                type : "POST",
+                type: "POST",
                 //请求的媒体类型
                 contentType: "application/json;charset=UTF-8",
                 //请求地址
-                url : "/sms/main.htm",
+                url: "/sms/loginVail.htm",
                 //数据，json字符串
-                data : JSON.stringify(params),
+                data: JSON.stringify(params),
                 //请求成功
-                success : function(result) {
+                success: function (result) {
                     console.log(result);
+                    window.location.href = "/sms/main.htm";
                 },
                 //请求失败，包含具体的错误信息
-                error : function(e){
+                error: function (e) {
                     console.log(e.status);
                     console.log(e.responseText);
+                    window.location.href = "/sms/login.htm";
                 }
             });
         }
     }
 
-    $(document).keyup(function(event) {
+    $(document).keyup(function (event) {
         if (event.keyCode == 13) {
             $("#login_btn").trigger("click");
         }

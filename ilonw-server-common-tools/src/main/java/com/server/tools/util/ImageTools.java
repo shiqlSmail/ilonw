@@ -3,7 +3,9 @@ package com.server.tools.util;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.channels.FileChannel;
 
 /** 
  * 通过java获取图片的宽和高 
@@ -50,5 +52,23 @@ public class ImageTools {
             e.printStackTrace();  
         }  
         return ret;  
-    }  
+    }
+
+    /**
+     * 获取图片大小
+     * @param file  图片文件
+     * @return 大小
+     */
+    public static Long getImgSize(File file) throws IOException {
+        FileInputStream fis = null;
+        FileChannel fileChannel = null;
+        if(file.exists() && file.isFile()){
+            fis = new FileInputStream(file);
+            fileChannel = fis.getChannel();
+        }
+        System.out.println("文件"+file.getName()+"的大小为："+fileChannel.size()+"byte");
+        return fileChannel.size();
+    }
+
+
 }  
