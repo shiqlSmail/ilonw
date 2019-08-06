@@ -59,7 +59,7 @@ public class ImageTools {
      * @param file  图片文件
      * @return 大小
      */
-    public static Long getImgSize(File file) throws IOException {
+    public static String getImgSize(File file) throws IOException {
         FileInputStream fis = null;
         FileChannel fileChannel = null;
         if(file.exists() && file.isFile()){
@@ -67,8 +67,7 @@ public class ImageTools {
             fileChannel = fis.getChannel();
         }
         System.out.println("文件"+file.getName()+"的大小为："+fileChannel.size()+"byte");
-        return fileChannel.size();
+        return fileChannel.size() +"byte";
     }
-
 
 }  

@@ -1,11 +1,15 @@
 package com.ilonw.api.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.ilonw.api.config.LoginUserConfig;
 import com.ilonw.api.vo.LoginParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/sms")
@@ -38,10 +42,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/loginVail.htm", method = {RequestMethod.POST})
-    public String loginVail(@RequestBody LoginParam loginParam) {
+    public String loginVail(@RequestBody LoginParam loginParam,HttpSession session) {
         loginParam.setStatus(1);
         boolean flag = LoginUserConfig.isLoginUserFlag(loginParam);
         if(flag){
+            session.setAttribute("username",loginParam.getUsername());
             return "index";
         }else{
             return "login";
@@ -54,7 +59,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/main.htm")
-    public String main() {
+    public String main(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
         return "index";
     }
 
@@ -64,7 +73,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/home.htm")
-    public String home() {
+    public String home(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
         return "main";
     }
 
@@ -74,7 +87,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/smsList.htm")
-    public String smsList() {
+    public String smsList(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
         return "list/smsList";
     }
 
@@ -84,7 +101,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/emailCodeList.htm")
-    public String emailCodeList() {
+    public String emailCodeList(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
         return "list/emailCodeList";
     }
 
@@ -94,7 +115,11 @@ public class ViewController {
      * @return
      */
     @RequestMapping(value = "/emailUrlList.htm")
-    public String emailUrlList() {
+    public String emailUrlList(HttpSession session) {
+        String username = (String)session.getAttribute("username");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
         return "list/emailUrlList";
     }
 }

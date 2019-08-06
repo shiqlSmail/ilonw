@@ -31,7 +31,7 @@ public class DalConfig {
     @Autowired
     @Qualifier("DataSource")
     public DruidDataSource druidDataSource;
-    @Value(value = "classpath*:mybatis/*.xml")
+    @Value(value = "classpath*:mybatis/*/*.xml")
     private Resource[] mapperLocations;
     @Bean(autowire = Autowire.BY_NAME)
     public TransactionTemplate transactionTemplate() {

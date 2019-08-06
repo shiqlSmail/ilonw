@@ -1,12 +1,10 @@
 package com.ilonw.api.service.impl;
 
 import com.ilonw.api.service.WxPayOrderService;
-import com.ilonw.server.WxPayOrderFacade;
+import com.ilonw.server.facade.pay.WxPayOrderFacade;
 import com.ilonw.server.bto.WxpayOrderBTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * 微信支付处理器实现

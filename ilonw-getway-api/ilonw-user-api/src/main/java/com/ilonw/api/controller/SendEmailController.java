@@ -2,10 +2,9 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.EmailSendParam;
-import com.ilonw.server.SysSmsFacade;
 import com.ilonw.server.bo.SysEmailCodeBO;
 import com.ilonw.server.bo.SysEmailUrlBO;
-import com.server.tools.cache.Cache;
+import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.send.SendEmailUtils;
 import io.swagger.annotations.Api;
@@ -83,12 +82,12 @@ public class SendEmailController extends BaseController {
         long now = System.currentTimeMillis();
         Map<String, Object> map = new HashMap<>();
         int code = (int) ((Math.random() * 9 + 1) * 100000);
-        Cache.put(param.getEmail(), code, 60000*5);
         try {
             SendEmailUtils email = new SendEmailUtils();
             boolean isFlag = email.sendAccountActivateEmailToYzm(param.getEmail(),String.valueOf(code),param.getUsername());
             if (isFlag) {
                 map.put("resMsg", "success");
+                map.put("data", code);
             } else {
                 map.put("resMsg", "发送失败");
             }

@@ -89,6 +89,7 @@
             <textarea placeholder="想说点什么……" id="context" name="context"></textarea>
             <input id="file-zh" name="file" type="file" multiple class="file">
             <div id="ben_submit" class="btn wave left">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交</div>
+            <input type="hidden" id="hidden_Identification" name="Identification"/>
         </form>
         <hr>
         <br>
@@ -103,7 +104,7 @@
         uploadExtraData:{"context":context},
         uploadAsync: true, //默认异步上传
         maxFileCount:9, //表示允许同时上传的最大文件个数
-        allowedFileExtensions : ['jpg', 'gif', 'txt', 'png', 'pdf','ico','xlsx', 'xls','png','zip','rar'],//接收的文件后缀
+        allowedFileExtensions : ['jpg', 'gif', 'txt', 'png', 'pdf','ico','xlsx', 'xls','png','zip','rar','doc'],//接收的文件后缀
         validateInitialCount:true,
         showUpload: false, //是否显示上传按钮
         previewFileIcon: "<iclass='glyphicon glyphicon-king'></i>",
@@ -113,10 +114,16 @@
             actionZoom:''   //去除上传预览缩略图中的查看详情预览的缩略图标。
         },
     })
-    $('#file-zh').on("filebatchuploadsuccess", function(event, data) {
+    $('#file-zh').on("fileuploaded", function(event, data) {
+        $("#hidden_Identification").val(data.response);
         if(data.response){
-            alert(data);
-            $("#bootstraptable_fishcontent").bootstrapTable("refresh");
+            $.ajax({
+                type: 'POST',
+                url: '/uploadFile/updateFile',
+                data: $("#frmFileIlonw").serialize(),
+                success: function (data) {
+                }
+            });
         }
     })
 

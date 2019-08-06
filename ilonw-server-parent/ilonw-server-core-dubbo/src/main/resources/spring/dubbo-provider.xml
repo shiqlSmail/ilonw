@@ -9,23 +9,23 @@
 	   default-lazy-init="false">
 
 	<!--  用户服务注册中心 -->
-	<dubbo:service  interface="com.ilonw.server.IlonwUserFacade" ref="ilonwUserFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.user.IlonwUserFacade" ref="ilonwUserFacade"/>
 
 	<!--  订单服务注册中心 -->
-	<dubbo:service  interface="com.ilonw.server.OrderFacade" ref="orderFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.user.OrderFacade" ref="orderFacade"/>
 
 	<!--  支付宝支付服务注册中心 -->
-	<dubbo:service  interface="com.ilonw.server.AlipayOrderFacade" ref="alipayOrderFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.pay.AlipayOrderFacade" ref="alipayOrderFacade"/>
 
 	<!--  微信支付服务注册中心 -->
-	<dubbo:service  interface="com.ilonw.server.WxPayOrderFacade" ref="wxPayOrderFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.pay.WxPayOrderFacade" ref="wxPayOrderFacade"/>
 
 	<!--  文件上传/下载注册中心 -->
-	<dubbo:service  interface="com.ilonw.server.SysIlonwTableFileFacade" ref="sysIlonwTableFileFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.file.SysIlonwTableFileFacade" ref="sysIlonwTableFileFacade"/>
 
 	<!-- 日志服务注册中心   服务暴漏，但不对外使用-->
-	<dubbo:service  interface="com.ilonw.server.SysIlonwLogsFacade" ref="sysIlonwLogsFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.sys.SysIlonwLogsFacade" ref="sysIlonwLogsFacade"/>
 
 	<!-- 短信/邮箱服务注册中心   服务暴漏，但不对外使用-->
-	<dubbo:service  interface="com.ilonw.server.SysSmsFacade" ref="sysSmsFacade"/>
+	<dubbo:service interface="com.ilonw.server.facade.sms.SysSmsFacade" ref="sysSmsFacade"/>
 </beans>

@@ -1,12 +1,10 @@
 package com.ilonw.api.service.impl;
 
 import com.ilonw.api.service.AlipayOrderService;
-import com.ilonw.server.AlipayOrderFacade;
+import com.ilonw.server.facade.pay.AlipayOrderFacade;
 import com.ilonw.server.bto.AlipayOrderBTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * 支付宝支付处理器实现

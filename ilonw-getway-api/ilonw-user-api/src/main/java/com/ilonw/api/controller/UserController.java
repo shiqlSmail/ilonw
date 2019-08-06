@@ -1,7 +1,7 @@
 package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
-import com.ilonw.server.IlonwUserFacade;
+import com.ilonw.server.facade.user.IlonwUserFacade;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.ilonw.server.page.PageBean;
 import com.ilonw.server.page.PageData;
@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController

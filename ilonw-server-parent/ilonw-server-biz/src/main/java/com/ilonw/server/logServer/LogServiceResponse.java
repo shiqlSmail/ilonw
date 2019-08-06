@@ -1,6 +1,6 @@
 package com.ilonw.server.logServer;
 
-import com.ilonw.server.SysIlonwLogsService;
+import com.ilonw.server.biz.sys.SysIlonwLogsService;
 import com.ilonw.server.bo.SysIlonwLogsEntity;
 import com.server.tools.util.IpUtils;
 import com.server.tools.util.UUIDUtil;

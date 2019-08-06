@@ -3,7 +3,7 @@ package com.ilonw.api.controller;
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.SysIlonwSaveUserParam;
 import com.ilonw.server.Eunms.UserEunms;
-import com.ilonw.server.IlonwUserFacade;
+import com.ilonw.server.facade.user.IlonwUserFacade;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.server.tools.cache.Cache;
 import com.server.tools.result.APIBaseResult;

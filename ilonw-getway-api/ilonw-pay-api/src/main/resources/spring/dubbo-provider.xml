@@ -8,11 +8,11 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
 	   default-lazy-init="false">
 
-	<dubbo:reference  interface="com.ilonw.server.OrderFacade" id="orderFacade"/>
+	<dubbo:reference interface="com.ilonw.server.facade.user.OrderFacade" id="orderFacade"/>
 
-	<dubbo:reference  interface="com.ilonw.server.AlipayOrderFacade" id="alipayOrderFacade"/>
+	<dubbo:reference interface="com.ilonw.server.facade.pay.AlipayOrderFacade" id="alipayOrderFacade"/>
 
-	<dubbo:reference  interface="com.ilonw.server.WxPayOrderFacade" id="wxPayOrderFacade"/>
+	<dubbo:reference interface="com.ilonw.server.facade.pay.WxPayOrderFacade" id="wxPayOrderFacade"/>
 
-	<dubbo:reference  interface="com.ilonw.server.SysIlonwLogsFacade" id="sysIlonwLogsFacade"/>
+	<dubbo:reference interface="com.ilonw.server.facade.sys.SysIlonwLogsFacade" id="sysIlonwLogsFacade"/>
 </beans>

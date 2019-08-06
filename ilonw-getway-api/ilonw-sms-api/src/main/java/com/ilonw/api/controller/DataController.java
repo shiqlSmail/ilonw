@@ -1,9 +1,8 @@
 package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
-import com.ilonw.api.vo.EmailSendParam;
 import com.ilonw.api.vo.PhoneSmsParam;
-import com.ilonw.server.SysSmsFacade;
+import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.ilonw.server.bo.SysEmailCodeBO;
 import com.ilonw.server.bo.SysEmailUrlBO;
 import com.ilonw.server.bo.SysSmsBO;

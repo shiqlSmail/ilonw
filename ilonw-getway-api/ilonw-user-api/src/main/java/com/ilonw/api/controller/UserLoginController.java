@@ -5,7 +5,7 @@ import com.ilonw.api.base.BaseController;
 import com.ilonw.api.enums.UserLoginEunms;
 import com.ilonw.api.vo.IlonwLoginParam;
 import com.ilonw.server.Eunms.UserEunms;
-import com.ilonw.server.IlonwUserFacade;
+import com.ilonw.server.facade.user.IlonwUserFacade;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.server.tools.cache.Cache;
 import com.server.tools.encryption.MD5Util;
@@ -14,7 +14,6 @@ import com.server.tools.util.IpUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

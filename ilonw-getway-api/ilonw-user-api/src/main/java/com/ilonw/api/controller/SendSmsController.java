@@ -2,9 +2,8 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.PhoneSmsParam;
-import com.ilonw.server.SysSmsFacade;
 import com.ilonw.server.bo.SysSmsBO;
-import com.server.tools.cache.Cache;
+import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -37,10 +36,7 @@ public class SendSmsController extends BaseController {
         long now = System.currentTimeMillis();
         Map<String, Object> map = new HashMap<>();
         //int code = (int) ((Math.random() * 9 + 1) * 100000);
-        int code = 111111;
-        Cache.put(param.getPhone(), code, 60000);
-        map.put("resMsg", "success");
-        map.put("data", code);
+
         /*try {
             SendSmsUtils sms = new SendSmsUtils();
             boolean isFlag = sms.send(param.getPhone(), code);
@@ -52,11 +48,14 @@ public class SendSmsController extends BaseController {
         } catch (ClientException e) {
             e.printStackTrace();
         }*/
+        int code = 111111;
 
         SysSmsBO BO = new SysSmsBO();
         BO.setSmsCode(code);
         BO.setSmsPhone(param.getPhone());
         sysSmsFacade.saveSms(BO);
+        map.put("resMsg", "success");
+        map.put("data", code);
         return getIntefaceData( request,map, "/send", "/sms", now, param + "：：：" + code,"发送短信验证码");
     }
 }

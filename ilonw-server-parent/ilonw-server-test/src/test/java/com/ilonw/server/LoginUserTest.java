@@ -1,6 +1,7 @@
 package com.ilonw.server;
 
 import com.ilonw.server.bto.IlonwUserBTO;
+import com.ilonw.server.facade.user.IlonwUserFacade;
 import com.server.tools.encryption.MD5Util;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,8 +22,8 @@ public class LoginUserTest {
     @Test
     public void test1(){
         IlonwUserBTO record = new IlonwUserBTO();
-        List<IlonwUserBTO> map = ilonwUserFacade.findAllIlonwUserInfo();
-        System.out.println("查询所有用户"+map);
+        /*List<IlonwUserBTO> map = ilonwUserFacade.findAllIlonwUserInfo();
+        System.out.println("查询所有用户"+map);*/
     }
 
     @Test
