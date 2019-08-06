@@ -109,4 +109,19 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <filter-resource-name>dev</filter-resource-name>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <filter-resource-name>prod</filter-resource-name>
+            </properties>
+        </profile>
+    </profiles>
 </project>

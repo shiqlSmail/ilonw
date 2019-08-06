@@ -20,7 +20,7 @@ public class FileServiceImpl implements FileService {
     private SysIlonwTableFileFacade sysIlonwTableFileFacade;
 
     @Override
-    @Async
+    //@Async
     public String saveFile(TableFileBO tableFile) {
         String Identification = UUIDUtil.getOrderIdByUUId();
         tableFile.setAuther("师奇隆");

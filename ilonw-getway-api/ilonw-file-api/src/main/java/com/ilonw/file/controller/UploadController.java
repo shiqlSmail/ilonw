@@ -9,16 +9,14 @@ import com.server.tools.date.DateUtil;
 import com.server.tools.util.ImageTools;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 import java.util.UUID;
 
@@ -28,6 +26,10 @@ public class UploadController extends BaseController {
 
 	@Autowired
 	private FileService fileService;
+
+	@Value("${ilonw.local.update.img}")
+	private String localImgProperties;
+
 
 	/**
 	 *
@@ -42,22 +44,15 @@ public class UploadController extends BaseController {
 	public String fileUpload(@RequestParam(value = "file",required = true) CommonsMultipartFile files[]) throws IOException{
 		TableFileBO tableFile = new TableFileBO();
 		String Identification = "";
-		// 构建上传文件的存放路径
-		String path = "D://ilonw//upload//"+DateUtil.formatDate(new Date())+"/";
-
-		// 判断路径是否存在，不存在则新创建一个
+		String path = localImgProperties+DateUtil.formatDate(new Date())+"/";
 		File f = new File(path);
 		if (!f.exists())
 			f.mkdirs();
 
-		// 如果文件不为空，写入上传路径，进行文件上传
 		if (files.length != 0) {
 			for (int i = 0; i < files.length; i++) {
-				// 获得原始文件名  2
 				String fileName = files[i].getOriginalFilename();
-				//获取后缀名
 				String fixname = fileName.substring(fileName.lastIndexOf(".")+1);
-				// 新文件名
 				String newFileName = UUID.randomUUID() + fileName;
 				try {
 					FileOutputStream fos = new FileOutputStream(path + newFileName);
@@ -72,7 +67,6 @@ public class UploadController extends BaseController {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
                 tableFile.setIlonw_file_title(DateUtil.getDateTime(new Date())); //标题以上传时间代替
                 tableFile.setIlonw_file_context("");
 				tableFile.setFile_fixname("."+fixname);
@@ -86,7 +80,6 @@ public class UploadController extends BaseController {
 		} else {
 			return null;
 		}
-		//return getIntefaceData(request,"", "/uploadFile", "/upload",now,tableFile,"文件上传接口详细描述");
 		return Identification;
 	}
 
@@ -101,7 +94,6 @@ public class UploadController extends BaseController {
 	public void addFishContent(String context,String Identification){
 		fileService.updateFile(context,Identification);
 	}
-
 
 	//文件上传成功，删除本地文件
 	public static void deleteAllFilesOfDir(File path) {
