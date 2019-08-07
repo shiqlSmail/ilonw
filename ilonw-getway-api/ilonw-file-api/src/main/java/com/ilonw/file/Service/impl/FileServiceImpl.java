@@ -1,23 +1,33 @@
 package com.ilonw.file.Service.impl;
 
 import com.ilonw.file.Service.FileService;
+import com.ilonw.file.vo.TableFileVO;
 import com.ilonw.server.bo.TableFileBO;
 import com.ilonw.server.facade.file.SysIlonwTableFileFacade;
 import com.server.tools.date.DateUtil;
 import com.server.tools.util.UUIDUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service("fileService")
 public class FileServiceImpl implements FileService {
 
     @Resource
     private SysIlonwTableFileFacade sysIlonwTableFileFacade;
+
+    @Value("${ilonw.view.img}")
+    private String ilonwViewImg;
+
+    @Value("${ilonw.default.image}")
+    private String ilonwDefaultImage;
+    @Value("${ilonw.default.context}")
+    private String ilonwDefaultContext;
+
 
     @Override
     //@Async
@@ -39,25 +49,24 @@ public class FileServiceImpl implements FileService {
         sysIlonwTableFileFacade.updateFile(tableFile);
     }
 
-    //测试线程池
     @Override
-    @Async
-    public void testthread(){
-        SimpleDateFormat format=new SimpleDateFormat("HH:mm:ss");
+    public List<TableFileVO> findFiles() {
+        List<TableFileVO> tableFileVO = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
-            System.out.println("多线程异步执行"+i+"  "+Thread.currentThread().getName()+"  "+format.format(new Date()));
-            /*try {
-                //Thread.sleep(10000);
-                System.out.println("多线程异步执行"+i+"  "+Thread.currentThread().getName()+"  "+format.format(new Date()));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
+        List<TableFileBO> listFile = sysIlonwTableFileFacade.selectFile();
+        if(listFile.size() > 0){
+            for (TableFileBO bo : listFile){
+                TableFileVO vo = new TableFileVO();
+                vo.setIlonwFileContext(bo.getIlonw_file_context());
+                vo.setFileName(ilonwViewImg+"ilonw/file/"+ DateUtil.formatDate1(new Date())+"/"+bo.getFile_new_name());
+                tableFileVO.add(vo);
+            }
+        }else{
+            TableFileVO vo = new TableFileVO();
+            vo.setIlonwFileContext(ilonwDefaultContext);
+            vo.setFileName(ilonwDefaultImage);
+            tableFileVO.add(vo);
         }
-    }
-
-    public static void main(String[] args) {
-        FileService fileService = new FileServiceImpl();
-        fileService.testthread();
+       return tableFileVO;
     }
 }

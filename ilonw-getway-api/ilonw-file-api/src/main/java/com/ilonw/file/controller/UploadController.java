@@ -8,6 +8,9 @@ import com.jcraft.jsch.SftpException;
 import com.server.tools.date.DateUtil;
 import com.server.tools.util.ImageTools;
 import io.swagger.annotations.ApiOperation;
+import net.sf.json.JSON;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +20,7 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/uploadFile")
@@ -29,7 +31,6 @@ public class UploadController extends BaseController {
 
 	@Value("${ilonw.local.update.img}")
 	private String localImgProperties;
-
 
 	/**
 	 *
@@ -44,7 +45,7 @@ public class UploadController extends BaseController {
 	public String fileUpload(@RequestParam(value = "file",required = true) CommonsMultipartFile files[]) throws IOException{
 		TableFileBO tableFile = new TableFileBO();
 		String Identification = "";
-		String path = localImgProperties+DateUtil.formatDate(new Date())+"/";
+		String path = localImgProperties+DateUtil.formatDate1(new Date())+"/";
 		File f = new File(path);
 		if (!f.exists())
 			f.mkdirs();

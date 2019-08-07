@@ -19,7 +19,7 @@
 
 
     <select id="selectFile" resultMap="fileTableResultMap" >
-		select * from table_file tf,table_ilonw_file tlf where tf.ilonw_file_id = tlf.ilonw_file_id
+		select * from table_file
 	</select>
 
     <!--  useGeneratedKeys="true" keyProperty="Identification" keyColumn="Identification" -->

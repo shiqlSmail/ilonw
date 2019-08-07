@@ -256,6 +256,10 @@ public class DateUtil {
         return formatDateByFormat(date, "yyyy-MM-dd");
     }
 
+    public static String formatDate1(Date date) {
+        return formatDateByFormat(date, "yyyyMMdd");
+    }
+
     /**
      * 功能描述：以指定的格式来格式化日期
      *
