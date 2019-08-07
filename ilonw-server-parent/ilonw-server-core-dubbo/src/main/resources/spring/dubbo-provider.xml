@@ -28,4 +28,6 @@
 
 	<!-- 短信/邮箱服务注册中心   服务暴漏，但不对外使用-->
 	<dubbo:service interface="com.ilonw.server.facade.sms.SysSmsFacade" ref="sysSmsFacade"/>
+
+	<dubbo:service interface="com.ilonw.server.facade.sys.SysSysAppFacade" ref="sysSysAppFacade"/>
 </beans>

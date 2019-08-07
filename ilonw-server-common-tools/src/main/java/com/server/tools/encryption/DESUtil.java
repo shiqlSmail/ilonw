@@ -18,7 +18,7 @@ import java.security.spec.InvalidKeySpecException;
  *
  */
 public class DESUtil {
-	public static final String KEY_ALGORITHM = "DES";
+	public static final String KEY_ALGORITHM = "ilonw_des";
 	public static final String KEY = "A1B2C3D4E5F60708";
     //算法名称/加密模式/填充方式 
     //DES共有四种工作模式-->>ECB：电子密码本模式、CBC：加密分组链接模式、CFB：加密反馈模式、OFB：输出反馈模式

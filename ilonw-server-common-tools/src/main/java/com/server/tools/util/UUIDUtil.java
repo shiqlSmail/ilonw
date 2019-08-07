@@ -107,7 +107,7 @@ public class UUIDUtil {
 	}
 	 
 	public static void main(String[] args) {
-		System.out.println(userCode(6));
+		System.out.println(userCode(11));
 	}
 
 

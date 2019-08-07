@@ -12,7 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class AESUtil {
 
-    private static String key="shiql";
+    private static String key="ilonw_aes";
 
     /**
      * 加密
