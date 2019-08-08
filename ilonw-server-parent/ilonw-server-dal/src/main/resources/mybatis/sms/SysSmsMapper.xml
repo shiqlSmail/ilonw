@@ -59,4 +59,8 @@
 	<update id="updateSms">
 		update sys_sms set sms_status = 2  where  now() >SUBDATE(sys_sms.sms_createtime,interval -1 minute) and sms_status != 2
 	</update>
+
+	<update id="updateSmsByPhone" parameterType="com.ilonw.server.bo.SysSmsBO">
+		update sys_sms set sms_status = 2  where  sms_phone = #{smsPhone,jdbcType=VARCHAR} and sms_id != #{smsId,jdbcType=VARCHAR}
+	</update>
 </mapper>

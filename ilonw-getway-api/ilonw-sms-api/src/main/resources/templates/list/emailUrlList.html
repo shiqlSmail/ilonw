@@ -30,6 +30,7 @@
 
 <script type="text/javascript">
     $("#searchBtn").click(function () {
+        $("#table").bootstrapTable('destroy');
         $('#table').bootstrapTable({
             url: "/sms/emailurl?emailName="+$("#emailName").val(),
             /* data: JSON.stringify(params),*/
@@ -65,11 +66,13 @@
                     field: 'emailStatus',
                     align: 'center',
                     formatter: function (value, row, index) {
+                        var a = "";
                         if(value==1){
-                            return "可使用";
+                            a = '<span style="color:#00ff00">可使用</span>';
                         }else{
-                            return "已失效";
+                            a = '<span style="color:#FF0000">已失效</span>';
                         }
+                        return a;
                     }
                 }
             ]

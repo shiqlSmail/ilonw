@@ -1,10 +1,12 @@
 package com.ilonw.api.controller;
 
+import com.aliyuncs.exceptions.ClientException;
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.PhoneSmsParam;
 import com.ilonw.server.bo.SysSmsBO;
 import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
+import com.server.tools.send.SendSmsUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -35,27 +37,25 @@ public class SendSmsController extends BaseController {
         }
         long now = System.currentTimeMillis();
         Map<String, Object> map = new HashMap<>();
-        //int code = (int) ((Math.random() * 9 + 1) * 100000);
-
-        /*try {
+        int code = (int) ((Math.random() * 9 + 1) * 100000);
+        try {
             SendSmsUtils sms = new SendSmsUtils();
             boolean isFlag = sms.send(param.getPhone(), code);
             if (isFlag) {
                 map.put("resMsg", "success");
+                map.put("data", code);
             } else {
                 map.put("resMsg", "验证码发送失败");
             }
         } catch (ClientException e) {
             e.printStackTrace();
-        }*/
-        int code = 111111;
+        }
+        /*int code = 111111;*/
 
         SysSmsBO BO = new SysSmsBO();
         BO.setSmsCode(code);
         BO.setSmsPhone(param.getPhone());
         sysSmsFacade.saveSms(BO);
-        map.put("resMsg", "success");
-        map.put("data", code);
         return getIntefaceData( request,map, "/send", "/sms", now, param + "：：：" + code,"发送短信验证码");
     }
 }

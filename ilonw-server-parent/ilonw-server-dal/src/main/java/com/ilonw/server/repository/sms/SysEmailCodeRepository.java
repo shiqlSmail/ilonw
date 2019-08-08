@@ -29,4 +29,11 @@ public interface SysEmailCodeRepository {
      * @return
      */
     Integer updateEmailCode();
+
+    /**
+     * 根据邮箱账号更新验证码信息
+     * @param record
+     * @return
+     */
+    boolean updateEmailCodeByEmailName(SysEmailCodeBO record);
 }

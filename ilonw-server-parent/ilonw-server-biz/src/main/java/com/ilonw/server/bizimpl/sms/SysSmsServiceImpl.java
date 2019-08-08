@@ -34,10 +34,18 @@ public class SysSmsServiceImpl implements SysSmsService{
      */
     @Override
     public boolean saveSms(SysSmsBO record) {
+        String uuid = UUIDUtil.primaryKeyUUID();
         record.setSmsCreatetime(DateUtil.getDateTime(new Date()));
-        record.setSmsId(UUIDUtil.primaryKeyUUID());
+        record.setSmsId(uuid);
         record.setSmsStatus(1);
-        return sysSmsRepository.saveSms(record);
+        boolean flag = sysSmsRepository.saveSms(record);
+        if(flag){
+            record.setSmsId(uuid);
+            sysSmsRepository.updateSmsByPhone(record);
+        }else{
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -58,10 +66,18 @@ public class SysSmsServiceImpl implements SysSmsService{
      */
     @Override
     public boolean saveEmailCode(SysEmailCodeBO record) {
+        String uuid = UUIDUtil.primaryKeyUUID();
         record.setEmailCreatetime(DateUtil.getDateTime(new Date()));
-        record.setEmailId(UUIDUtil.primaryKeyUUID());
+        record.setEmailId(uuid);
         record.setEmailStatus(1);
-        return sysEmailCodeRepository.saveEmailCode(record);
+        boolean flag = sysEmailCodeRepository.saveEmailCode(record);
+        if(flag){
+            record.setEmailId(uuid);
+            sysEmailCodeRepository.updateEmailCodeByEmailName(record);
+        }else{
+            return false;
+        }
+        return true;
     }
 
     /**

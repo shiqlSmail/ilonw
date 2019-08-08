@@ -59,4 +59,8 @@
 	<update id="updateEmailCode">
 		update sys_email set email_status = 2  where  now() >SUBDATE(sys_email.email_createtime,interval -5 minute) and email_status != 2
 	</update>
+
+	<update id="updateEmailCodeByEmailName" parameterType="com.ilonw.server.bo.SysEmailCodeBO">
+		update sys_email set email_status = 2  where  email_name = #{emailName,jdbcType=VARCHAR} and email_id != #{emailId,jdbcType=VARCHAR}
+	</update>
 </mapper>

@@ -28,4 +28,11 @@ public interface SysSmsRepository {
      * @return
      */
     Integer updateSms();
+
+    /**
+     * 根据手机号码更新验证码状态
+     * @param record
+     * @return
+     */
+    boolean updateSmsByPhone(SysSmsBO record);
 }
