@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface SysIlonwTableFileFacade {
 
-    public List<TableFileBO> selectFile();
+    public List<TableFileBO> selectFile(TableFileBO tableFileBO);
 
-    public void saveFile(TableFileBO tableFile);
+    public void saveFile(TableFileBO tableFileBO);
 
-    public boolean updateFile(TableFileBO tableFile);
+    public boolean updateFile(TableFileBO tableFileBO);
 }

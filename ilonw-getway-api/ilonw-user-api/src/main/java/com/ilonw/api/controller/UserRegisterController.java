@@ -2,6 +2,9 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.IlonwUserService;
+import com.ilonw.api.vo.CheckEmailParam;
+import com.ilonw.api.vo.CheckPhoneParam;
+import com.ilonw.api.vo.CheckPhoneSmsParam;
 import com.ilonw.api.vo.SysIlonwSaveUserParam;
 import com.ilonw.server.Eunms.UserEunms;
 import com.ilonw.server.facade.user.IlonwUserFacade;
@@ -32,7 +35,7 @@ public class UserRegisterController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/check_phone", method = RequestMethod.POST,produces = "application/json")
     @ApiOperation(value="用户注册判断手机号码是否存在接口", notes="用户注册")
-    public APIBaseResult registerIlonwUserCheckPhoneisExtis(@RequestBody IlonwUserBTO param, HttpServletRequest requestIp) {
+    public APIBaseResult registerIlonwUserCheckPhoneisExtis(@RequestBody CheckPhoneParam param, HttpServletRequest requestIp) {
         long now = System.currentTimeMillis();
         Map<String,Object> map  = ilonwUserService.registerIlonwUserCheckPhoneisExtis(param);
         return getIntefaceData(requestIp,map,"/user", "/check_phone",now,param,"用户注册判断手机号码是否存在接口");
@@ -41,7 +44,7 @@ public class UserRegisterController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/check_email", method = RequestMethod.POST,produces = "application/json")
     @ApiOperation(value="用户注册判断邮箱是存在接口", notes="用户注册")
-    public APIBaseResult registerIlonwUserCheckEmailisExtis(@RequestBody IlonwUserBTO param, HttpServletRequest requestIp) {
+    public APIBaseResult registerIlonwUserCheckEmailisExtis(@RequestBody CheckEmailParam param, HttpServletRequest requestIp) {
         long now = System.currentTimeMillis();
         Map<String,Object> map = ilonwUserService.registerIlonwUserCheckEmailisExtis(param);
         return getIntefaceData(requestIp,map, "/user", "/check_email",now,param,"用户注册判断邮箱是存在接口");
@@ -50,7 +53,7 @@ public class UserRegisterController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/check_smscode", method = RequestMethod.POST,produces = "application/json")
     @ApiOperation(value="用户注册判断验证码是否正确接口", notes="用户注册")
-    public APIBaseResult registerIlonwUserCheckSmsCode(@RequestBody SysIlonwSaveUserParam param, HttpServletRequest requestIp) {
+    public APIBaseResult registerIlonwUserCheckSmsCode(@RequestBody CheckPhoneSmsParam param, HttpServletRequest requestIp) {
         long now = System.currentTimeMillis();
         Map<String,Object> map = ilonwUserService.registerIlonwUserCheckSmsCode(param);
         return getIntefaceData(requestIp,map, "/user", "/check_smscode",now,param,"用户注册判断验证码是否正确接口");
@@ -59,7 +62,7 @@ public class UserRegisterController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/register", method = RequestMethod.POST,produces = "application/json")
     @ApiOperation(value="用户注册接口", notes="用户注册")
-    public APIBaseResult registerIlonwUserInfo(@RequestBody IlonwUserBTO param, HttpServletRequest requestIp, BindingResult bindingResult) {
+    public APIBaseResult registerIlonwUserInfo(@RequestBody SysIlonwSaveUserParam param, HttpServletRequest requestIp, BindingResult bindingResult) {
         APIBaseResult api = vailForm(bindingResult);
         if(api != null){
             return getAPIResult(api);

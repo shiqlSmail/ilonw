@@ -9,8 +9,8 @@ public interface FileService {
 
     String saveFile(TableFileBO tableFile);
 
-    void updateFile(String context, String Identification);
+    void updateFile(String context, String Identification,String ilonwUserId);
 
-    public List<TableFileVO> findFiles();
+    public List<TableFileVO> findFiles(String auther);
 
 }

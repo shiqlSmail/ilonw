@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface SysIlonwFileRepository {
 
-	List<TableFileBO> selectFile();
+	List<TableFileBO> selectFile(TableFileBO tableFileBO);
 
-	void saveFile(TableFileBO tableFile);
+	void saveFile(TableFileBO tableFileBO);
 
 	boolean updateFile(TableFileBO tableFile);
 }

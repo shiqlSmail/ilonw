@@ -9,8 +9,10 @@ import java.io.Serializable;
 public class SysAppParam implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "客户平台名称")
     private String appChannelName;
 
+    @ApiModelProperty(value = "客户在ilonw系统中的用户标识")
     private String appUserId;
 
     public String getAppChannelName() {

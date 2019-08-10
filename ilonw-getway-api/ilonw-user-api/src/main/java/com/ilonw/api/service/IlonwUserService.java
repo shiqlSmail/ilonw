@@ -1,7 +1,6 @@
 package com.ilonw.api.service;
 
-import com.ilonw.api.vo.IlonwLoginParam;
-import com.ilonw.api.vo.SysIlonwSaveUserParam;
+import com.ilonw.api.vo.*;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.ilonw.server.page.PageData;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,33 +29,33 @@ public interface IlonwUserService {
      * @param param
      * @return
      */
-    public Map<String,Object> ilonwUserUpdatePassword(@RequestBody IlonwUserBTO param);
+    public Map<String,Object> ilonwUserUpdatePassword(@RequestBody ForgetPassParam param);
 
     /**
      * 用户注册判断手机号码是否存在接口
      * @param param
      * @return
      */
-    public Map<String,Object> registerIlonwUserCheckPhoneisExtis(@RequestBody IlonwUserBTO param);
+    public Map<String,Object> registerIlonwUserCheckPhoneisExtis(@RequestBody CheckPhoneParam param);
 
     /**
      * 用户注册判断邮箱是存在接口
      * @param param
      * @return
      */
-    public Map<String,Object> registerIlonwUserCheckEmailisExtis(@RequestBody IlonwUserBTO param);
+    public Map<String,Object> registerIlonwUserCheckEmailisExtis(@RequestBody CheckEmailParam param);
 
     /**
      * 用户注册判断验证码是否正确接口
      * @param param
      * @return
      */
-    public Map<String,Object> registerIlonwUserCheckSmsCode(@RequestBody SysIlonwSaveUserParam param);
+    public Map<String,Object> registerIlonwUserCheckSmsCode(@RequestBody CheckPhoneSmsParam param);
 
     /**
      * 用户注册接口
      * @param param
      * @return
      */
-    public Map<String,Object> registerIlonwUserInfo(@RequestBody IlonwUserBTO param);
+    public Map<String,Object> registerIlonwUserInfo(@RequestBody SysIlonwSaveUserParam param);
 }

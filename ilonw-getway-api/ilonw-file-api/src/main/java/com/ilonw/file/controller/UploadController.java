@@ -19,6 +19,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.*;
 
@@ -92,8 +93,9 @@ public class UploadController extends BaseController {
 	@CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value="/updateFile", method = RequestMethod.POST)
 	@ResponseBody
-	public void addFishContent(String context,String Identification){
-		fileService.updateFile(context,Identification);
+	public void addFishContent(String context,String Identification, HttpSession session){
+		String ilonwUserId = (String)session.getAttribute("userId");
+		fileService.updateFile(context,Identification,ilonwUserId);
 	}
 
 	//文件上传成功，删除本地文件

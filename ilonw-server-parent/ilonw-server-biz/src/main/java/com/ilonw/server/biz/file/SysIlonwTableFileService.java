@@ -6,9 +6,9 @@ import com.ilonw.server.bo.TableFileBO;
 
 public interface SysIlonwTableFileService {
 
-    public List<TableFileBO> selectFile();
+    public List<TableFileBO> selectFile(TableFileBO tableFileBO);
 
-    public void saveFile(TableFileBO tableFile);
+    public void saveFile(TableFileBO tableFileBO);
 
-    boolean updateFile(TableFileBO tableFile);
+    boolean updateFile(TableFileBO tableFileBO);
 }

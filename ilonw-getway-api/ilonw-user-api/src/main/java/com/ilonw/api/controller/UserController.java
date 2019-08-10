@@ -2,6 +2,7 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.IlonwUserService;
+import com.ilonw.api.vo.ForgetPassParam;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.ilonw.server.page.PageData;
 import com.server.tools.result.APIBaseResult;
@@ -36,7 +37,7 @@ public class UserController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/update_password", method = RequestMethod.POST,produces = "application/json")
     @ApiOperation(value="用户忘记密码，使用手机号码修改密码接口", notes="用户修改密码")
-    public APIBaseResult ilonwUserUpdatePassword(@RequestBody IlonwUserBTO param, HttpServletRequest requestIp) {
+    public APIBaseResult ilonwUserUpdatePassword(@RequestBody ForgetPassParam param, HttpServletRequest requestIp) {
         Map<String,Object> map = new HashMap<String,Object>();
         long now = System.currentTimeMillis();
         map = ilonwUserService.ilonwUserUpdatePassword(param);

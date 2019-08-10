@@ -30,17 +30,17 @@ public abstract class BaseController extends ResultResponse {
         log.info("请求参数："+param);
         APIBaseResult result = new APIBaseResult();
         try {
-            result.setData(map);
+            result.setRespData(map);
             SetAPIResultUtil.setSuccess(result);
             log.info("\n request : " + v1Result + methodResult + " \n params : {}" + "\n success :{} \n time : " + (System.currentTimeMillis() - now) + "ms", JSON.toJSON(param), JSON.toJSON(result));
         } catch (Exception e) {
             if (e instanceof ArgumentException) {
-                result.setMessage(e.getMessage());
+                result.setRespMessage(e.getMessage());
                 SetAPIResultUtil.setFail(result);
             } else {
                 e.printStackTrace();
                 log.error("\n request : " + v1Result + methodResult + " \n params : \n", e);
-                result.setMessage("服务器接口异常！");
+                result.setRespMessage("服务器接口异常！");
                 SetAPIResultUtil.setFail(result);
             }
             e.printStackTrace();
@@ -57,17 +57,17 @@ public abstract class BaseController extends ResultResponse {
         log.info("请求参数："+param);
         APIBaseResult result = new APIBaseResult();
         try {
-            result.setData(obj);
+            result.setRespData(obj);
             SetAPIResultUtil.setSuccess(result);
             log.info("\n request : " + v1Result + methodResult + " \n params : {}" + "\n success :{} \n time : " + (System.currentTimeMillis() - now) + "ms",JSON.toJSON(param), JSON.toJSON(result));
         } catch (Exception e) {
             if (e instanceof ArgumentException) {
-                result.setMessage(e.getMessage());
+                result.setRespMessage(e.getMessage());
                 SetAPIResultUtil.setFail(result);
             } else {
                 e.printStackTrace();
                 log.error("\n request : " + v1Result + methodResult + " \n params : \n", e);
-                result.setMessage("服务器接口异常！");
+                result.setRespMessage("服务器接口异常！");
                 SetAPIResultUtil.setFail(result);
             }
             e.printStackTrace();

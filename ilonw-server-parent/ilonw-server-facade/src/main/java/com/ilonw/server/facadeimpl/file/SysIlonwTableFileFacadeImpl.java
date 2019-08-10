@@ -14,18 +14,18 @@ public class SysIlonwTableFileFacadeImpl implements SysIlonwTableFileFacade {
     private SysIlonwTableFileService SysIlonwTableFileService;
 
     @Override
-    public void saveFile(TableFileBO tableFile) {
-        SysIlonwTableFileService.saveFile(tableFile);
+    public void saveFile(TableFileBO tableFileBO) {
+        SysIlonwTableFileService.saveFile(tableFileBO);
     }
 
     @Override
-    public List<TableFileBO> selectFile() {
-        return this.SysIlonwTableFileService.selectFile();
+    public List<TableFileBO> selectFile(TableFileBO tableFileBO) {
+        return this.SysIlonwTableFileService.selectFile(tableFileBO);
     }
 
     @Override
-    public boolean updateFile(TableFileBO tableFile) {
-        return this.SysIlonwTableFileService.updateFile(tableFile);
+    public boolean updateFile(TableFileBO tableFileBO) {
+        return this.SysIlonwTableFileService.updateFile(tableFileBO);
     }
 
 }

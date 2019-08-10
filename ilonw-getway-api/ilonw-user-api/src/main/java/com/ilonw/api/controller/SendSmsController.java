@@ -44,18 +44,17 @@ public class SendSmsController extends BaseController {
             if (isFlag) {
                 map.put("resMsg", "success");
                 map.put("data", code);
+
+                SysSmsBO BO = new SysSmsBO();
+                BO.setSmsCode(code);
+                BO.setSmsPhone(param.getPhone());
+                sysSmsFacade.saveSms(BO);
             } else {
                 map.put("resMsg", "验证码发送失败");
             }
         } catch (ClientException e) {
             e.printStackTrace();
         }
-        /*int code = 111111;*/
-
-        SysSmsBO BO = new SysSmsBO();
-        BO.setSmsCode(code);
-        BO.setSmsPhone(param.getPhone());
-        sysSmsFacade.saveSms(BO);
         return getIntefaceData( request,map, "/send", "/sms", now, param + "：：：" + code,"发送短信验证码");
     }
 }

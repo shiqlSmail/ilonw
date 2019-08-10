@@ -18,8 +18,8 @@
     </resultMap>
 
 
-    <select id="selectFile" resultMap="fileTableResultMap" >
-		select * from table_file
+    <select id="selectFile" resultMap="fileTableResultMap" parameterType="com.ilonw.server.bo.TableFileBO">
+		select * from table_file where auther = #{auther,jdbcType=VARCHAR}
 	</select>
 
     <!--  useGeneratedKeys="true" keyProperty="Identification" keyColumn="Identification" -->
@@ -104,6 +104,6 @@
     </insert>
 
     <update id="updateFile" parameterType="com.ilonw.server.bo.TableFileBO">
-        update table_file set  ilonw_file_context = #{ilonw_file_context,jdbcType=VARCHAR} where Identification = #{Identification,jdbcType=VARCHAR}
+        update table_file set  ilonw_file_context = #{ilonw_file_context,jdbcType=VARCHAR},auther = #{auther,jdbcType=VARCHAR} where Identification = #{Identification,jdbcType=VARCHAR}
     </update>
 </mapper>

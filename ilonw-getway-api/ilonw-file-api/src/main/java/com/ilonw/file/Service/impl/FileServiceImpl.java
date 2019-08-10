@@ -33,7 +33,6 @@ public class FileServiceImpl implements FileService {
     //@Async
     public String saveFile(TableFileBO tableFile) {
         String Identification = UUIDUtil.getOrderIdByUUId();
-        tableFile.setAuther("师奇隆");
         tableFile.setIdentification(Identification);
         tableFile.setPlatform("ilonw");
         tableFile.setCreatetime(DateUtil.getDateTime(new Date()));
@@ -42,23 +41,26 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public void updateFile(String context,String Identification) {
+    public void updateFile(String context,String Identification,String ilonwUserId) {
         TableFileBO tableFile = new TableFileBO();
         tableFile.setIlonw_file_context(context);
         tableFile.setIdentification(Identification);
+        tableFile.setAuther(ilonwUserId);
         sysIlonwTableFileFacade.updateFile(tableFile);
     }
 
     @Override
-    public List<TableFileVO> findFiles() {
+    public List<TableFileVO> findFiles(String auther) {
         List<TableFileVO> tableFileVO = new ArrayList<>();
 
-        List<TableFileBO> listFile = sysIlonwTableFileFacade.selectFile();
+        TableFileBO tableFileBO = new TableFileBO();
+        tableFileBO.setAuther(auther);
+        List<TableFileBO> listFile = sysIlonwTableFileFacade.selectFile(tableFileBO);
         if(listFile.size() > 0){
             for (TableFileBO bo : listFile){
                 TableFileVO vo = new TableFileVO();
                 vo.setIlonwFileContext(bo.getIlonw_file_context());
-                vo.setFileName(ilonwViewImg+"ilonw/file/"+ DateUtil.formatDate1(new Date())+"/"+bo.getFile_new_name());
+                vo.setFileName(ilonwViewImg+"oss/"+bo.getFile_new_name());
                 tableFileVO.add(vo);
             }
         }else{
