@@ -68,7 +68,7 @@ public class FileUploadController extends BaseController {
     }
 
     /**
-     * 首页
+     * 文件上传页
      * @return
      */
     @RequestMapping(value="/index.htm")
@@ -78,6 +78,19 @@ public class FileUploadController extends BaseController {
             return "login";
         }
         return "index";
+    }
+
+    /**
+     * 视频上传页
+     * @return
+     */
+    @RequestMapping(value="/vido.htm")
+    public String vido(HttpSession session) {
+        String username = (String)session.getAttribute("userId");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
+        return "vido";
     }
 
     /**
