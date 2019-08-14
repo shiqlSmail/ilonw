@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -44,7 +45,7 @@ public class UploadVidoController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/vidos", method = RequestMethod.POST)
     @ApiOperation(value = "多视频上传接口", notes = "视频上传接口详细描述")
-    public String fileUpload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request) {
+    public String fileUpload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
         TableFileBO tableFile = new TableFileBO();
         String Identification = "";
         FileUploadTool fileUploadTool = new FileUploadTool();
@@ -65,6 +66,7 @@ public class UploadVidoController extends BaseController {
                     tableFile.setFile_path(entity.getPath());
                     tableFile.setFile_size(entity.getSize());
                     tableFile.setFile_type(fixname);
+                    tableFile.setAuther((String)session.getAttribute("userId"));
                     Identification = fileService.saveFile(tableFile);
                 } else {
                     return null;

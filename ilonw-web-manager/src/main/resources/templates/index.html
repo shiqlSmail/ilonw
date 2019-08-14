@@ -1,0 +1,106 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultrag.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ILONW接口文档" />
+    <title>ILONW接口文档</title>
+
+    <!-- 公共样式 开始 -->
+    <link th:href="@{/images/favicon.ico}" rel="shortcut icon"/>
+    <link th:href="@{/images/favicon.ico}" rel="bookmark"/>
+
+    <link th:href="@{/css/base.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/iconfont.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/frameStyle.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/jquery.mCustomScrollbar.css}" rel="stylesheet" type="text/css"/>
+
+    <script th:src="@{/framework/jquery-1.11.3.min.js}" type="text/javascript"></script>
+    <script th:src="@{/framework/html5shiv.min.js}" type="text/javascript"></script>
+    <script th:src="@{/framework/respond.min.js}" type="text/javascript"></script>
+
+    <![endif]-->
+    <script th:src="@{/layui/layui.js}" type="text/javascript"></script>
+    <!-- 滚动条插件 -->
+    <script th:src="@{/framework/jquery-ui-1.10.4.min.js}" type="text/javascript"></script>
+    <script th:src="@{/framework/jquery.mousewheel.min.js}" type="text/javascript"></script>
+    <script th:src="@{/framework/jquery.mCustomScrollbar.min.js}" type="text/javascript"></script>
+    <script th:src="@{/framework/cframe.js}" type="text/javascript"></script>
+    <!-- 公共样式 结束 -->
+
+    <script th:src="@{/framework/frame.js}" type="text/javascript"></script>
+</head>
+
+<body>
+<!-- 左侧菜单 - 开始 -->
+<div class="frameMenu">
+    <div class="menu">
+        <ul>
+            <li>
+                <a class="menuFA" href="javascript:void(0)" onclick="menuCAClick('tgls/qdAPI.html',this)"><i class="iconfont icon-zhishi left"></i>文档统计</a>
+            </li>
+            <li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-liuliangyunpingtaitubiao03 left"></i>用户接口<i class="iconfont icon-dajiantouyou right"></i></a>
+                <dl>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_add.html',this)">用户登录</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">查看所有用户</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">用户忘记密码</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">判断手机号码是否存在</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">判断邮箱是否存在</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">用户注册</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/agent/agent_list.html',this)">判断验证码是否正确</a></dt>
+                </dl>
+            </li>
+            <li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-shangpin left"></i>验证接口<i class="iconfont icon-dajiantouyou right"></i></a>
+                <dl>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/goodsManage/goodsType_list.html',this)">发送短信验证码</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/goodsManage/goods_list.html',this)">发送邮件验证码</a></dt>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/goodsManage/goods_add.html',this)">发送验证邮件链接</a></dt>
+                </dl>
+            </li>
+            <!--<li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-yunying left"></i>基础库内容<i class="iconfont icon-dajiantouyou right"></i></a>
+                <dl>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/base/base_add.html',this)">表单含编辑器</a></dt>
+                </dl>
+            </li>
+            <li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-icon left"></i>打印模板<i class="iconfont icon-dajiantouyou right"></i></a>
+                <dl>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/print/outPrintData.html',this)">入库单打印模版</a></dt>
+                </dl>
+            </li>
+            <li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-caiwu left"></i>财务管理</a>
+            </li>
+            <li>
+                <a class="menuFA" href="javascript:void(0)"><i class="iconfont icon-icon left"></i>报表模块<i class="iconfont icon-dajiantouyou right"></i></a>
+                <dl>
+                    <dt><a href="javascript:void(0)" onclick="menuCAClick('tgls/reportForm/reportForm1.html',this)">订单统计报表</a></dt>
+                </dl>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<!-- 左侧菜单 - 结束 -->
+
+<div class="main">
+    <!-- 核心区域 - 开始 -->
+    <div class="frameMain">
+        <div class="title" id="frameMainTitle">
+            <span><i class="iconfont icon-xianshiqi"></i>接口文档</span>
+        </div>
+        <div class="con">
+            <iframe id="mainIframe" src="/count.htm" scrolling="no"></iframe>
+        </div>
+    </div>
+    <!-- 核心区域 - 结束 -->
+</div>
+</body>
+
+</html>

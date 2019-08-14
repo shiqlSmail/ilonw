@@ -1,3 +1,4 @@
+/*
 package com.ilonw.server;
 
 import com.ilonw.server.bto.IlonwUserBTO;
@@ -22,8 +23,10 @@ public class LoginUserTest {
     @Test
     public void test1(){
         IlonwUserBTO record = new IlonwUserBTO();
-        /*List<IlonwUserBTO> map = ilonwUserFacade.findAllIlonwUserInfo();
-        System.out.println("查询所有用户"+map);*/
+        */
+/*List<IlonwUserBTO> map = ilonwUserFacade.findAllIlonwUserInfo();
+        System.out.println("查询所有用户"+map);*//*
+
     }
 
     @Test
@@ -52,3 +55,4 @@ public class LoginUserTest {
     }
 
 }
+*/

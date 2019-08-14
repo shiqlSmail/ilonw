@@ -113,4 +113,25 @@ public class FileUploadController extends BaseController {
         }
         return "list";
     }
+
+    /**
+     * 视频列表页
+     * @param modelMap
+     * @param request
+     * @return
+     */
+    @RequestMapping("/vidoList.htm")
+    public String vidoList(ModelMap modelMap, HttpServletRequest request,HttpSession session) {
+        String username = (String)session.getAttribute("userId");
+        if(StringUtils.isEmpty(username)){
+            return "login";
+        }
+        List<TableFileVO> listFile = fileService.findFiles(username);
+        if(null != listFile || listFile.size() > 0){
+            modelMap.put("listFiles",listFile);
+        }else{
+            return "vido";
+        }
+        return "vidoList";
+    }
 }

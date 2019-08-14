@@ -1,0 +1,134 @@
+[mybatis_study][INFO] [2019-08-11 20:17:30] ?.?(?) | using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} connected
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} connected
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} connected
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} connected
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} connected
+[mybatis_study][INFO] [2019-08-11 20:17:33] com.alibaba.druid.pool.DruidDataSource.init(721) | {dataSource-1} inited
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:17:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:17:34] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:17:34] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:17:35] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:17:35] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:17:38] org.I0Itec.zkclient.ZkConnection.connect(68) | Creating new ZookKeeper instance to connect to 192.168.1.9:2181.
+[mybatis_study][INFO] [2019-08-11 20:17:38] org.I0Itec.zkclient.ZkEventThread.run(64) | Starting ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.connect(1181) | Awaiting connection to Zookeeper server
+[mybatis_study][DEBUG] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.waitForKeeperState(895) | Waiting for keeper state SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.process(606) | Received event: WatchedEvent state:SyncConnected type:None path:null
+[mybatis_study][INFO] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.processStateChanged(704) | zookeeper state changed (SyncConnected)
+[mybatis_study][DEBUG] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.process(650) | Leaving process event
+[mybatis_study][DEBUG] [2019-08-11 20:17:39] org.I0Itec.zkclient.ZkClient.waitForKeeperState(905) | State is SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] org.I0Itec.zkclient.ZkClient.close(1219) | Closing ZkClient...
+[mybatis_study][INFO] [2019-08-11 20:17:40] org.I0Itec.zkclient.ZkEventThread.run(82) | Terminate ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] org.I0Itec.zkclient.ZkConnection.close(83) | Closing ZooKeeper connected to 192.168.1.9:2181
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] org.I0Itec.zkclient.ZkClient.close(1232) | Closing ZkClient...done
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} closed
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} closed
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} closed
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} closed
+[mybatis_study][DEBUG] [2019-08-11 20:17:40] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} closed
+[mybatis_study][INFO] [2019-08-11 20:17:40] com.alibaba.druid.pool.DruidDataSource.close(1436) | {dataSource-1} closed
+[mybatis_study][INFO] [2019-08-11 20:19:21] ?.?(?) | using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} connected
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} connected
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} connected
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} connected
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} connected
+[mybatis_study][INFO] [2019-08-11 20:19:24] com.alibaba.druid.pool.DruidDataSource.init(721) | {dataSource-1} inited
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:19:24] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:19:25] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:19:25] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:19:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:19:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:19:29] org.I0Itec.zkclient.ZkConnection.connect(68) | Creating new ZookKeeper instance to connect to 192.168.1.9:2181.
+[mybatis_study][INFO] [2019-08-11 20:19:29] org.I0Itec.zkclient.ZkEventThread.run(64) | Starting ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:19:29] org.I0Itec.zkclient.ZkClient.connect(1181) | Awaiting connection to Zookeeper server
+[mybatis_study][DEBUG] [2019-08-11 20:19:29] org.I0Itec.zkclient.ZkClient.waitForKeeperState(895) | Waiting for keeper state SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.process(606) | Received event: WatchedEvent state:SyncConnected type:None path:null
+[mybatis_study][INFO] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.processStateChanged(704) | zookeeper state changed (SyncConnected)
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.process(650) | Leaving process event
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.waitForKeeperState(905) | State is SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.close(1219) | Closing ZkClient...
+[mybatis_study][INFO] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkEventThread.run(82) | Terminate ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkConnection.close(83) | Closing ZooKeeper connected to 192.168.1.9:2181
+[mybatis_study][DEBUG] [2019-08-11 20:19:30] org.I0Itec.zkclient.ZkClient.close(1232) | Closing ZkClient...done
+[mybatis_study][DEBUG] [2019-08-11 20:19:31] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} closed
+[mybatis_study][DEBUG] [2019-08-11 20:19:31] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} closed
+[mybatis_study][DEBUG] [2019-08-11 20:19:31] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} closed
+[mybatis_study][DEBUG] [2019-08-11 20:19:31] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} closed
+[mybatis_study][DEBUG] [2019-08-11 20:19:31] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} closed
+[mybatis_study][INFO] [2019-08-11 20:19:31] com.alibaba.druid.pool.DruidDataSource.close(1436) | {dataSource-1} closed
+[mybatis_study][INFO] [2019-08-11 20:24:24] ?.?(?) | using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[mybatis_study][DEBUG] [2019-08-11 20:24:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} connected
+[mybatis_study][DEBUG] [2019-08-11 20:24:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} connected
+[mybatis_study][DEBUG] [2019-08-11 20:24:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} connected
+[mybatis_study][DEBUG] [2019-08-11 20:24:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} connected
+[mybatis_study][DEBUG] [2019-08-11 20:24:26] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} connected
+[mybatis_study][INFO] [2019-08-11 20:24:27] com.alibaba.druid.pool.DruidDataSource.init(721) | {dataSource-1} inited
+[mybatis_study][DEBUG] [2019-08-11 20:24:27] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:24:27] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:24:27] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:24:27] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:24:28] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:24:28] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:24:28] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:24:28] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkConnection.connect(68) | Creating new ZookKeeper instance to connect to 192.168.1.9:2181.
+[mybatis_study][INFO] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkEventThread.run(64) | Starting ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.connect(1181) | Awaiting connection to Zookeeper server
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.waitForKeeperState(895) | Waiting for keeper state SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.process(606) | Received event: WatchedEvent state:SyncConnected type:None path:null
+[mybatis_study][INFO] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.processStateChanged(704) | zookeeper state changed (SyncConnected)
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.process(650) | Leaving process event
+[mybatis_study][DEBUG] [2019-08-11 20:24:32] org.I0Itec.zkclient.ZkClient.waitForKeeperState(905) | State is SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] org.I0Itec.zkclient.ZkClient.close(1219) | Closing ZkClient...
+[mybatis_study][INFO] [2019-08-11 20:24:33] org.I0Itec.zkclient.ZkEventThread.run(82) | Terminate ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] org.I0Itec.zkclient.ZkConnection.close(83) | Closing ZooKeeper connected to 192.168.1.9:2181
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} closed
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} closed
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} closed
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} closed
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} closed
+[mybatis_study][DEBUG] [2019-08-11 20:24:33] org.I0Itec.zkclient.ZkClient.close(1232) | Closing ZkClient...done
+[mybatis_study][INFO] [2019-08-11 20:24:33] com.alibaba.druid.pool.DruidDataSource.close(1436) | {dataSource-1} closed
+[mybatis_study][INFO] [2019-08-11 20:31:51] ?.?(?) | using logger: com.alibaba.dubbo.common.logger.log4j.Log4jLoggerAdapter
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} connected
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} connected
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} connected
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} connected
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} connected
+[mybatis_study][INFO] [2019-08-11 20:31:54] com.alibaba.druid.pool.DruidDataSource.init(721) | {dataSource-1} inited
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:31:54] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:31:55] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:31:55] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:31:56] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-connect
+[mybatis_study][DEBUG] [2019-08-11 20:31:56] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} pool-recycle
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkConnection.connect(68) | Creating new ZookKeeper instance to connect to 192.168.1.9:2181.
+[mybatis_study][INFO] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkEventThread.run(64) | Starting ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.connect(1181) | Awaiting connection to Zookeeper server
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.waitForKeeperState(895) | Waiting for keeper state SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.process(606) | Received event: WatchedEvent state:SyncConnected type:None path:null
+[mybatis_study][INFO] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.processStateChanged(704) | zookeeper state changed (SyncConnected)
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.process(650) | Leaving process event
+[mybatis_study][DEBUG] [2019-08-11 20:31:59] org.I0Itec.zkclient.ZkClient.waitForKeeperState(905) | State is SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkClient.close(1219) | Closing ZkClient...
+[mybatis_study][INFO] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkEventThread.run(82) | Terminate ZkClient event thread.
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkConnection.close(83) | Closing ZooKeeper connected to 192.168.1.9:2181
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkClient.waitForKeeperState(895) | Waiting for keeper state SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkClient.close(1232) | Closing ZkClient...done
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] org.I0Itec.zkclient.ZkClient.waitForKeeperState(905) | State is SyncConnected
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10001} closed
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10002} closed
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10003} closed
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10004} closed
+[mybatis_study][DEBUG] [2019-08-11 20:32:00] com.alibaba.druid.filter.logging.Log4jFilter.connectionLog(132) | {conn-10005} closed
+[mybatis_study][INFO] [2019-08-11 20:32:00] com.alibaba.druid.pool.DruidDataSource.close(1436) | {dataSource-1} closed
