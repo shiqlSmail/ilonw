@@ -23,9 +23,9 @@ public class ResultResponse{
 		Map<String,Object> map = new HashMap<String, Object>();
 		if(bindingResult.hasErrors()){
 			log.info("参数不合法"+bindingResult.getFieldError().getDefaultMessage());
-			result.setMessage(bindingResult.getFieldError().getDefaultMessage());
-			result.setErrorCode("PARAM_ERROR");
-			result.setData(map);
+			result.setRespMessage(bindingResult.getFieldError().getDefaultMessage());
+			result.setRespCode("PARAM_ERROR");
+			result.setRespData(map);
 			return result;
 		}
 		return null;
@@ -33,13 +33,13 @@ public class ResultResponse{
 
 	public void buildException(APIBaseResult result, String path, Exception e, Object param) {
 		if (e instanceof ArgumentException) {
-			result.setMessage(e.getMessage());
+			result.setRespMessage(e.getMessage());
 			SetAPIResultUtil.setFail(result);
 		} else {
 			e.printStackTrace();
 			log.error("\n request : " + path + " \n params : \n" +
 					param, e);
-			result.setMessage("服务器接口异常！");
+			result.setRespMessage("服务器接口异常！");
 			SetAPIResultUtil.setFail(result);
 		}
 	}
