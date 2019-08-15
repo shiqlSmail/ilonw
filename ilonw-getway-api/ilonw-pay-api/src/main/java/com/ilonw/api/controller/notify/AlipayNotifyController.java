@@ -12,6 +12,7 @@ import com.ilonw.server.bto.AlipayOrderBTO;
 import com.ilonw.server.bto.OrderinfoBTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,11 +34,11 @@ import static com.alipay.api.AlipayConstants.APP_ID;
 public class AlipayNotifyController extends BaseController {
     protected final Logger log = LoggerFactory.getLogger(AlipayNotifyController.class);
 
-    @Resource
-    private AlipayOrderService alipayOrderFacade;
+    @Autowired
+    private AlipayOrderService alipayOrderService;
 
-    @Resource
-    private OrderService orderFacade;
+    @Autowired
+    private OrderService orderService;
 
 	@Resource(name = "paymentProperties")
     private PaymentProperties paymentProperties;
@@ -83,10 +84,10 @@ public class AlipayNotifyController extends BaseController {
                             // 处理支付成功逻辑
                             try {
                             	log.info("==============================开始支付宝回调============================================================================================================");
-                                AlipayOrderBTO alipayOrder = alipayOrderFacade.queryByOuttradeno(params.get("out_trade_no"));
-                    			OrderinfoBTO order = orderFacade.queryById(alipayOrder.getOrderId().toString());
+                                AlipayOrderBTO alipayOrder = alipayOrderService.queryByOuttradeno(params.get("out_trade_no"));
+                    			OrderinfoBTO order = orderService.queryById(alipayOrder.getOrderId().toString());
                     			order.setPayState(PayStateEnum.SUCCESS.getCode());
-                                orderFacade.update(order);
+                                orderService.update(order);
 
                                 //充值成功，所作操作
                                 //TODO

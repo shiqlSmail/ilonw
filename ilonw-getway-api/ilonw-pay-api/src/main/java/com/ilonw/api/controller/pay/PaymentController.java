@@ -10,6 +10,7 @@ import com.ilonw.api.vo.PaymentVO;
 import com.ilonw.server.bto.OrderinfoBTO;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.util.IpUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,10 +26,10 @@ import java.util.Map;
 @RequestMapping("/payment")
 public class PaymentController extends BaseController {
 
-	@Resource
-	protected OrderService orderFacade;
+	@Autowired
+	protected OrderService orderService;
 
-	@Resource
+	@Autowired
 	protected PaymentManager wxPayManager;
 
 	/**
@@ -45,16 +46,16 @@ public class PaymentController extends BaseController {
 		Map<String, Object> map = new HashMap<>();
 		try {
 			String spbillCreateIp = IpUtils.getIpAddr(request);
-			OrderinfoBTO orderinfoBO = orderFacade.queryById(paymentVO.getOrderNumber());
+			OrderinfoBTO orderinfoBO = orderService.queryById(paymentVO.getOrderNumber());
 			if (null == orderinfoBO) {
-				result.setMessage("订单编号不存在");
-				result.setErrorCode("ORDER_ERROR_1001");
+				result.setRespMessage("订单编号不存在");
+				result.setRespCode("ORDER_ERROR_1001");
 				map.put("appMessage", "订单号错误");
-				result.setData(map);
+				result.setRespData(map);
 				return getAPIResult(result);
 			}
 			orderinfoBO.setPayType(paymentVO.getPayType());
-			orderFacade.update(orderinfoBO);
+			orderService.update(orderinfoBO);
 			if (!paymentVO.getPayType().equals(PayTypeEnum.WECHAT.getCode())) {
 				map.put("data", wxPayManager.alipayUnifiedOrder(orderinfoBO.getMoney(), orderinfoBO.getOrderId(), "shiqilong",orderinfoBO.getUserId()));
 			}else{
@@ -69,7 +70,7 @@ public class PaymentController extends BaseController {
 
 	@RequestMapping(value = "/pay1", produces = "application/json", method = { RequestMethod.POST })
 	public Object pay1(@RequestBody PaymentVO paymentVO, HttpServletRequest request){
-		OrderinfoBTO orderinfoBO = orderFacade.queryById(paymentVO.getOrderNumber());
+		OrderinfoBTO orderinfoBO = orderService.queryById(paymentVO.getOrderNumber());
 		return JSONObject.toJSON(orderinfoBO);
 	}
 }

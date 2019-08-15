@@ -20,6 +20,7 @@ import com.server.tools.exceptions.BizException;
 import com.shiqilong.common.tools.util.DozerMapperUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -36,11 +37,11 @@ public class PaymentManager extends PaymentProperties {
 	@Resource(name = "wxPayService")
 	private WxPayService wxPayService;
 
-	@Resource
-	private WxPayOrderService wxPayOrderFacade;
+	@Autowired
+	private WxPayOrderService wxPayOrderService;
 
-	@Resource
-	private AlipayOrderService alipayOrderFacade;
+	@Autowired
+	private AlipayOrderService alipayOrderService;
 
 	/**
 	 * 统一下单(详见https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_1)
@@ -77,11 +78,11 @@ public class PaymentManager extends PaymentProperties {
 		WxpayOrderBTO wxpayOrder = new WxpayOrderBTO();
 		DozerMapperUtil.beanCopy(request, wxpayOrder);
 		wxpayOrder.setWxpayOrderId(orderId);
-		wxPayOrderFacade.add(wxpayOrder);
+		wxPayOrderService.add(wxpayOrder);
 
 		WxPayUnifiedOrderResult wxPayUnifiedOrderResult = this.wxPayService.unifiedOrder(request);
 
-		wxpayOrder = wxPayOrderFacade.queryByOuttradeno(outtradeno);
+		wxpayOrder = wxPayOrderService.queryByOuttradeno(outtradeno);
 
 		String return_code = wxPayUnifiedOrderResult.getReturnCode();
 		String return_msg = wxPayUnifiedOrderResult.getReturnMsg();
@@ -104,7 +105,7 @@ public class PaymentManager extends PaymentProperties {
 			retParams.put("sign", sign);
 			success = true;
 		}
-		wxPayOrderFacade.update(wxpayOrder);
+		wxPayOrderService.update(wxpayOrder);
 		if (success) {
 			return retParams;
 		}
@@ -130,7 +131,7 @@ public class PaymentManager extends PaymentProperties {
 		alipayOrder.setOutTradeNo(outtradeno);
 		alipayOrder.setTotalAmount(moneyYuan);
 		alipayOrder.setUserId(userId);
-	   alipayOrderFacade.add(alipayOrder);
+	   alipayOrderService.add(alipayOrder);
 
 		AlipayClient alipayClient = new DefaultAlipayClient(alipayGateway, alipayAppid,alipayAppprivatekey, "json", alipayCharset, alipayPublickey, "RSA2");
 		AlipayTradeAppPayRequest request = new AlipayTradeAppPayRequest();
@@ -147,7 +148,7 @@ public class PaymentManager extends PaymentProperties {
 			//这里和普通的接口调用不同，使用的是sdkExecute
 			AlipayTradeAppPayResponse response = alipayClient.sdkExecute(request);
 			alipayOrder.setReturnBody(body);
-			alipayOrderFacade.update(alipayOrder);
+			alipayOrderService.update(alipayOrder);
 
 			Map retParams = new HashMap<>();
 			retParams.put("app_id", alipayAppid);

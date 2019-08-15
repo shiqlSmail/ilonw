@@ -1,10 +1,11 @@
 package com.ilonw.api.service.impl;
 
 import com.ilonw.api.service.OrderService;
-import com.ilonw.server.facade.user.OrderFacade;
 import com.ilonw.server.bto.OrderinfoBTO;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ilonw.server.facade.user.OrderFacade;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * 订单处理器实现
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-    @Autowired(required = false)
+    @Resource
     private OrderFacade orderFacade;
 
     @Override

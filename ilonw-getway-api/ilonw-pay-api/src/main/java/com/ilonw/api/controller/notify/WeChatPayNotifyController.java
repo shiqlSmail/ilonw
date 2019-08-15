@@ -14,6 +14,7 @@ import com.ilonw.server.bto.WxpayOrderBTO;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -34,11 +35,11 @@ import java.util.TreeMap;
 @RequestMapping("/wechatpay")
 public class WeChatPayNotifyController extends BaseController {
 
-    @Resource
-    protected WxPayOrderService wxPayOrderFacade;
+    @Autowired
+    protected WxPayOrderService wxPayOrderService;
 
-    @Resource
-    protected OrderService orderFacade;
+    @Autowired
+    protected OrderService orderService;
 
     @Resource(name = "wxPayService")
     protected WxPayService wxPayService;
@@ -69,15 +70,15 @@ public class WeChatPayNotifyController extends BaseController {
         // TODO 签名验证
         String out_trade_no = reqMap.get("out_trade_no").toString();
         // 1 根据out_trade_no搜索订单，查看是否存在该订单，如果不存在，直接返回failure
-        WxpayOrderBTO wxpayOrderBO = wxPayOrderFacade.queryByOuttradeno(out_trade_no);
+        WxpayOrderBTO wxpayOrderBO = wxPayOrderService.queryByOuttradeno(out_trade_no);
         if (wxpayOrderBO == null) {
             result.setReturn_code("FAIL");
             result.setReturn_msg("订单不存在");
         }
         if (result.getReturn_code().equals("SUCCESS")) {
-            OrderinfoBTO order = orderFacade.queryById(wxpayOrderBO.getWxpayOrderId());
+            OrderinfoBTO order = orderService.queryById(wxpayOrderBO.getWxpayOrderId());
             order.setPayState(PayStateEnum.SUCCESS.getCode());
-            orderFacade.update(order);
+            orderService.update(order);
             //充值成功，所作操作
             //  TODO
         }
