@@ -47,10 +47,10 @@ public class PaymentController extends BaseController {
 			String spbillCreateIp = IpUtils.getIpAddr(request);
 			OrderinfoBTO orderinfoBO = orderFacade.queryById(paymentVO.getOrderNumber());
 			if (null == orderinfoBO) {
-				result.setMessage("订单编号不存在");
-				result.setErrorCode("ORDER_ERROR_1001");
+				result.setRespMessage("订单编号不存在");
+				result.setRespCode("ORDER_ERROR_1001");
 				map.put("appMessage", "订单号错误");
-				result.setData(map);
+				result.setRespData(map);
 				return getAPIResult(result);
 			}
 			orderinfoBO.setPayType(paymentVO.getPayType());
