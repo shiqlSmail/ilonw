@@ -10,6 +10,8 @@
 		<result column="app_status" jdbcType="INTEGER" property="appStatus" />
 		<result column="app_channel_name" jdbcType="VARCHAR" property="appChannelName" />
 		<result column="app_user_id" jdbcType="VARCHAR" property="ilonwUserId" />
+		<result column="app_private_key" jdbcType="VARCHAR" property="appPrivatekey" />
+		<result column="app_public_key" jdbcType="VARCHAR" property="appPublicKey" />
 	</resultMap>
 
 	<!-- 根据渠道名字查询，判断信息是否存在 -->
@@ -19,7 +21,7 @@
 
 	<!-- 根据appid和appkey获取渠道信息 -->
 	<select id="querySysApp"  resultType="java.lang.String"  parameterType="com.ilonw.server.bo.SysAppBO">
-		select app_channel from sys_app where app_id = #{appId,jdbcType=INTEGER} and app_key = #{appKey,jdbcType=VARCHAR}
+		select app_channel from sys_app where app_id = #{appId,jdbcType=INTEGER} and app_key = #{appKey,jdbcType=VARCHAR}  and app_private_key = #{appPrivatekey,jdbcType=VARCHAR}  and app_public_key = #{appPublicKey,jdbcType=VARCHAR}
 	</select>
 
 	<!-- 保存客户的appid和appkey信息 -->
@@ -47,6 +49,12 @@
 			<if test="ilonwUserId != null">
 				app_user_id,
 			</if>
+			<if test="appPrivatekey != null">
+				app_private_key,
+			</if>
+			<if test="appPublicKey != null">
+				app_public_key,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="appChannel != null">
@@ -69,6 +77,12 @@
 			</if>
 			<if test="ilonwUserId != null">
 				#{ilonwUserId,jdbcType=VARCHAR},
+			</if>
+			<if test="appPrivatekey != null">
+				#{appPrivatekey,jdbcType=VARCHAR},
+			</if>
+			<if test="appPublicKey != null">
+				#{appPublicKey,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>

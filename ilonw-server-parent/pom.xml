@@ -16,6 +16,13 @@
         <module>ilonw-server-test</module>
     </modules>
 
+    <properties>
+        <ilonw.version>1.0-SNAPSHOT</ilonw.version>
+        <project.build.sourceencoding>UTF-8</project.build.sourceencoding>
+        <!-- 过滤测试类 -->
+        <skipTests>true</skipTests>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

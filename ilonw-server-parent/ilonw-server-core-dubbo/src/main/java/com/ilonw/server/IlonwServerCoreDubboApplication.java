@@ -18,7 +18,7 @@ public class IlonwServerCoreDubboApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(IlonwServerCoreDubboApplication.class, args);
-        System.in.read(); // 为保证服务一直开着，利用输入流的阻塞来模拟
+        //System.in.read(); // 为保证服务一直开着，利用输入流的阻塞来模拟
     }
 
     //配置mybatis的分页插件pageHelper

@@ -1,6 +1,6 @@
 package com.ilonw.api.vo;
 
-public class SysAppResponse{
+public class SysAppSignResponse {
 
     private Integer app_id;
 
@@ -9,6 +9,16 @@ public class SysAppResponse{
     private String app_private_key;
 
     private String app_public_key;
+
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public Integer getApp_id() {
         return app_id;

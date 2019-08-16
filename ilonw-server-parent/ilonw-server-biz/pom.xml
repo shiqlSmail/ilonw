@@ -5,6 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ilonw.server</groupId>
     <artifactId>ilonw-server-biz</artifactId>
+    <version>${ilonw.version}</version>
     <packaging>jar</packaging>
     <parent>
         <artifactId>ilonw-server-parent</artifactId>
@@ -12,11 +13,24 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
+
     <dependencies>
         <dependency>
             <groupId>com.ilonw.server</groupId>
             <artifactId>ilonw-server-dal</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${ilonw.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

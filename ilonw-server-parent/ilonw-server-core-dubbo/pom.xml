@@ -4,18 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ilonw.server</groupId>
     <artifactId>ilonw-server-core-dubbo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${ilonw.version}</version>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <artifactId>ilonw-server-parent</artifactId>
+        <groupId>com.ilonw.server</groupId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -32,7 +27,7 @@
         <dependency>
             <groupId>com.ilonw.server</groupId>
             <artifactId>ilonw-server-facade</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${ilonw.version}</version>
         </dependency>
 
         <!-- dubbo  -->
@@ -106,6 +101,17 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- 设置编译版本为1.8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>

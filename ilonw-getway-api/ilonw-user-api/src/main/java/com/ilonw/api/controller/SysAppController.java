@@ -4,6 +4,7 @@ import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.SysAppService;
 import com.ilonw.api.vo.SysAppParam;
 import com.ilonw.api.vo.SysAppResponse;
+import com.ilonw.api.vo.SysAppSignResponse;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,9 +26,9 @@ public class SysAppController extends BaseController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/sign", method = RequestMethod.POST)
     @ApiOperation(value="根据渠道申请appkey信息", notes="ilonw申请appkey")
-    public APIBaseResult queryAllUser(@RequestBody SysAppParam param,HttpServletRequest requestIp) {
+    public APIBaseResult queryAllUser(@RequestBody SysAppParam param,HttpServletRequest requestIp) throws Exception {
         long now = System.currentTimeMillis();
-        SysAppResponse response = sysAppService.sign(param);
+        SysAppSignResponse response = sysAppService.sign(param);
         return getIntefaceData(requestIp,response, "/sys", "/sign",now,param,"appkey接口");
     }
 

@@ -12,6 +12,24 @@ public class SysAppBO  implements Serializable {
     private String appChannelName;
     private Integer appStatus;
     private String ilonwUserId;
+    private String appPublicKey;
+    private String appPrivatekey;
+
+    public String getAppPublicKey() {
+        return appPublicKey;
+    }
+
+    public void setAppPublicKey(String appPublicKey) {
+        this.appPublicKey = appPublicKey;
+    }
+
+    public String getAppPrivatekey() {
+        return appPrivatekey;
+    }
+
+    public void setAppPrivatekey(String appPrivatekey) {
+        this.appPrivatekey = appPrivatekey;
+    }
 
     public String getAppChannel() {
         return appChannel;
