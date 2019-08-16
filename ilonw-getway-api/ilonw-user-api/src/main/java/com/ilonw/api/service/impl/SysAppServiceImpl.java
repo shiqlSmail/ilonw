@@ -3,72 +3,102 @@ package com.ilonw.api.service.impl;
 import com.ilonw.api.service.SysAppService;
 import com.ilonw.api.vo.SysAppParam;
 import com.ilonw.api.vo.SysAppResponse;
+import com.ilonw.api.vo.SysAppSignResponse;
 import com.ilonw.server.bo.SysAppBO;
 import com.ilonw.server.facade.sys.SysSysAppFacade;
 import com.server.tools.date.DateUtil;
+import com.server.tools.encryption.RSAUtil;
 import com.server.tools.util.UUIDUtil;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
+import java.security.KeyPair;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Resource;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
 
 @Service
-public class SysAppServiceImpl implements SysAppService {
-
+public class SysAppServiceImpl
+        implements SysAppService
+{
     @Resource
     public SysSysAppFacade sysSysAppFacade;
 
-    @Override
-    public SysAppResponse sign(SysAppParam record) {
+    public SysAppSignResponse sign(SysAppParam record) throws Exception {
         SysAppBO sysAppBO = new SysAppBO();
         sysAppBO.setAppChannel(UUIDUtil.primaryKeyUUID());
         sysAppBO.setAppCreatetime(DateUtil.getDateTime(new Date()));
-        sysAppBO.setAppStatus(1);
+        sysAppBO.setAppStatus(Integer.valueOf(1));
         sysAppBO.setIlonwUserId(record.getAppUserId());
         sysAppBO.setAppChannelName(record.getAppChannelName());
 
-        //开始生成appid和appkey
-        RSAGenerator rsaGenerator = new RSAGenerator().generateKeyPair();
-        String appId = UUIDUtil.userCode(9);
-        //加密采用私钥加密  顺序不可变
-        String appKey = rsaGenerator.encryptByPrivate(appId+record.getAppChannelName()+record.getAppUserId());
-        sysAppBO.setAppId(Integer.parseInt(appId));
-        sysAppBO.setAppKey(appKey);
 
-        //根据渠道名字查询，判断信息是否存在
-        SysAppResponse res = new SysAppResponse();
-        Integer count = sysSysAppFacade.querySysAppByAppChannelName(sysAppBO);
-        if(count == 0){
-            sysSysAppFacade.saveSysApp(sysAppBO);
-            //将加密过后的appid和appkay返回给客户
-            res.setApp_id(Integer.parseInt(appId));
+        RSAUtil rsa = new RSAUtil();
+        String appId = UUIDUtil.userCode(9);
+
+        KeyPair keyPair = rsa.getKeyPair();
+        String privateKey = new String(Base64.encodeBase64(keyPair.getPrivate().getEncoded()));
+        String publicKey = new String(Base64.encodeBase64(keyPair.getPublic().getEncoded()));
+
+        String appKey = rsa.encrypt(appId + record.getAppChannelName() + record.getAppUserId(), rsa.getPublicKey(publicKey));
+
+
+        sysAppBO.setAppId(Integer.valueOf(Integer.parseInt(appId)));
+        sysAppBO.setAppKey(appKey);
+        sysAppBO.setAppPrivatekey(privateKey);
+        sysAppBO.setAppPublicKey(publicKey);
+
+
+        SysAppSignResponse res = new SysAppSignResponse();
+        Integer count = this.sysSysAppFacade.querySysAppByAppChannelName(sysAppBO);
+        if (count.intValue() == 0) {
+            this.sysSysAppFacade.saveSysApp(sysAppBO);
+
+            res.setMessage("返回信息属隐私信息，请妥善保管，不要泄露给他人；如有泄露，请重新生成！");
+
+            res.setApp_id(Integer.valueOf(Integer.parseInt(appId)));
             res.setApp_key(appKey);
-        }else{
-            res.setApp_id(000000);
-            res.setApp_key("该客户已经注册过，不能城府注册。");
+            res.setApp_private_key(privateKey);
+            res.setApp_public_key(publicKey);
+        } else {
+            res.setMessage("该客户已注册过，不能重复注册！");
+            res.setApp_id(Integer.valueOf(0));
+            res.setApp_key("ilonw-oss");
+            res.setApp_private_key("ilonw-oss");
+            res.setApp_public_key("ilonw-oss");
         }
         return res;
     }
 
-    /**
-     * 根据appid和appkey获取渠道信息
-     * @param record
-     * @return
-     */
-    @Override
-    public Map<String,Object> getAppInfo(SysAppResponse record) {
+
+
+
+
+
+
+    public Map<String, Object> getAppInfo(SysAppResponse record) {
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        if (StringUtils.isEmpty(record.getApp_public_key())) {
+            map.put("data", "公钥未传");
+        }
+        if (StringUtils.isEmpty(record.getApp_private_key())) {
+            map.put("data", "私钥未传");
+        }
+
         SysAppBO sysAppBO = new SysAppBO();
         sysAppBO.setAppId(record.getApp_id());
         sysAppBO.setAppKey(record.getApp_key());
-        String appChannel = sysSysAppFacade.querySysApp(sysAppBO);
+        sysAppBO.setAppPublicKey(record.getApp_public_key());
+        sysAppBO.setAppPrivatekey(record.getApp_private_key());
+        String appChannel = this.sysSysAppFacade.querySysApp(sysAppBO);
 
-        Map<String,Object> map = new HashMap<>();
-        if(StringUtils.isEmpty(appChannel)){
-            map.put("data", "您还未获取appid和appkey信息");
-        }else{
+
+        if (StringUtils.isEmpty(appChannel)) {
+            map.put("data", "你还未获取appid和appkey信息");
+        } else {
             map.put("data", appChannel);
         }
         return map;
