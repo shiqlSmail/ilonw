@@ -6,6 +6,7 @@ import com.ilonw.api.vo.SysAppResponse;
 import com.ilonw.server.bo.SysAppBO;
 import com.ilonw.server.facade.sys.SysSysAppFacade;
 import com.server.tools.date.DateUtil;
+import com.server.tools.encryption.RSAGenerator;
 import com.server.tools.util.UUIDUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
