@@ -1,7 +1,7 @@
 package com.ilonw.server.bizimpl.pay;
 
 import com.ilonw.server.biz.pay.WxPayOrderService;
-import com.ilonw.server.bo.WxpayOrderBO;
+import com.ilonw.server.bo.pay.WxpayOrderBO;
 import com.ilonw.server.repository.pay.WxpayOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.user;
 
 import com.ilonw.server.facade.user.IlonwUserFacade;
 import com.ilonw.server.biz.user.IlonwUserService;
-import com.ilonw.server.bo.IlonwUserBO;
+import com.ilonw.server.bo.user.IlonwUserBO;
 import com.ilonw.server.bto.IlonwUserBTO;
 import com.ilonw.server.convert.IlonwUserConvert;
 import com.ilonw.server.page.PageBean;

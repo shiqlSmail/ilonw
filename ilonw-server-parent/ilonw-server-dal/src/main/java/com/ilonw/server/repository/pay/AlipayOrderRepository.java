@@ -1,7 +1,7 @@
 package com.ilonw.server.repository.pay;
 
 
-import com.ilonw.server.bo.AlipayOrderBO;
+import com.ilonw.server.bo.pay.AlipayOrderBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

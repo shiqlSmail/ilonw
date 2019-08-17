@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilonw.server.repository.sys.SysAppRepository">
 
-	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.SysAppBO">
+	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.sys.SysAppBO">
 		<id column="app_channel" jdbcType="VARCHAR" property="appChannel" />
 		<result column="app_id" jdbcType="INTEGER" property="appId" />
 		<result column="app_key" jdbcType="VARCHAR" property="appKey" />
@@ -15,17 +15,17 @@
 	</resultMap>
 
 	<!-- 根据渠道名字查询，判断信息是否存在 -->
-	<select id="querySysAppByAppChannelName" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.SysAppBO">
+	<select id="querySysAppByAppChannelName" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.sys.SysAppBO">
 		select count(1) from sys_app where app_channel_name = #{appChannelName,jdbcType=VARCHAR}
 	</select>
 
 	<!-- 根据appid和appkey获取渠道信息 -->
-	<select id="querySysApp"  resultType="java.lang.String"  parameterType="com.ilonw.server.bo.SysAppBO">
+	<select id="querySysApp"  resultType="java.lang.String"  parameterType="com.ilonw.server.bo.sys.SysAppBO">
 		select app_channel from sys_app where app_id = #{appId,jdbcType=INTEGER} and app_key = #{appKey,jdbcType=VARCHAR}  and app_private_key = #{appPrivatekey,jdbcType=VARCHAR}  and app_public_key = #{appPublicKey,jdbcType=VARCHAR}
 	</select>
 
 	<!-- 保存客户的appid和appkey信息 -->
-	<insert id="saveSysApp" parameterType="com.ilonw.server.bo.SysAppBO" useGeneratedKeys="true">
+	<insert id="saveSysApp" parameterType="com.ilonw.server.bo.sys.SysAppBO" useGeneratedKeys="true">
 		insert into sys_app
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="appChannel != null">

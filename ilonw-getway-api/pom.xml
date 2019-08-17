@@ -12,6 +12,7 @@
         <module>ilonw-user-api</module>
         <module>ilonw-file-api</module>
         <module>ilonw-sms-api</module>
+        <module>ilonw-shop-api</module>
     </modules>
 
     <parent>
@@ -111,12 +112,6 @@
             <artifactId>json-lib</artifactId>
             <version>2.4</version>
             <classifier>jdk15</classifier>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
         </dependency>
     </dependencies>
 

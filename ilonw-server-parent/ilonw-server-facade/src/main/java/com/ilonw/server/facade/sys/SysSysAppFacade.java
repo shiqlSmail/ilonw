@@ -1,6 +1,6 @@
 package com.ilonw.server.facade.sys;
 
-import com.ilonw.server.bo.SysAppBO;
+import com.ilonw.server.bo.sys.SysAppBO;
 
 public interface SysSysAppFacade {
     /**

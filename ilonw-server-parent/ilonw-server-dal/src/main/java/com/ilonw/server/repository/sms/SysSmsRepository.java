@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.sms;
 
-import com.ilonw.server.bo.SysSmsBO;
+import com.ilonw.server.bo.sms.SysSmsBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

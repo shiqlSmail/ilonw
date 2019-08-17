@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.pay;
 
-import com.ilonw.server.bo.WxpayOrderBO;
+import com.ilonw.server.bo.pay.WxpayOrderBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

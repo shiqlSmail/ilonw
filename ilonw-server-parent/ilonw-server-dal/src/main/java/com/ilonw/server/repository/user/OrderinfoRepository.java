@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.user;
 
-import com.ilonw.server.bo.OrderinfoBO;
+import com.ilonw.server.bo.pay.OrderinfoBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

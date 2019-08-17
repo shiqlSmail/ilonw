@@ -2,7 +2,7 @@ package com.ilonw.file.Service.impl;
 
 import com.ilonw.file.Service.FileService;
 import com.ilonw.file.vo.TableFileVO;
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import com.ilonw.server.facade.file.SysIlonwTableFileFacade;
 import com.server.tools.date.DateUtil;
 import com.server.tools.util.UUIDUtil;
@@ -23,6 +23,9 @@ public class FileServiceImpl implements FileService {
     @Value("${ilonw.view.img}")
     private String ilonwViewImg;
 
+    @Value("${ilonw.local.reading.img}")
+    private String localImgProperties;
+
     @Value("${ilonw.default.image}")
     private String ilonwDefaultImage;
     @Value("${ilonw.default.context}")
@@ -31,21 +34,21 @@ public class FileServiceImpl implements FileService {
 
     @Override
     //@Async
-    public String saveFile(TableFileBO tableFile) {
+    public String saveFile(TableFileBO tableFile,String ilonwUserId) {
         String Identification = UUIDUtil.getOrderIdByUUId();
         tableFile.setIdentification(Identification);
         tableFile.setPlatform("ilonw");
         tableFile.setCreatetime(DateUtil.getDateTime(new Date()));
+        tableFile.setAuther(ilonwUserId);
         sysIlonwTableFileFacade.saveFile(tableFile);
         return Identification;
     }
 
     @Override
-    public void updateFile(String context,String Identification,String ilonwUserId) {
+    public void updateFile(String context,String Identification) {
         TableFileBO tableFile = new TableFileBO();
         tableFile.setIlonw_file_context(context);
         tableFile.setIdentification(Identification);
-        tableFile.setAuther(ilonwUserId);
         sysIlonwTableFileFacade.updateFile(tableFile);
     }
 
@@ -60,7 +63,8 @@ public class FileServiceImpl implements FileService {
             for (TableFileBO bo : listFile){
                 TableFileVO vo = new TableFileVO();
                 vo.setIlonwFileContext(bo.getIlonw_file_context());
-                vo.setFileName(ilonwViewImg+"oss/"+bo.getFile_new_name());
+               // vo.setFileName(localImgProperties+"oss/"+bo.getFile_path()+bo.getFile_new_name());
+                vo.setFileName("file://"+bo.getFile_path()+bo.getFile_new_name());
                 tableFileVO.add(vo);
             }
         }else{

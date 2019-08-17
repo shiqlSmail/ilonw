@@ -1,6 +1,6 @@
 package com.ilonw.server.facade.file;
 
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 
 import java.util.List;
 

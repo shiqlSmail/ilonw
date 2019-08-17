@@ -3,7 +3,7 @@ package com.ilonw.api.controller;
 import com.aliyuncs.exceptions.ClientException;
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.PhoneSmsParam;
-import com.ilonw.server.bo.SysSmsBO;
+import com.ilonw.server.bo.sms.SysSmsBO;
 import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.send.SendSmsUtils;

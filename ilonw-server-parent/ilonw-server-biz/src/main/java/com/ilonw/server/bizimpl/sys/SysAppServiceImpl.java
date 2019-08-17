@@ -1,7 +1,7 @@
 package com.ilonw.server.bizimpl.sys;
 
 import com.ilonw.server.biz.sys.SysSysAppService;
-import com.ilonw.server.bo.SysAppBO;
+import com.ilonw.server.bo.sys.SysAppBO;
 import com.ilonw.server.repository.sys.SysAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

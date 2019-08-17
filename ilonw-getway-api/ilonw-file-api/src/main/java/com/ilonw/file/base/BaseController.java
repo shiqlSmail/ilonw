@@ -2,7 +2,7 @@ package com.ilonw.file.base;
 
 import com.alibaba.fastjson.JSON;
 import com.ilonw.server.facade.sys.SysIlonwLogsFacade;
-import com.ilonw.server.bo.SysIlonwLogsEntity;
+import com.ilonw.server.bo.sys.SysIlonwLogsEntity;
 import com.server.tools.exceptions.ArgumentException;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.result.SetAPIResultUtil;

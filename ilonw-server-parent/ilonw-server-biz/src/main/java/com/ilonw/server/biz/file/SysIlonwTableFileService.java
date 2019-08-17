@@ -2,7 +2,7 @@ package com.ilonw.server.biz.file;
 
 import java.util.List;
 
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 
 public interface SysIlonwTableFileService {
 

@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.user;
 
 import com.ilonw.server.facade.user.OrderFacade;
 import com.ilonw.server.biz.user.OrderService;
-import com.ilonw.server.bo.OrderinfoBO;
+import com.ilonw.server.bo.pay.OrderinfoBO;
 import com.ilonw.server.bto.OrderinfoBTO;
 import com.ilonw.server.convert.OrderinfoConvert;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
 package com.ilonw.server.biz.user;
 
-import com.ilonw.server.bo.IlonwUserBO;
+import com.ilonw.server.bo.user.IlonwUserBO;
 import com.ilonw.server.page.PageBean;
 import com.ilonw.server.page.PageData;
 
-import java.util.List;
 import java.util.Map;
 
 public interface IlonwUserService {

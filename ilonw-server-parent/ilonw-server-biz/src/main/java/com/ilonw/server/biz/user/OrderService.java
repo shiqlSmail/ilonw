@@ -1,8 +1,7 @@
 package com.ilonw.server.biz.user;
 
 
-import com.ilonw.server.bo.OrderinfoBO;
-import com.ilonw.server.bto.OrderinfoBTO;
+import com.ilonw.server.bo.pay.OrderinfoBO;
 
 /**
  * 订单处理器

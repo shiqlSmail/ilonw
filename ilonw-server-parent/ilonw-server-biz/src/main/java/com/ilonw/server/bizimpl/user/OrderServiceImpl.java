@@ -1,7 +1,7 @@
 package com.ilonw.server.bizimpl.user;
 
 import com.ilonw.server.biz.user.OrderService;
-import com.ilonw.server.bo.OrderinfoBO;
+import com.ilonw.server.bo.pay.OrderinfoBO;
 import com.ilonw.server.repository.user.OrderinfoRepository;
 import com.server.tools.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;

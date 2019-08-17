@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ilonw.server.repository.file.SysIlonwFileRepository">
-    <resultMap id="fileTableResultMap" type="com.ilonw.server.bo.TableFileBO">
+    <resultMap id="fileTableResultMap" type="com.ilonw.server.bo.file.TableFileBO">
         <id column="file_id" jdbcType="INTEGER" property="file_id"/>
         <result column="file_name" jdbcType="VARCHAR" property="file_name"/>
         <result column="file_path" jdbcType="VARCHAR" property="file_path"/>
@@ -18,12 +18,12 @@
     </resultMap>
 
 
-    <select id="selectFile" resultMap="fileTableResultMap" parameterType="com.ilonw.server.bo.TableFileBO">
+    <select id="selectFile" resultMap="fileTableResultMap" parameterType="com.ilonw.server.bo.file.TableFileBO">
 		select * from table_file where auther = #{auther,jdbcType=VARCHAR}
 	</select>
 
     <!--  useGeneratedKeys="true" keyProperty="Identification" keyColumn="Identification" -->
-    <insert id="saveFile" parameterType="com.ilonw.server.bo.TableFileBO">
+    <insert id="saveFile" parameterType="com.ilonw.server.bo.file.TableFileBO">
         insert into table_file
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="file_name != null">
@@ -103,7 +103,7 @@
         </trim>
     </insert>
 
-    <update id="updateFile" parameterType="com.ilonw.server.bo.TableFileBO">
-        update table_file set  ilonw_file_context = #{ilonw_file_context,jdbcType=VARCHAR},auther = #{auther,jdbcType=VARCHAR} where Identification = #{Identification,jdbcType=VARCHAR}
+    <update id="updateFile" parameterType="com.ilonw.server.bo.file.TableFileBO">
+        update table_file set  ilonw_file_context = #{ilonw_file_context,jdbcType=VARCHAR} where Identification = #{Identification,jdbcType=VARCHAR}
     </update>
 </mapper>

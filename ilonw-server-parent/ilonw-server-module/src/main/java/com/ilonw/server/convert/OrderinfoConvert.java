@@ -1,7 +1,7 @@
 package com.ilonw.server.convert;
 
 
-import com.ilonw.server.bo.OrderinfoBO;
+import com.ilonw.server.bo.pay.OrderinfoBO;
 import com.ilonw.server.bto.OrderinfoBTO;
 
 public class OrderinfoConvert{

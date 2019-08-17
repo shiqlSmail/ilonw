@@ -30,4 +30,8 @@
 	<dubbo:service interface="com.ilonw.server.facade.sms.SysSmsFacade" ref="sysSmsFacade"/>
 
 	<dubbo:service interface="com.ilonw.server.facade.sys.SysSysAppFacade" ref="sysSysAppFacade"/>
+
+	<!-- ##########################  商城商品服务注册中心 ###################################### -->
+	<!-- 首页商品轮播图-->
+	<dubbo:service interface="com.ilonw.server.facade.shop.ShopLoopFacade" ref="shopLoopFacade"/>
 </beans>

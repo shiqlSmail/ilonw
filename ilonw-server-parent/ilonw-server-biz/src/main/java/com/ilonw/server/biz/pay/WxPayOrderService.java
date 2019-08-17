@@ -1,8 +1,7 @@
 package com.ilonw.server.biz.pay;
 
 
-import com.ilonw.server.bo.WxpayOrderBO;
-import com.ilonw.server.bto.WxpayOrderBTO;
+import com.ilonw.server.bo.pay.WxpayOrderBO;
 
 /**
  * 微信支付订单处理器

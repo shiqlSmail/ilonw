@@ -3,7 +3,7 @@ package com.ilonw.server.bizimpl.user;
 import com.github.pagehelper.PageHelper;
 import com.ilonw.server.Eunms.UserEunms;
 import com.ilonw.server.biz.user.IlonwUserService;
-import com.ilonw.server.bo.IlonwUserBO;
+import com.ilonw.server.bo.user.IlonwUserBO;
 import com.ilonw.server.page.PageBean;
 import com.ilonw.server.page.PageConvert;
 import com.ilonw.server.page.PageData;

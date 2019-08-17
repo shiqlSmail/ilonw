@@ -1,7 +1,7 @@
 package com.ilonw.server.bizimpl.pay;
 
 import com.ilonw.server.biz.pay.AlipayOrderService;
-import com.ilonw.server.bo.AlipayOrderBO;
+import com.ilonw.server.bo.pay.AlipayOrderBO;
 import com.ilonw.server.repository.pay.AlipayOrderRepository;
 import com.server.tools.exceptions.BizException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.ilonw.server.bo;
+package com.ilonw.server.bo.pay;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

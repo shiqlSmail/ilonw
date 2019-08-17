@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.sys;
 
-import com.ilonw.server.bo.SysIlonwLogsEntity;
+import com.ilonw.server.bo.sys.SysIlonwLogsEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

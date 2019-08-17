@@ -1,8 +1,8 @@
 package com.ilonw.server.biz.sms;
 
-import com.ilonw.server.bo.SysEmailCodeBO;
-import com.ilonw.server.bo.SysEmailUrlBO;
-import com.ilonw.server.bo.SysSmsBO;
+import com.ilonw.server.bo.sms.SysEmailCodeBO;
+import com.ilonw.server.bo.sms.SysEmailUrlBO;
+import com.ilonw.server.bo.sms.SysSmsBO;
 
 import java.util.List;
 

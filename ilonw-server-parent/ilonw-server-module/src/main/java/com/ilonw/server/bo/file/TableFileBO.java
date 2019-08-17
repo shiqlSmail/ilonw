@@ -1,4 +1,4 @@
-package com.ilonw.server.bo;
+package com.ilonw.server.bo.file;
 
 import java.io.Serializable;
 

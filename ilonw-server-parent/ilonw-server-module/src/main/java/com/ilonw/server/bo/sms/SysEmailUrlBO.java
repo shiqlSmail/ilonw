@@ -1,15 +1,15 @@
-package com.ilonw.server.bo;
+package com.ilonw.server.bo.sms;
 
 import java.io.Serializable;
 
-public class SysEmailCodeBO implements Serializable {
+public class SysEmailUrlBO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //验证码ID
     private String emailId;
 
     //验证码code
-    private Integer emailCode;
+    private String emailUrl;
 
     //验证码状态
     private Integer emailStatus;
@@ -28,12 +28,12 @@ public class SysEmailCodeBO implements Serializable {
         this.emailId = emailId;
     }
 
-    public Integer getEmailCode() {
-        return emailCode;
+    public String getEmailUrl() {
+        return emailUrl;
     }
 
-    public void setEmailCode(Integer emailCode) {
-        this.emailCode = emailCode;
+    public void setEmailUrl(String emailUrl) {
+        this.emailUrl = emailUrl;
     }
 
     public Integer getEmailStatus() {

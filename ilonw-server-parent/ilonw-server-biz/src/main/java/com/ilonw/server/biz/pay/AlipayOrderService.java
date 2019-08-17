@@ -1,7 +1,6 @@
 package com.ilonw.server.biz.pay;
 
-import com.ilonw.server.bo.AlipayOrderBO;
-import com.ilonw.server.bto.AlipayOrderBTO;
+import com.ilonw.server.bo.pay.AlipayOrderBO;
 
 /**
  * 支付宝支付订单处理器

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ilonw.server.repository.shop.ShopLoopRepository">
+    <!-- 商品图片轮播 -->
+    <resultMap type="com.ilonw.server.bo.shop.ShopLoopBO" id="loopShop">
+        <id column="loop_id" property="loopId"/>
+        <result column="loop_name" property="loopName"/>
+        <result column="loop_pic" property="loopPic"/>
+        <result column="loop_status" property="loopStatus"/>
+        <result column="loop_createtime" property="loopCreatetime"/>
+        <result column="loop_updatetime" property="loopUpdatetime"/>
+        <result column="loop_index" property="loopIndex"/>
+    </resultMap>
+
+    <!-- 首页展示用 -->
+    <sql id="showLoopCoumn">
+		loop_id,loop_name,loop_pic,loop_status,loop_index
+	</sql>
+
+    <!-- 后台管理用 -->
+    <sql id="showAllLoopCoumn">
+		loop_id,loop_name,loop_pic,loop_status,loop_createtime,loop_updatetime,loop_index
+	</sql>
+
+    <!-- 首页显示商品轮播信息 -->
+    <select id="findLoopShop" resultMap="loopShop">
+        select
+        <include refid="showLoopCoumn"/>
+        from shop_loop where loop_status = 'NORMAL' order by loop_index desc limit 6
+    </select>
+
+    <!-- 后台管理显示商品轮播信息 -->
+    <select id="findAllLoopShop" resultMap="loopShop">
+        select
+        <include refid="showAllLoopCoumn"/>
+        from shop_loop where loop_status = 'NORMAL' order by loop_index desc
+    </select>
+
+    <!-- 新增首页轮播商品 -->
+    <insert id="saveLoopShop" parameterType="com.ilonw.server.bo.shop.ShopLoopBO">
+        insert into shop_loop
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="loopId != null">
+                loop_id,
+            </if>
+            <if test="loopName != null">
+                loop_name,
+            </if>
+            <if test="loopPic != null">
+                loop_pic,
+            </if>
+            <if test="loopStatus != null">
+                loop_status,
+            </if>
+            <if test="loopCreatetime != null">
+                loop_createtime,
+            </if>
+            <if test="loopUpdatetime != null">
+                loop_updatetime,
+            </if>
+            <if test="loopIndex != null">
+                loop_index,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="loopId != null">
+                #{loopId,jdbcType=VARCHAR},
+            </if>
+            <if test="loopName != null">
+                #{loopName,jdbcType=VARCHAR},
+            </if>
+            <if test="loopPic != null">
+                #{loopPic,jdbcType=VARCHAR},
+            </if>
+            <if test="loopStatus != null">
+                #{loopStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="loopCreatetime != null">
+                #{loopCreatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="loopUpdatetime != null">
+                #{loopUpdatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="loopIndex != null">
+                #{loopIndex,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 后台修改轮播图信息 -->
+    <update id="updateLoopShop" parameterType="com.ilonw.server.bo.shop.ShopLoopBO">
+        update shop_loop
+        <set>
+            <if test="loopName != null">
+                loop_name = #{loopName,jdbcType=VARCHAR},
+            </if>
+            <if test="loopPic != null">
+                loop_pic = #{loopPic,jdbcType=VARCHAR},
+            </if>
+            <if test="loopStatus != null">
+                loop_status = #{loopStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="loopIndex != null">
+                loop_index = #{loopIndex,jdbcType=INTEGER},
+            </if>
+        </set>
+        where loop_id = #{loopId,jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -1,7 +1,7 @@
 package com.ilonw.server.convert;
 
 
-import com.ilonw.server.bo.WxpayOrderBO;
+import com.ilonw.server.bo.pay.WxpayOrderBO;
 import com.ilonw.server.bto.WxpayOrderBTO;
 
 public class WxpayOrderConvert{

@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.file;
 
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

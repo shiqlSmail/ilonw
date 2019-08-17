@@ -4,7 +4,7 @@ import com.ilonw.api.service.SysAppService;
 import com.ilonw.api.vo.SysAppParam;
 import com.ilonw.api.vo.SysAppResponse;
 import com.ilonw.api.vo.SysAppSignResponse;
-import com.ilonw.server.bo.SysAppBO;
+import com.ilonw.server.bo.sys.SysAppBO;
 import com.ilonw.server.facade.sys.SysSysAppFacade;
 import com.server.tools.date.DateUtil;
 import com.server.tools.encryption.RSAUtil;

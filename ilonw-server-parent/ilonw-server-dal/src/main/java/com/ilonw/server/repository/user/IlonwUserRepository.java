@@ -1,6 +1,6 @@
 package com.ilonw.server.repository.user;
 
-import com.ilonw.server.bo.IlonwUserBO;
+import com.ilonw.server.bo.user.IlonwUserBO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

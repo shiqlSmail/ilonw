@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.sys;
 
 import com.ilonw.server.facade.sys.SysIlonwLogsFacade;
 import com.ilonw.server.biz.sys.SysIlonwLogsService;
-import com.ilonw.server.bo.SysIlonwLogsEntity;
+import com.ilonw.server.bo.sys.SysIlonwLogsEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

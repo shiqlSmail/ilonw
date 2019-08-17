@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.pay;
 
 import com.ilonw.server.facade.pay.AlipayOrderFacade;
 import com.ilonw.server.biz.pay.AlipayOrderService;
-import com.ilonw.server.bo.AlipayOrderBO;
+import com.ilonw.server.bo.pay.AlipayOrderBO;
 import com.ilonw.server.bto.AlipayOrderBTO;
 import com.ilonw.server.convert.AlipayOrderConvert;
 import org.springframework.beans.factory.annotation.Autowired;

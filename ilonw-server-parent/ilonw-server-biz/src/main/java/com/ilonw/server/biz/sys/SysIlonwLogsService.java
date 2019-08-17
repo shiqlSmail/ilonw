@@ -1,6 +1,6 @@
 package com.ilonw.server.biz.sys;
 
-import com.ilonw.server.bo.SysIlonwLogsEntity;
+import com.ilonw.server.bo.sys.SysIlonwLogsEntity;
 import org.springframework.stereotype.Service;
 
 @Service

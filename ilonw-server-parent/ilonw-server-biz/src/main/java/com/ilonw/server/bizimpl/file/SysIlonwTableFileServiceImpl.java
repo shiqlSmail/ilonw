@@ -1,14 +1,11 @@
 package com.ilonw.server.bizimpl.file;
 
 import com.ilonw.server.biz.file.SysIlonwTableFileService;
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import com.ilonw.server.repository.file.SysIlonwFileRepository;
-import com.server.tools.date.DateUtil;
-import com.server.tools.util.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 

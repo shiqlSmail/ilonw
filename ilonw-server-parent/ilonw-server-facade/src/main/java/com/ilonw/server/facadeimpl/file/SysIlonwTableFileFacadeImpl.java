@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.file;
 
 import com.ilonw.server.facade.file.SysIlonwTableFileFacade;
 import com.ilonw.server.biz.file.SysIlonwTableFileService;
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

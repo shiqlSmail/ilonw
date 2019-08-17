@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilonw.server.repository.sms.SysEmailCodeRepository">
 
-	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.SysEmailCodeBO">
+	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.sms.SysEmailCodeBO">
 		<id column="email_id" jdbcType="VARCHAR" property="emailId" />
 		<result column="email_code" jdbcType="INTEGER" property="emailCode" />
 		<result column="email_status" jdbcType="INTEGER" property="emailStatus" />
@@ -14,7 +14,7 @@
 		email_code,email_name,email_createtime,email_status
 	</sql>
 
-	<insert id="saveEmailCode" parameterType="com.ilonw.server.bo.SysEmailCodeBO">
+	<insert id="saveEmailCode" parameterType="com.ilonw.server.bo.sms.SysEmailCodeBO">
 		insert into sys_email
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="emailId != null">
@@ -52,7 +52,7 @@
 		</trim>
 	</insert>
 
-	<select id="findEmailCodeByEmailName" resultType="com.ilonw.server.bo.SysEmailCodeBO" parameterType="com.ilonw.server.bo.SysEmailCodeBO">
+	<select id="findEmailCodeByEmailName" resultType="com.ilonw.server.bo.sms.SysEmailCodeBO" parameterType="com.ilonw.server.bo.sms.SysEmailCodeBO">
 		select  <include refid="findColumnEmailCode"/>  from sys_email where email_name = #{emailName,jdbcType=VARCHAR}
 	</select>
 
@@ -60,7 +60,7 @@
 		update sys_email set email_status = 2  where  now() >SUBDATE(sys_email.email_createtime,interval -5 minute) and email_status != 2
 	</update>
 
-	<update id="updateEmailCodeByEmailName" parameterType="com.ilonw.server.bo.SysEmailCodeBO">
+	<update id="updateEmailCodeByEmailName" parameterType="com.ilonw.server.bo.sms.SysEmailCodeBO">
 		update sys_email set email_status = 2  where  email_name = #{emailName,jdbcType=VARCHAR} and email_id != #{emailId,jdbcType=VARCHAR}
 	</update>
 </mapper>

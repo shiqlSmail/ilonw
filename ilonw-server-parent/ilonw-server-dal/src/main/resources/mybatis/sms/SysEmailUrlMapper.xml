@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilonw.server.repository.sms.SysEmailUrlRepository">
 
-	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.SysEmailUrlBO">
+	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.sms.SysEmailUrlBO">
 		<id column="email_id" jdbcType="VARCHAR" property="emailId" />
 		<result column="email_url" jdbcType="VARCHAR" property="emailUrl" />
 		<result column="email_status" jdbcType="INTEGER" property="emailStatus" />
@@ -14,7 +14,7 @@
 		email_url,email_name,email_createtime,email_status
 	</sql>
 
-	<insert id="saveEmailUrl" parameterType="com.ilonw.server.bo.SysEmailUrlBO">
+	<insert id="saveEmailUrl" parameterType="com.ilonw.server.bo.sms.SysEmailUrlBO">
 		insert into sys_emailurl
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="emailId != null">
@@ -52,7 +52,7 @@
 		</trim>
 	</insert>
 
-	<select id="findEmailByEmailUrl" resultType="com.ilonw.server.bo.SysEmailUrlBO" parameterType="com.ilonw.server.bo.SysEmailUrlBO">
+	<select id="findEmailByEmailUrl" resultType="com.ilonw.server.bo.sms.SysEmailUrlBO" parameterType="com.ilonw.server.bo.sms.SysEmailUrlBO">
 		select <include refid="findColumnEmailUrl"/> from sys_emailurl where email_name = #{emailName,jdbcType=VARCHAR}
 	</select>
 </mapper>

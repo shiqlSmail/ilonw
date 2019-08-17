@@ -2,21 +2,17 @@ package com.ilonw.file.controller;
 
 import com.ilonw.file.Service.FileService;
 import com.ilonw.file.base.BaseController;
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.server.tools.date.DateUtil;
 import com.server.tools.util.ImageTools;
 import io.swagger.annotations.ApiOperation;
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,10 +39,12 @@ public class UploadController extends BaseController {
 	@CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	@ApiOperation(value="多张图片上传接口", notes="文件上传接口详细描述")
-	public String fileUpload(@RequestParam(value = "file",required = true) CommonsMultipartFile files[]) throws IOException{
+	public String fileUpload(@RequestParam(value = "file",required = true) CommonsMultipartFile files[],HttpSession session) throws IOException{
+		String ilonwUserId = (String)session.getAttribute("userId");
+
 		TableFileBO tableFile = new TableFileBO();
 		String Identification = "";
-		String path = localImgProperties+DateUtil.formatDate1(new Date())+"/";
+		String path = localImgProperties+ilonwUserId+"/"+DateUtil.formatDate1(new Date())+"/";
 		File f = new File(path);
 		if (!f.exists())
 			f.mkdirs();
@@ -77,7 +75,7 @@ public class UploadController extends BaseController {
 				tableFile.setFile_path(path);
 				tableFile.setFile_size(ImageTools.getImgSize(new File(path+newFileName)));
 				tableFile.setFile_type(fixname);
-				Identification = fileService.saveFile(tableFile);
+				Identification = fileService.saveFile(tableFile,ilonwUserId);
 			}
 		} else {
 			return null;
@@ -93,9 +91,8 @@ public class UploadController extends BaseController {
 	@CrossOrigin(origins = "*", maxAge = 3600)
 	@RequestMapping(value="/updateFile", method = RequestMethod.POST)
 	@ResponseBody
-	public void addFishContent(String context,String Identification, HttpSession session){
-		String ilonwUserId = (String)session.getAttribute("userId");
-		fileService.updateFile(context,Identification,ilonwUserId);
+	public void addFishContent(String context,String Identification){
+		fileService.updateFile(context,Identification);
 	}
 
 	//文件上传成功，删除本地文件

@@ -66,7 +66,6 @@ public class IlonwUserServiceImpl implements IlonwUserService {
     public Map<String,Object> queryAllUser(PageData pageData){
         PageBean<IlonwUserBTO> listUser = new PageBean<>();
         Map<String,Object> map = new HashMap<String,Object>();
-        long now = System.currentTimeMillis();
         Object obj = Cache.get("query_user");
         if(null == obj){
             listUser = ilonwUserFacade.findAllIlonwUserInfo(pageData);

@@ -1,6 +1,6 @@
 package com.ilonw.server.biz.sys;
 
-import com.ilonw.server.bo.SysAppBO;
+import com.ilonw.server.bo.sys.SysAppBO;
 import org.springframework.stereotype.Service;
 
 @Service

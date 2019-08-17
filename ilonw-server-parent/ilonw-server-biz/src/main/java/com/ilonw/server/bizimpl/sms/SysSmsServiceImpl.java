@@ -1,9 +1,9 @@
 package com.ilonw.server.bizimpl.sms;
 
 import com.ilonw.server.biz.sms.SysSmsService;
-import com.ilonw.server.bo.SysEmailCodeBO;
-import com.ilonw.server.bo.SysEmailUrlBO;
-import com.ilonw.server.bo.SysSmsBO;
+import com.ilonw.server.bo.sms.SysEmailCodeBO;
+import com.ilonw.server.bo.sms.SysEmailUrlBO;
+import com.ilonw.server.bo.sms.SysSmsBO;
 import com.ilonw.server.repository.sms.SysEmailCodeRepository;
 import com.ilonw.server.repository.sms.SysEmailUrlRepository;
 import com.ilonw.server.repository.sms.SysSmsRepository;

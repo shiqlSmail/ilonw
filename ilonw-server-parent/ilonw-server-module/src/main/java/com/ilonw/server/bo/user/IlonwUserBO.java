@@ -1,4 +1,4 @@
-package com.ilonw.server.bo;
+package com.ilonw.server.bo.user;
 
 import java.io.Serializable;
 import java.util.Date;

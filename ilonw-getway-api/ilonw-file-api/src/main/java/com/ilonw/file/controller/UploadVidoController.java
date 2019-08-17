@@ -4,11 +4,10 @@ import com.ilonw.file.Service.FileService;
 import com.ilonw.file.base.BaseController;
 import com.ilonw.file.util.FileEntity;
 import com.ilonw.file.util.FileUploadTool;
-import com.ilonw.server.bo.TableFileBO;
+import com.ilonw.server.bo.file.TableFileBO;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.server.tools.date.DateUtil;
-import com.server.tools.util.ImageTools;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
@@ -46,6 +44,8 @@ public class UploadVidoController extends BaseController {
     @RequestMapping(value = "/vidos", method = RequestMethod.POST)
     @ApiOperation(value = "多视频上传接口", notes = "视频上传接口详细描述")
     public String fileUpload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
+        String ilonwUserId = (String)session.getAttribute("userId");
+
         TableFileBO tableFile = new TableFileBO();
         String Identification = "";
         FileUploadTool fileUploadTool = new FileUploadTool();
@@ -67,7 +67,7 @@ public class UploadVidoController extends BaseController {
                     tableFile.setFile_size(entity.getSize());
                     tableFile.setFile_type(fixname);
                     tableFile.setAuther((String)session.getAttribute("userId"));
-                    Identification = fileService.saveFile(tableFile);
+                    Identification = fileService.saveFile(tableFile,ilonwUserId);
                 } else {
                     return null;
                 }

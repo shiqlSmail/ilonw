@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
@@ -18,7 +19,7 @@ public class IlonwUserApiApplication extends SpringBootServletInitializer {
         ParserConfig.getGlobalInstance().setAsmEnable(true);
         System.setProperty("spring.devtools.restart.enabled", "false");
         SpringApplication.run(IlonwUserApiApplication.class, args);
-       // System.in.read(); // 为保证服务一直开着，利用输入流的阻塞来模拟
+        System.in.read(); // 为保证服务一直开着，利用输入流的阻塞来模拟
     }
 
     @Override

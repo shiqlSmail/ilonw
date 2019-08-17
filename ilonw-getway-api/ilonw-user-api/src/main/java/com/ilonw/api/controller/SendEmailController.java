@@ -2,8 +2,8 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.vo.EmailSendParam;
-import com.ilonw.server.bo.SysEmailCodeBO;
-import com.ilonw.server.bo.SysEmailUrlBO;
+import com.ilonw.server.bo.sms.SysEmailCodeBO;
+import com.ilonw.server.bo.sms.SysEmailUrlBO;
 import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.send.SendEmailUtils;

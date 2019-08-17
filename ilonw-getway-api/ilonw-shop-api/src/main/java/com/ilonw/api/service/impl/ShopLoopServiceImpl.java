@@ -1,0 +1,117 @@
+package com.ilonw.api.service.impl;
+
+import com.ilonw.api.enums.ShopLoopStatusEunms;
+import com.ilonw.api.service.ShopLoopService;
+import com.ilonw.api.vo.ShopLoopAddParam;
+import com.ilonw.api.vo.ShopLoopAdminResponse;
+import com.ilonw.api.vo.ShopLoopEditParam;
+import com.ilonw.api.vo.ShopLoopUserResponse;
+import com.ilonw.api.vo.convert.ShopLoopConvert;
+import com.ilonw.server.Eunms.UserEunms;
+import com.ilonw.server.bo.shop.ShopLoopBO;
+import com.ilonw.server.facade.shop.ShopLoopFacade;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class ShopLoopServiceImpl implements ShopLoopService {
+    @Resource
+    private ShopLoopFacade shopLoopFacade;
+
+    /**
+     * 首页显示商品轮播信息
+     *
+     * @return
+     */
+    public Map<String,Object> findLoopShop() {
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        List<ShopLoopBO> listBO = shopLoopFacade.findLoopShop();
+        map = getSuccessMap();
+        if(null == listBO || listBO.size() == 0){
+            map.put("data","暂无数据");
+        }else{
+            List<ShopLoopUserResponse> listShopLoopUserResponse = new ArrayList<>();
+            for (ShopLoopBO shopLoopBO : listBO) {
+                listShopLoopUserResponse.add(ShopLoopConvert.convertUser(shopLoopBO));
+            }
+            map.put("data",listShopLoopUserResponse);
+        }
+        return map;
+    }
+
+    /**
+     * 后台管理显示商品轮播信息
+     *
+     * @return
+     */
+    public Map<String,Object> findAllLoopShop() {
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        List<ShopLoopBO> listBO = shopLoopFacade.findAllLoopShop();
+        map = getSuccessMap();
+        if(null == listBO || listBO.size() == 0){
+            map.put("data","暂无数据");
+        }else {
+            List<ShopLoopAdminResponse> listShopLoopAdminResponse = new ArrayList<>();
+            for (ShopLoopBO shopLoopBO : listBO) {
+                listShopLoopAdminResponse.add(ShopLoopConvert.convertAdmin(shopLoopBO));
+            }
+            map.put("data", listShopLoopAdminResponse);
+        }
+        return map;
+    }
+
+    /**
+     * 新增首页轮播商品
+     *
+     * @param param
+     * @return
+     */
+    public Map<String,Object> saveLoopShop(ShopLoopAddParam param) {
+        Map<String,Object> map = new HashMap<String,Object>();
+
+        param.setLoopStatus(ShopLoopStatusEunms.NORMAL.getResCode());
+        boolean flag = shopLoopFacade.saveLoopShop(ShopLoopConvert.convertSave(param));
+        if(flag){
+            return getSuccessMap();
+        }else{
+            return getFailMap();
+        }
+    }
+
+    /**
+     * 后台修改轮播图信息
+     *
+     * @param param
+     * @return
+     */
+    public Map<String,Object> updateLoopShop(ShopLoopEditParam param) {
+
+        boolean flag = shopLoopFacade.updateLoopShop(ShopLoopConvert.convertUpdate(param));
+        if(flag){
+            return getSuccessMap();
+        }else{
+            return getFailMap();
+        }
+    }
+
+    public static Map<String,Object> getSuccessMap(){
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("resCode", UserEunms.SUCCESS.getResCode());
+        map.put("resMsg",UserEunms.SUCCESS.getResMsg());
+        return map;
+    }
+
+    public static Map<String,Object> getFailMap(){
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("resCode", UserEunms.FAIL.getResCode());
+        map.put("resMsg",UserEunms.FAIL.getResMsg());
+        return map;
+    }
+}

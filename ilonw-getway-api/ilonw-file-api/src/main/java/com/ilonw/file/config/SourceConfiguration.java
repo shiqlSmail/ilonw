@@ -17,6 +17,6 @@ public class SourceConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/loacl/img/**").addResourceLocations("classpath:/static/");
-        registry.addResourceHandler("/oss/**").addResourceLocations("file:/home/ilonw/upload"+DateUtil.formatDate1(new Date())+"/");
+        registry.addResourceHandler("/oss/**").addResourceLocations("file:"+localImgProperties);
     }
 }

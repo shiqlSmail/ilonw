@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+	   default-lazy-init="false">
+
+	<dubbo:reference interface="com.ilonw.server.facade.user.IlonwUserFacade" id="ilonwUserFacade"/>
+
+	<!-- 日志服务注册中心   服务暴漏，但不对外使用-->
+	<dubbo:reference interface="com.ilonw.server.facade.sys.SysIlonwLogsFacade" id="sysIlonwLogsFacade"/>
+
+	<!-- 首页商品轮播图-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.ShopLoopFacade" id="shopLoopFacade"/>
+</beans>

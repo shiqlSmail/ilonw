@@ -1,9 +1,7 @@
 package com.ilonw.server.convert;
 
 
-import com.ilonw.server.bo.AlipayOrderBO;
-import com.ilonw.server.bo.IlonwUserBO;
-import com.ilonw.server.bto.AlipayOrderBTO;
+import com.ilonw.server.bo.user.IlonwUserBO;
 import com.ilonw.server.bto.IlonwUserBTO;
 
 /**

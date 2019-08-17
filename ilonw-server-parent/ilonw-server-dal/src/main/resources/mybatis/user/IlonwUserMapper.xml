@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ilonw.server.repository.user.IlonwUserRepository">
 
-	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.IlonwUserBO">
+	<resultMap id="BaseResultMap" type="com.ilonw.server.bo.user.IlonwUserBO">
 		<id column="ilonw_user_id" jdbcType="VARCHAR" property="ilonwUserId" />
 		<result column="ilonw_user_code" jdbcType="VARCHAR" property="ilonwUserCode" />
 		<result column="ilonw_user_nikename" jdbcType="VARCHAR" property="ilonwUserNikename" />
@@ -36,7 +36,7 @@
 		select count(*)  from ilonw_user
 	</select>
 
-	<select id="checkIlonwUserByPhoneAndEmailAndCodeExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="checkIlonwUserByPhoneAndEmailAndCodeExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select count(*) from ilonw_user t
 		where 1=1
 		  and	(
@@ -49,7 +49,7 @@
 	</select>
 
 	<!-- 用户登录  根据账号密码 -->
-	<select id="loginIlonwUserByPhoneAndEmailAndCode" resultType="com.ilonw.server.bo.IlonwUserBO" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="loginIlonwUserByPhoneAndEmailAndCode" resultType="com.ilonw.server.bo.user.IlonwUserBO" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select <include refid="findIlonwUserColumn"/>  from ilonw_user t
 		where t.ilonw_user_phone = #{ilonwUserPhone,jdbcType=VARCHAR} and t.ilonw_user_password = #{ilonwUserPassword,jdbcType=VARCHAR}
 	<!-- (
@@ -62,28 +62,28 @@
 	</select>
 
 	<!-- 用户登录  根据手机号验证码 -->
-	<select id="loginIlonwUserByPhone" resultType="com.ilonw.server.bo.IlonwUserBO" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="loginIlonwUserByPhone" resultType="com.ilonw.server.bo.user.IlonwUserBO" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select <include refid="findIlonwUserColumn"/> from ilonw_user t
 		where t.ilonw_user_phone = #{ilonwUserPhone,jdbcType=VARCHAR}
 	</select>
 
-	<select id="checkIlonwUserByPhoneExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="checkIlonwUserByPhoneExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select count(*) from ilonw_user t
 		where t.ilonw_user_phone = #{ilonwUserPhone,jdbcType=VARCHAR}
 	</select>
 
-	<select id="checkIlonwUserByEmailExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="checkIlonwUserByEmailExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select count(*) from ilonw_user t
 		where t.ilonw_user_email = #{ilonwUserEmail,jdbcType=VARCHAR}
 	</select>
 
 
-	<select id="checkIlonwUserByCodeExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<select id="checkIlonwUserByCodeExits" resultType="java.lang.Integer" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		select count(*) from ilonw_user t
 		where t.ilonw_user_code = #{ilonwUserCode,jdbcType=VARCHAR}
 	</select>
 
-	<insert id="saveIlonwUserInfo" parameterType="com.ilonw.server.bo.IlonwUserBO" useGeneratedKeys="true">
+	<insert id="saveIlonwUserInfo" parameterType="com.ilonw.server.bo.user.IlonwUserBO" useGeneratedKeys="true">
 		insert into ilonw_user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="ilonwUserId != null">
@@ -181,7 +181,7 @@
 		</trim>
 	</insert>
 
-	<update id="updateIlonwUserPassword" parameterType="com.ilonw.server.bo.IlonwUserBO">
+	<update id="updateIlonwUserPassword" parameterType="com.ilonw.server.bo.user.IlonwUserBO">
 		update ilonw_user set ilonw_user_password = #{ilonwUserPassword,jdbcType=VARCHAR} where ilonw_user_phone = #{ilonwUserPhone,jdbcType=VARCHAR}
 	</update>
 </mapper>

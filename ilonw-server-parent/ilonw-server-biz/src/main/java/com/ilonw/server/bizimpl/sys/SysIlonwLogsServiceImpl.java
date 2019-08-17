@@ -1,7 +1,7 @@
 package com.ilonw.server.bizimpl.sys;
 
 import com.ilonw.server.biz.sys.SysIlonwLogsService;
-import com.ilonw.server.bo.SysIlonwLogsEntity;
+import com.ilonw.server.bo.sys.SysIlonwLogsEntity;
 import com.ilonw.server.repository.sys.SysIlonwLogsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
