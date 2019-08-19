@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ilonw.manager.dao.mapper.SysAdminDao" >
+  <resultMap id="BaseResultMap" type="com.ilonw.manager.domain.SysAdminBO" >
+    <id column="admin_id" property="adminId" jdbcType="INTEGER" />
+    <result column="admin_code" property="adminCode" jdbcType="INTEGER" />
+    <result column="admin_username" property="adminUsername" jdbcType="VARCHAR" />
+    <result column="admin_sex" property="adminSex" jdbcType="CHAR" />
+    <result column="admin_age" property="adminAge" jdbcType="INTEGER" />
+    <result column="admin_dept" property="adminDept" jdbcType="VARCHAR" />
+    <result column="admin_position" property="adminPosition" jdbcType="VARCHAR" />
+    <result column="admin_phone" property="adminPhone" jdbcType="VARCHAR" />
+    <result column="admin_email" property="adminEmail" jdbcType="VARCHAR" />
+    <result column="admin_role" property="adminRole" jdbcType="VARCHAR" />
+    <result column="admin_remark" property="adminRemark" jdbcType="VARCHAR" />
+    <result column="admin_img" property="adminImg" jdbcType="VARCHAR" />
+    <result column="admin_password" property="adminPassword" jdbcType="VARCHAR" />
+    <result column="admin_createtime" property="adminCreatetime" jdbcType="VARCHAR" />
+    <result column="admin_updatetime" property="adminUpdatetime" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    admin_id,admin_code, admin_username, admin_sex, admin_age, admin_dept, admin_position, admin_phone,
+    admin_email, admin_role, admin_remark, admin_img, admin_password, admin_createtime, 
+    admin_updatetime
+  </sql>
+
+  <select id="login" resultMap="BaseResultMap" parameterType="com.ilonw.manager.vo.SysAdminRequest" >
+    select <include refid="Base_Column_List" />
+    from sys_admin  where admin_code = #{adminCode,jdbcType=INTEGER} and admin_password = #{adminPassword,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_admin
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin
+    where admin_code = #{adminCode,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_admin
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.ilonw.manager.domain.SysAdminBO" >
+    insert into sys_admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminUsername != null" >
+        admin_username,
+      </if>
+      <if test="adminSex != null" >
+        admin_sex,
+      </if>
+      <if test="adminAge != null" >
+        admin_age,
+      </if>
+      <if test="adminDept != null" >
+        admin_dept,
+      </if>
+      <if test="adminPosition != null" >
+        admin_position,
+      </if>
+      <if test="adminPhone != null" >
+        admin_phone,
+      </if>
+      <if test="adminEmail != null" >
+        admin_email,
+      </if>
+      <if test="adminRole != null" >
+        admin_role,
+      </if>
+      <if test="adminRemark != null" >
+        admin_remark,
+      </if>
+      <if test="adminImg != null" >
+        admin_img,
+      </if>
+      <if test="adminPassword != null" >
+        admin_password,
+      </if>
+      <if test="adminCreatetime != null" >
+        admin_createtime,
+      </if>
+      <if test="adminUpdatetime != null" >
+        admin_updatetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminUsername != null" >
+        #{adminUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adminSex != null" >
+        #{adminSex,jdbcType=CHAR},
+      </if>
+      <if test="adminAge != null" >
+        #{adminAge,jdbcType=INTEGER},
+      </if>
+      <if test="adminDept != null" >
+        #{adminDept,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPosition != null" >
+        #{adminPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null" >
+        #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null" >
+        #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="adminRole != null" >
+        #{adminRole,jdbcType=VARCHAR},
+      </if>
+      <if test="adminRemark != null" >
+        #{adminRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="adminImg != null" >
+        #{adminImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPassword != null" >
+        #{adminPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreatetime != null" >
+        #{adminCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUpdatetime != null" >
+        #{adminUpdatetime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ilonw.manager.domain.SysAdminBO" >
+    update sys_admin
+    <set >
+      <if test="adminUsername != null" >
+        admin_username = #{adminUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="adminSex != null" >
+        admin_sex = #{adminSex,jdbcType=CHAR},
+      </if>
+      <if test="adminAge != null" >
+        admin_age = #{adminAge,jdbcType=INTEGER},
+      </if>
+      <if test="adminDept != null" >
+        admin_dept = #{adminDept,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPosition != null" >
+        admin_position = #{adminPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPhone != null" >
+        admin_phone = #{adminPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="adminEmail != null" >
+        admin_email = #{adminEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="adminRole != null" >
+        admin_role = #{adminRole,jdbcType=VARCHAR},
+      </if>
+      <if test="adminRemark != null" >
+        admin_remark = #{adminRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="adminImg != null" >
+        admin_img = #{adminImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adminPassword != null" >
+        admin_password = #{adminPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="adminCreatetime != null" >
+        admin_createtime = #{adminCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUpdatetime != null" >
+        admin_updatetime = #{adminUpdatetime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=INTEGER}
+  </update>
+</mapper>

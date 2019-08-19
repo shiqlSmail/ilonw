@@ -31,95 +31,85 @@
 			<div class="box-module height100b margin0">
 				<div class="box-title">个人信息</div>
 				<div class="box-content padding15">
-					<div class="Promp_plate btn-green "><b>提示：</b>如果你喜欢我的框架，不妨捐赠，无论金额大小，都非常感谢，同时也是对我努力的回报，同时会更好的完善框架。
-						<span class="iconfont PrompClose">&#xe627</span>
-					</div>
 			        <!--个人信息-->
 			        <div class="add_content clearfix mt15" >
 			        	<div class="clearfix" id="user_details"></div>
 			        	<div class="buttonstyle"><button type="button"  class="btn padding10 bg-deep-blue" onclick="modifybtn()">保存修改</button></div>
-			        </div> 
+			        </div>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
 <script id='userinfoHtml' type='text/html' >
-<% for(var i = 0; i < list.length; i++) { %>
-	<% if(list[i].id==id){%>
-			        	<ul class="info_list" id="VerifyTips">
-			        		<li class="clearfix content_look mb15">
-			        			<label class="label_name">用户头像：</label>
-								<span class="info_data">
-									<div class="gradeimg-style"> 
-									<div class="Upload-screenshot">
-									<img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
-									<input name="url" type="file" class="upload_input" accept="image/*">
-									<input type="hidden" id="img" name="img">
-									<div class="preBlock">
-										<img class="preview" alt="" name="pic" onerror="this.src='images/zjbg_03.png',this.onerror=null">
-									</div>
-									<img class="delete" src="images/delete.png">
-								</div>
-							    </div>
-								</span>
-							</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name"><em style="color:Red;">*</em>用户名：</label>
-			        			<span class="info_data"><input data-name="用户名" type="text" value="<%=list[i].name%>" name="Required" class="text_input col-sm-4" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name">性别：</label>
-			        			<span class="info_data">
-			        			 <% if(list[i].sex==0){ %>  
-			        			 	<input data-name="性别" type="text" name=""value="保密" class="text_input col-sm-4" data-verify="verify"/>
-			        			 	<% } else if(list[i].sex==1){ %>
-			        			 	<input data-name="性别" type="text" name=""value="男" class="text_input col-sm-4" data-verify="verify"/>
-			        			     <% } else if(list[i].sex==2) { %> 
-			        			 	<input data-name="性别" type="text" name=""value="女" class="text_input col-sm-4" data-verify="verify"/>
-			        			 	<% } %>
-			        			</span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name">年龄：</label>
-			        			<span class="info_data"><input data-name="年龄" type="text" name=""value="<%=list[i].age%>" class="text_input col-sm-4" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name"><em style="color:Red;">*</em>部门：</label>
-			        			<span class="info_data"><input data-name="部门" name="Required" value="<%=list[i].department%>"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name"><em style="color:Red;">*</em>职位：</label>
-			        			<span class="info_data"><input data-name="职位" name="Required" value="<%=list[i].position%>" type="text"  class="text_input col-sm-4" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name">角色：</label>
-			        			<span class="info_data">
-			        			<% for(var j = 0; j < grade.length; j++) { %>
-			        				<% if(list[i].grade==grade[j].id){ %>
-			        			<input data-name="角色"  type="text"  class="text_input" value="<%=grade[j].name%>" readonly="readonly"/>
-			        			<% } %>
-			        			<% } %>
-			        			<em style="color:#999999; margin-left: 10px;">该角色由最高权限管理员修改</em></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name"><em style="color:Red;">*</em>手机：</label>
-			        			<span class="info_data"><input data-name="手机号码" name="Required" type="text" value="<%=list[i].Phone%>" class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name"><em style="color:Red;">*</em>邮箱：</label>
-			        			<span class="info_data"><input data-name="邮箱" name="Required" type="text" value="<%=list[i].mailbox%>" class="text_input col-sm-4" value="" data-prompt="mailbox" data-verify="verify"/></span>
-			        		</li>
-			        		<li class=" clearfix content_look mb15">
-			        			<label class="label_name">说明：</label>
-			        			<span class="info_data"><textarea data-name="说明" name="" class="form-textarea textarea-info" id="form_textarea" placeholder=""><%=list[i].content%></textarea>
-			        			</span>
-							</li>
-			        	</ul>
-	<% } %>
-<% } %>
+            <ul class="info_list" id="VerifyTips">
+                <li class="clearfix content_look mb15">
+                    <label class="label_name">用户头像：</label>
+                    <span class="info_data">
+                        <div class="gradeimg-style">
+                        <div class="Upload-screenshot">
+                        <img class="addImg" src="" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+                        <input name="url" type="file" class="upload_input" accept="image/*">
+                        <input type="hidden" id="img" name="img">
+                        <div class="preBlock">
+                            <img class="preview" alt="" name="pic" onerror="this.src='images/zjbg_03.png',this.onerror=null">
+                        </div>
+                        <img class="delete" src="images/delete.png">
+                    </div>
+                    </div>
+                    </span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name"><em style="color:Red;">*</em>用户名：</label>
+                    <span class="info_data"><input data-name="用户名" type="text" value="<%=data.adminUsername%>" id="adminUsername" class="text_input col-sm-4" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name">性别：</label>
+                    <span class="info_data">
+                     <% if(data.adminSex=='BM'){ %>
+                        <input data-name="性别" type="text" id="adminSex"value="保密" class="text_input col-sm-4" data-verify="verify"/>
+                        <% } else if(data.adminSex=='NAN'){ %>
+                        <input data-name="性别" type="text" id="adminSex"value="男" class="text_input col-sm-4" data-verify="verify"/>
+                         <% } else if(data.adminSex=='NV') { %>
+                        <input data-name="性别" type="text" id="adminSex"value="女" class="text_input col-sm-4" data-verify="verify"/>
+                        <% } %>
+                    </span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name">年龄：</label>
+                    <span class="info_data"><input data-name="年龄" type="text" id="adminAge"value="<%=data.adminAge%>" class="text_input col-sm-4" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name"><em style="color:Red;">*</em>部门：</label>
+                    <span class="info_data"><input data-name="部门" id="adminDept" value="<%=data.adminDept%>"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name"><em style="color:Red;">*</em>职位：</label>
+                    <span class="info_data"><input data-name="职位" id="adminPosition" value="<%=data.adminPosition%>" type="text"  class="text_input col-sm-4" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name">角色：</label>
+                    <span class="info_data">
+                    <input data-name="角色"  type="text"  class="text_input" value="<%=data.adminRole%>" readonly="readonly"/>
+                    <em style="color:#999999; margin-left: 10px;">该角色由最高权限管理员修改</em></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name"><em style="color:Red;">*</em>手机：</label>
+                    <span class="info_data"><input data-name="手机号码" id="adminPhone" type="text" value="<%=data.adminPhone%>" class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name"><em style="color:Red;">*</em>邮箱：</label>
+                    <span class="info_data"><input data-name="邮箱" id="adminEmail" type="text" value="<%=data.adminEmail%>" class="text_input col-sm-4" value="" data-prompt="mailbox" data-verify="verify"/></span>
+                </li>
+                <li class=" clearfix content_look mb15">
+                    <label class="label_name">说明：</label>
+                    <span class="info_data"><textarea data-name="说明" id="adminRemark" class="form-textarea textarea-info" id="form_textarea" placeholder=""><%=data.adminRemark%></textarea>
+                    </span>
+                </li>
+                <input  id="adminId" type="hidden" value="<%=data.adminId%>"/>
+            </ul>
 </script>
-<script>	
+<script>
 		$(function() {
 		$("#pagestyle").Hupage({
 			scrollbar: function(e) {
@@ -148,12 +138,12 @@
 				return null;
 			}
 		})(jQuery); //设置url
-		var userid = $.getUrlParam('userid');
 		//编辑数据
 		var userinfo = function(callback) {
 			$.ajax({
-				url: "json/userData.json",
-				type: "GET",
+				//url: "json/userData.json",
+				url:"http://localhost:8000/admin/find",
+				type: "POST",
 				dataType: 'json',
 				success: function(ret) {
 					typeof callback == 'function' && callback(ret);
@@ -163,9 +153,7 @@
 		userinfo(function(listArr) {
 			var listhtml = $('#user_details');
 			var html = template('userinfoHtml', {
-				id: userid,
-				grade: listArr.grade,
-				list: listArr.administrator
+                data: listArr.data
 			});
 			listhtml.html(html);
 			$("#userinfoHtml").remove();
@@ -177,10 +165,33 @@
 	            new Wordcount("form_textarea",200);
 		});
 	//提交操作
-	
+
 	function modifybtn(){
-		
-	new huprompt("VerifyTips");
-		
+        console.log(new huprompt("VerifyTips"));
+        var params = {
+            "adminId": $("#adminId").val(),
+            "adminUsername": $("#adminUsername").val(),
+            "adminSex": $("#adminSex").val(),
+            "adminAge": $("#adminAge").val(),
+            "adminDept": $("#adminDept").val(),
+            "adminPosition": $("#adminPosition").val(),
+            "adminPhone": $("#adminPhone").val(),
+            "adminEmail": $("#adminEmail").val(),
+            "adminRemark": $("#adminRemark").val()
+        };
+        $.ajax({
+            url:"http://localhost:8000/admin/update",
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify(params),
+            success: function(ret) {
+                if(ret > 0){
+                    alert("修改成功");
+                    location.href = "index.html";
+                }else{
+                    alert("修改失败");
+                }
+            },
+        });
 	}
 </script>

@@ -71,9 +71,6 @@
 										<ul>
 											<li class="frame_style form_error"><label class="user_icon iconfont">&#xe620;</label><input name="" type="text" data-name="用户名" id="username" /><i>用户名</i></li>
 											<li class="frame_style form_error"><label class="password_icon iconfont">&#xe625;</label><input name="" type="password" data-name="密码" id="userpwd" /><i>密码</i></li>
-											<li class="frame_style form_error"><label class="Codes_icon iconfont">&#xe624;</label><input name="" type="text" data-name="验证码" id="Codes_text" /><i>验证码</i>
-												<div class="Codes_region"><img src="images/yanzhengma.png" width="100%" height="38px"></div>
-											</li>
 										</ul>
 										<div class="space"></div>
 										<div class="clearfix">
@@ -100,49 +97,76 @@
 </html>
 <script type="text/javascript">
 	//验证登录
-	$(document).ready(function() {	
-		$("input[type='text'],input[type='password']").blur(function() {
+	$(document).ready(function() {
+		$("input[type='text'],input[type='password']").blur(function () {
 			var $el = $(this);
-			var inputname=0;
+			var inputname = 0;
 			var $parent = $el.parent();
 			$parent.attr('class', 'frame_style').removeClass(' form_error');
-			if($el.val() == '') {
-				var name=$el.attr("data-name");
+			if ($el.val() == '') {
+				var name = $el.attr("data-name");
 				$parent.attr('class', 'frame_style').addClass(' form_error form_prompt');
-				$parent.find('i').eq(inputname).html(name+"不能为空").addClass("prompt");
+				$parent.find('i').eq(inputname).html(name + "不能为空").addClass("prompt");
 			}
 		});
-		$("input[type='text'],input[type='password']").focus(function() {
+		$("input[type='text'],input[type='password']").focus(function () {
 			var $el = $(this);
 			var $parent = $el.parent();
-			if($el.val() == '') {
+			if ($el.val() == '') {
 				$parent.attr('class', 'frame_style').addClass(' form_errors');
 			} else {
 				$parent.attr('class', 'frame_style').removeClass(' form_errors');
 			}
 		});
-	  $('#login_btn').on('click', function() {
-		var num = 0;
-		var str = "";
-		$("input[type$='text'],input[type$='password']").each(function(n) {
-			var $el = $(this);		
-			var inputname=0;
-			var $parent = $el.parent();
-			if($el.val() == "") {
-				var name=$el.attr("data-name");
-				$parent.attr('class', 'frame_style').addClass(' form_error form_prompt');
-                 $parent.find('i').eq(inputname).html(name+"不能为空").addClass("prompt");
-				num++;
+		$('#login_btn').on('click', function () {
+			var num = 0;
+			var str = "";
+			$("input[type$='text'],input[type$='password']").each(function (n) {
+				var $el = $(this);
+				var inputname = 0;
+				var $parent = $el.parent();
+				if ($el.val() == "") {
+					var name = $el.attr("data-name");
+					$parent.attr('class', 'frame_style').addClass(' form_error form_prompt');
+					$parent.find('i').eq(inputname).html(name + "不能为空").addClass("prompt");
+					num++;
+					return false;
+				}
+			});
+			if (num > 0) {
 				return false;
+			} else {
+				//请求参数
+				var params = {
+					"adminCode": $("#username").val(),
+					"adminPassword": $("#userpwd").val()
+				};
+				//ajax 判断用户名是否存在
+				$.ajax({
+					//请求方式
+					type: "POST",
+					//请求的媒体类型
+					contentType: "application/json;charset=UTF-8",
+					//请求地址
+					url: "http://localhost:8000/sys/login",
+					//数据，json字符串
+					data: JSON.stringify(params),
+					//请求成功
+					success: function (result) {
+						if ("" != result.respData.data) {
+							location.href = "index.html";
+						} else {
+							alert("用户名或密码错误");
+							location.href = "login.html";
+						}
+					},
+					//请求失败，包含具体的错误信息
+					error: function (e) {
+						location.href = "login.html";
+					}
+				});
 			}
-		});
-		if(num > 0) {
-			return false;
-		} else {
-			//ajax 判断用户名是否存在
-			location.href = "index.html";
-		}
-	});
+		})
 	})
 	//框架设置
 	$(function() {
