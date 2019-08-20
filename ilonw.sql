@@ -1,19 +1,3 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : localhost
- Source Server Type    : MySQL
- Source Server Version : 50096
- Source Host           : localhost:3306
- Source Schema         : ilonw
-
- Target Server Type    : MySQL
- Target Server Version : 50096
- File Encoding         : 65001
-
- Date: 19/08/2019 17:58:21
-*/
-
 
 -- ----------------------------
 -- Table structure for alipay_order
@@ -63,7 +47,6 @@ CREATE TABLE `ilonw_logs`  (
   `log_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY USING BTREE (`log_id`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
 
 -- ----------------------------
 -- Table structure for ilonw_user
@@ -153,13 +136,14 @@ CREATE TABLE `sys_admin`  (
   `admin_password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `admin_createtime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `admin_updatetime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `admin_status` int(5) NULL DEFAULT NULL,
   PRIMARY KEY USING BTREE (`admin_id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_admin
 -- ----------------------------
-INSERT INTO `sys_admin` VALUES (1, 10000, '师奇隆', '男', 27, 'admin', 'admin', '17621663876', 'jack1053996819@163.com', 'admin', 'admin', NULL, 'admin', '2019/08/19 00:00:00', '2019/08/19 16:10:35');
+INSERT INTO `sys_admin` VALUES (1, 10000, '师奇隆', 'NAN', 27, 'admin', 'admin', '17621663876', 'jack1053996819@163.com', 'ADMIN', 'admin', NULL, 'admin', '2019/08/19 00:00:00', '2019/08/19 16:10:35', 1);
 
 -- ----------------------------
 -- Table structure for sys_app
@@ -177,6 +161,26 @@ CREATE TABLE `sys_app`  (
   `app_public_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY USING BTREE (`app_channel`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for sys_dept
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_dept`;
+CREATE TABLE `sys_dept`  (
+  `dept_id` int(10) NOT NULL AUTO_INCREMENT,
+  `dept_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dept_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dept_createtime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dept_updatetime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `dept_status` int(5) NULL DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`dept_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_dept
+-- ----------------------------
+INSERT INTO `sys_dept` VALUES (1, 'ADMIN', 'ADMIN', '2019/08/20 16:18:33', '2019/08/20 16:18:33', 1);
+INSERT INTO `sys_dept` VALUES (2, '技术部', 'JISHUBU', '2019/08/20 16:24:13', '2019/08/20 16:24:13', 1);
 
 -- ----------------------------
 -- Table structure for sys_email
@@ -215,6 +219,29 @@ CREATE TABLE `sys_emailurl`  (
 INSERT INTO `sys_emailurl` VALUES ('1', 'http://www.ilonw.com', 1, '2019-08-04 23:28:04', 'jack1053996819@163.com');
 
 -- ----------------------------
+-- Table structure for sys_login
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_login`;
+CREATE TABLE `sys_login`  (
+  `login_id` int(10) NOT NULL AUTO_INCREMENT,
+  `login_ip` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `login_username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `login_address` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `login_status` int(5) NULL DEFAULT NULL,
+  `login_time` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `login_role` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `login_code` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`login_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_login
+-- ----------------------------
+INSERT INTO `sys_login` VALUES (1, '127.0.0.1', '师奇隆', '成都', 1, '2019/08/20 00：00：00', 'ADMIN', 10000);
+INSERT INTO `sys_login` VALUES (2, '127.0.0.1', '师奇隆', '成都', 1, '2019/08/20 17:59:32', 'ADMIN', 10000);
+INSERT INTO `sys_login` VALUES (3, '127.0.0.1', '师奇隆', '成都', 1, '2019/08/20 18:00:33', 'ADMIN', 10000);
+
+-- ----------------------------
 -- Table structure for sys_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
@@ -225,41 +252,89 @@ CREATE TABLE `sys_menu`  (
   `icon` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY USING BTREE (`id`)
-) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
 INSERT INTO `sys_menu` VALUES (1, 0, 'index_home.html', 'iconfont icon-home', '系统首页');
-INSERT INTO `sys_menu` VALUES (2, 0, '', 'iconfont icon-iconsp2', '产品管理');
-INSERT INTO `sys_menu` VALUES (3, 0, '', 'iconfont icon-suoshuzhiwei', '交易管理');
-INSERT INTO `sys_menu` VALUES (4, 0, '', 'iconfont icon-xiangmuguanli', '支付管理');
-INSERT INTO `sys_menu` VALUES (5, 0, '', 'iconfont icon-yonghuguanli', '系统管理');
-INSERT INTO `sys_menu` VALUES (6, 0, '', 'iconfont icon-usergroup', '会员管理');
-INSERT INTO `sys_menu` VALUES (7, 0, '', 'iconfont icon-guanggao', '广告管理');
-INSERT INTO `sys_menu` VALUES (8, 0, '', 'iconfont icon-system-copy', '框架说明');
-INSERT INTO `sys_menu` VALUES (9, 0, '', 'iconfont icon-dianpu', '店铺管理');
-INSERT INTO `sys_menu` VALUES (100, 2, 'product_Manage.html?id=0', '', '商品管理');
-INSERT INTO `sys_menu` VALUES (101, 2, 'Brand_Manage.html', '', '品牌管理');
-INSERT INTO `sys_menu` VALUES (102, 2, 'product_statistics.html', '', '产品统计');
-INSERT INTO `sys_menu` VALUES (103, 2, 'classify.html', '', '分类管理');
-INSERT INTO `sys_menu` VALUES (104, 7, 'advertise.html', '', '广告管理');
-INSERT INTO `sys_menu` VALUES (105, 3, 'order_list.html', '', '订单列表');
-INSERT INTO `sys_menu` VALUES (106, 3, 'delivery_list.html', '', '发货管理');
-INSERT INTO `sys_menu` VALUES (107, 3, 'wuliu.html', '', '快递物流');
-INSERT INTO `sys_menu` VALUES (109, 4, 'defray.html', '', '支付设置');
-INSERT INTO `sys_menu` VALUES (110, 4, 'defray_type.html', '', '支付类型');
-INSERT INTO `sys_menu` VALUES (111, 6, 'member.html', '', '会员列表');
-INSERT INTO `sys_menu` VALUES (112, 6, 'member.html', '', '会员等级');
-INSERT INTO `sys_menu` VALUES (113, 5, 'system_info.html', '', '系统设置');
-INSERT INTO `sys_menu` VALUES (114, 5, 'administrator.html', '', '系统用户');
-INSERT INTO `sys_menu` VALUES (115, 8, 'rizhi_list.html', '', '字体库');
-INSERT INTO `sys_menu` VALUES (116, 8, 'explanation.html', '', '结构说明');
-INSERT INTO `sys_menu` VALUES (117, 8, 'module.html', '', '模块说明');
-INSERT INTO `sys_menu` VALUES (118, 5, 'userinfo.html?userid=1', '', '个人信息');
-INSERT INTO `sys_menu` VALUES (119, 5, 'administrators.html', '', '登录记录');
-INSERT INTO `sys_menu` VALUES (120, 9, 'shopinfo.html', '', '店铺信息');
-INSERT INTO `sys_menu` VALUES (121, 5, NULL, NULL, '菜单管理');
+INSERT INTO `sys_menu` VALUES (2, 0, '', 'iconfont icon-yonghuguanli', '系统管理');
+INSERT INTO `sys_menu` VALUES (3, 0, '', 'iconfont icon-users', '用户管理');
+INSERT INTO `sys_menu` VALUES (4, 0, '', 'iconfont icon-iconsp2', '产品管理');
+INSERT INTO `sys_menu` VALUES (5, 0, '', 'iconfont icon-suoshuzhiwei', '交易管理');
+INSERT INTO `sys_menu` VALUES (6, 0, '', 'iconfont icon-xiangmuguanli', '支付管理');
+INSERT INTO `sys_menu` VALUES (7, 0, '', 'iconfont icon-usergroup', '会员管理');
+INSERT INTO `sys_menu` VALUES (8, 0, '', 'iconfont icon-guanggao', '广告管理');
+INSERT INTO `sys_menu` VALUES (9, 0, '', 'iconfont icon-system-copy', '框架说明');
+INSERT INTO `sys_menu` VALUES (10, 0, '', 'iconfont icon-dianpu', '店铺管理');
+INSERT INTO `sys_menu` VALUES (11, 0, '', 'iconfont icon-department', '统计分析');
+INSERT INTO `sys_menu` VALUES (100, 2, NULL, NULL, '菜单管理');
+INSERT INTO `sys_menu` VALUES (101, 2, 'system_info.html', '', '系统设置');
+INSERT INTO `sys_menu` VALUES (102, 2, 'system_info.html', '', '配置管理');
+INSERT INTO `sys_menu` VALUES (103, 3, 'userinfo.html?userid=1', '', '个人信息');
+INSERT INTO `sys_menu` VALUES (104, 3, 'loginHistory.html', '', '登录记录');
+INSERT INTO `sys_menu` VALUES (105, 3, 'dept.html', '', '部门管理');
+INSERT INTO `sys_menu` VALUES (106, 3, 'role.html', '', '角色管理');
+INSERT INTO `sys_menu` VALUES (107, 3, 'position.html', '', '职位管理');
+INSERT INTO `sys_menu` VALUES (108, 3, 'administrator.html', '', '系统用户');
+INSERT INTO `sys_menu` VALUES (109, 4, 'product_Manage.html?id=0', '', '商品管理');
+INSERT INTO `sys_menu` VALUES (110, 4, 'Brand_Manage.html', '', '品牌管理');
+INSERT INTO `sys_menu` VALUES (111, 4, 'classify.html', '', '分类管理');
+INSERT INTO `sys_menu` VALUES (112, 5, 'order_list.html', '', '订单列表');
+INSERT INTO `sys_menu` VALUES (113, 5, 'delivery_list.html', '', '发货管理');
+INSERT INTO `sys_menu` VALUES (114, 5, 'wuliu.html', '', '快递物流');
+INSERT INTO `sys_menu` VALUES (115, 6, 'defray.html', '', '支付设置');
+INSERT INTO `sys_menu` VALUES (116, 6, 'defray_type.html', '', '支付类型');
+INSERT INTO `sys_menu` VALUES (117, 7, 'member.html', '', '会员列表');
+INSERT INTO `sys_menu` VALUES (118, 7, 'member.html', '', '会员等级');
+INSERT INTO `sys_menu` VALUES (119, 7, 'member.html', '', '收货地址');
+INSERT INTO `sys_menu` VALUES (120, 8, 'advertise.html', '', '广告管理');
+INSERT INTO `sys_menu` VALUES (121, 9, 'rizhi_list.html', '', '字体库');
+INSERT INTO `sys_menu` VALUES (122, 9, 'explanation.html', '', '结构说明');
+INSERT INTO `sys_menu` VALUES (123, 9, 'module.html', '', '模块说明');
+INSERT INTO `sys_menu` VALUES (124, 10, 'shopinfo.html', '', '店铺信息');
+INSERT INTO `sys_menu` VALUES (125, 11, 'product_statistics.html', '', '交易统计');
+INSERT INTO `sys_menu` VALUES (126, 11, 'product_statistics.html', '', '商品统计');
+INSERT INTO `sys_menu` VALUES (127, 11, 'product_statistics.html', '', '品牌统计');
+
+-- ----------------------------
+-- Table structure for sys_position
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_position`;
+CREATE TABLE `sys_position`  (
+  `position_id` int(10) NOT NULL AUTO_INCREMENT,
+  `position_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `position_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `position_createtime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `position_updatetime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `position_status` int(5) NULL DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`position_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_position
+-- ----------------------------
+INSERT INTO `sys_position` VALUES (1, 'KEFU', '客服', '2019/08/20 17:11:39', '2019/08/20 17:11:39', 1);
+
+-- ----------------------------
+-- Table structure for sys_role
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_role`;
+CREATE TABLE `sys_role`  (
+  `role_id` int(10) NOT NULL AUTO_INCREMENT,
+  `role_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_createtime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_updatetime` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `role_status` int(5) NULL DEFAULT NULL,
+  PRIMARY KEY USING BTREE (`role_id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sys_role
+-- ----------------------------
+INSERT INTO `sys_role` VALUES (1, 'ADMIN', '超级管理员', '2019/08/20 17:04:11', '2019/08/20 17:04:11', 1);
+INSERT INTO `sys_role` VALUES (2, 'SYSADMIN', '系统管理员', '2019/08/20 17:04:12', '2019/08/20 17:04:12', 1);
 
 -- ----------------------------
 -- Table structure for sys_sms
@@ -294,7 +369,6 @@ CREATE TABLE `table_file`  (
   `Identification` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片唯一标识，不同于ID',
   PRIMARY KEY USING BTREE (`file_id`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 0 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
-
 
 
 -- ----------------------------
