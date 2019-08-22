@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ilonw.manager.dao.mapper.SysRoleDao" >
+  <resultMap id="BaseResultMap" type="com.ilonw.manager.domain.SysRoleBO" >
+    <id column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="role_createtime" property="roleCreatetime" jdbcType="VARCHAR" />
+    <result column="role_updatetime" property="roleUpdatetime" jdbcType="VARCHAR" />
+    <result column="role_status" property="roleStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    role_id, role_code, role_name, role_createtime, role_updatetime, role_status
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />  from sys_role
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select  <include refid="Base_Column_List" />  from sys_role where role_id = #{roleId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_role where role_id = #{roleId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.ilonw.manager.domain.SysRoleBO" >
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="roleCode != null" >
+        role_code,
+      </if>
+      <if test="roleName != null" >
+        role_name,
+      </if>
+      <if test="roleCreatetime != null" >
+        role_createtime,
+      </if>
+      <if test="roleUpdatetime != null" >
+        role_updatetime,
+      </if>
+      <if test="roleStatus != null" >
+        role_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="roleCode != null" >
+        #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreatetime != null" >
+        #{roleCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUpdatetime != null" >
+        #{roleUpdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleStatus != null" >
+        #{roleStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.ilonw.manager.domain.SysRoleBO" >
+    update sys_role
+    <set >
+      <if test="roleCode != null" >
+        role_code = #{roleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleCreatetime != null" >
+        role_createtime = #{roleCreatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleUpdatetime != null" >
+        role_updatetime = #{roleUpdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="roleStatus != null" >
+        role_status = #{roleStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+</mapper>

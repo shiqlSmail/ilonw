@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ilonw.manager.dao.mapper.SysLoginDao" >
+  <resultMap id="BaseResultMap" type="com.ilonw.manager.domain.SysLoginBO" >
+    <id column="login_id" property="loginId" jdbcType="INTEGER" />
+    <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
+    <result column="login_username" property="loginUsername" jdbcType="VARCHAR" />
+    <result column="login_address" property="loginAddress" jdbcType="VARCHAR" />
+    <result column="login_status" property="loginStatus" jdbcType="INTEGER" />
+    <result column="login_time" property="loginTime" jdbcType="VARCHAR" />
+    <result column="login_role" property="loginRole" jdbcType="VARCHAR" />
+    <result column="login_code" property="loginCode" jdbcType="INTEGER" />
+
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    login_id, login_ip,login_code, login_username, login_address, login_status, login_time, login_role,role_name
+  </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.ilonw.manager.domain.SysLoginBO">
+    select <include refid="Base_Column_List" />  from sys_login login,sys_role role  where login.login_role = role.role_code and login.login_code = #{loginCode,jdbcType=INTEGER}
+  </select>
+
+  <insert id="insertSelective" parameterType="com.ilonw.manager.domain.SysLoginBO" >
+    insert into sys_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        login_id,
+      </if>
+      <if test="loginIp != null" >
+        login_ip,
+      </if>
+      <if test="loginUsername != null" >
+        login_username,
+      </if>
+      <if test="loginAddress != null" >
+        login_address,
+      </if>
+      <if test="loginStatus != null" >
+        login_status,
+      </if>
+      <if test="loginTime != null" >
+        login_time,
+      </if>
+      <if test="loginRole != null" >
+        login_role,
+      </if>
+      <if test="loginCode != null" >
+        login_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="loginId != null" >
+        #{loginId,jdbcType=INTEGER},
+      </if>
+      <if test="loginIp != null" >
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginUsername != null" >
+        #{loginUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAddress != null" >
+        #{loginAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="loginStatus != null" >
+        #{loginStatus,jdbcType=INTEGER},
+      </if>
+      <if test="loginTime != null" >
+        #{loginTime,jdbcType=VARCHAR},
+      </if>
+      <if test="loginRole != null" >
+        #{loginRole,jdbcType=VARCHAR},
+      </if>
+      <if test="loginCode != null" >
+        #{loginCode,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
