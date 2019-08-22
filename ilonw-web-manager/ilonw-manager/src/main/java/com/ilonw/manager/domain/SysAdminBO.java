@@ -33,6 +33,16 @@ public class SysAdminBO   implements Serializable {
 
     private String adminUpdatetime;
 
+    private Integer adminStatus;
+
+    public Integer getAdminStatus() {
+        return adminStatus;
+    }
+
+    public void setAdminStatus(Integer adminStatus) {
+        this.adminStatus = adminStatus;
+    }
+
     public Integer getAdminCode() {
         return adminCode;
     }

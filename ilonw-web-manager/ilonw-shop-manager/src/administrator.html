@@ -16,7 +16,6 @@
 		<link href="css/module.css" rel="stylesheet" type="text/css" />
 		<link href="css/pages.css" rel="stylesheet" type="text/css" />
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<title>管理员</title>
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 		<script src="js/HUpages.js" type="text/javascript"></script>
@@ -32,11 +31,8 @@
 			<div class="box-module height100b margin0">
 				<div class="box-title">管理员列表</div>
 				<div class="box-content padding15" id="add_payment_style">
-					<div class="Promp_plate alert-danger mb15"> 
-						<b>提示：</b>添加支付方式需申请相应的接口，才能使用。<span class="iconfont PrompClose">&#xe627</span>
-					</div>
 					<!--管理员列表-->
-					
+
 					<ul class="menulist Article-ope clearfix mb15">
 					<li class="column-name l_f width0">
 						<a href="javascript:void(0)" class="btn button_btn btn-danger" onclick=""><i class="iconfont">&#xe6b4</i>&nbsp;批量删除</a>
@@ -45,33 +41,25 @@
 						<a href="javascript:void(0)" title="添加管理员" class="btn button_btn bg-deep-blue menuUl_title" name="add_administrator.html" data-id="675"><i class="iconfont">&#xe685</i>&nbsp;添加管理员</a>
 					</li>
 				</ul>
-				
+
 					<div class="administrator" id="administrator">
-						
-						
+
+
 					</div>
 				</div>
 			</div>
-		</div>	
+		</div>
 	</body>
 </html>
 <script id="administratorhtml" type="text/html">
-	<div class="cell-item">
-	 <label class="cell-left label_name">筛选：</label>
-	 <span class="cell-right">
-	 	<select class="select Competence_sort" name="admin-role" size="1" onclick="competenceSort(this)">
-	 	            <option value="0">--角色分类--</option>
-	 	 <% for(var j = 0; j < grade.length; j++) { %>	     
-				    <option value=" <%=grade[j].id%>"> <%=grade[j].name%></option>
-				  <% } %>
-		</select>
-	 </span>
-	</div>
 	<table class="table  table_striped table-bordered border" id="tableList">
 	     <thead>
 			<tr>
 				<th class="align" width="50px"><label class="checkbox relative"><input type="checkbox" class="ace" ><span class="lbl"></span></label></th>
+				<th class="align">管理员CODE</th>
 				<th class="align">账户名</th>
+				<th class="align">部门</th>
+				<th class="align">职位</th>
 				<th class="align">角色</th>
 				<th class="align">状态</th>
 				<th width="200px" class="align">手机号</th>
@@ -84,27 +72,24 @@
 	     	<% for(var i = 0; i < list.length; i++) { %>
 	     		<tr>
 	     		<td><label class="checkbox relative"><input type="checkbox" class="ace" name="checkbox" ><span class="lbl"></span></label></td>
-				<td><%=list[i].name%></td>
-				<td data-grade="<%=list[i].grade%>">
-				  <% for(var j = 0; j < grade.length; j++) { %>
-		         	<% if(list[i].grade==grade[j].id){ %>
-				    <%=grade[j].name%>
-				    <% } %>
-				  <% } %>
-				</td>
+				<td><%=list[i].adminCode%></td>
+				<td><%=list[i].adminUsername%></td>
+				<td><%=list[i].adminDept%></td>
+				<td><%=list[i].adminPosition%></td>
+                <td><%=list[i].adminRole%></td>
+					<td>
+						<% if(list[i].adminStatus==2) {%>
+						<span class="btn btn-gray plf10" data-id="0">关闭</span>
+						<%} if(list[i].adminStatus==1) {%>
+						<span class=" btn btn-green plf10" data-id="1">启用</span>
+						<%}%>
+					</td>
+				<td><%=list[i].adminPhone%></td>
+				<td><%=list[i].adminEmail%></td>
+				<td><%=list[i].adminCreatetime%></td>
 				<td>
-					<% if(list[i].statushut==0) {%>
-					<span class="btn btn-gray plf10" data-id="0">关闭</span>
-					<%} if(list[i].statushut==1) {%>
-					<span class=" btn btn-green plf10" data-id="1">启用</span>
-					<%}%>
-				</td>
-				<td><%=list[i].Phone%></td>
-				<td><%=list[i].mailbox%></td>
-				<td><%=timestamp(list[i].registeredtime,'yyyy-MM-dd hh:mm')%></td>
-				<td>
-				<button type="buttom" class="btn btn-green padding10" onclick="editorbtn(this,<%=list[i].id%>)">编辑</button>
-				<button type="buttom" class="btn btn-info padding10" onclick="deletebtn(this,<%=list[i].id%>)">删除</buttom>
+				<button type="buttom" class="btn btn-green padding10" onclick="editorbtn(this,<%=list[i].adminId%>)">编辑</button>
+				<button type="buttom" class="btn btn-info padding10" onclick="deletebtn(this,<%=list[i].adminId%>)">删除</buttom>
 				</td>
 	     		</tr>
 	     	<% } %>
@@ -135,9 +120,10 @@
 	//编辑数据
 	var administrator = function(callback) {
 		$.ajax({
-			url: "json/userData.json",
+			//url: "json/userData.json",
+            url:"http://localhost:8000/admin/selectAll",
 			type: "GET",
-			dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
 			success: function(ret) {
 				typeof callback == 'function' && callback(ret);
 			},
@@ -146,21 +132,21 @@
 	administrator(function(listArr) {
 		var listhtml = $('#administrator');
 		var html = template('administratorhtml', {
-			list: listArr.administrator,
-			grade: listArr.grade
+			list: listArr.administrator
+			//grade: listArr.grade
 		});
 		listhtml.append(html);
-		new TableSorter("tableList", 3 ,6); //设置   
+		new TableSorter("tableList", 3 ,6); //设置
 	});
 	function competenceSort(e){
 		var option=$(e).find("option:selected").text();
 		var value=$(e).val();
-		if(value==0){		  
+		if(value==0){
 			$("#tableList tbody tr").show()
 			}
 			else{
-		     $("#tableList tbody tr").hide().filter(":contains('"+(option)+"')").show();	
+		     $("#tableList tbody tr").hide().filter(":contains('"+(option)+"')").show();
 			}
-		};	
-	
+		};
+
 </script>

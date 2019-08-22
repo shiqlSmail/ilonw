@@ -154,7 +154,11 @@
 					//请求成功
 					success: function (result) {
 						if ("" != result.respData.data) {
-							location.href = "index.html";
+							if(2 == result.respData.data.adminStatus){
+								alert("账号已被禁用");
+							}else{
+								location.href = "index.html";
+							}
 						} else {
 							alert("用户名或密码错误");
 							location.href = "login.html";

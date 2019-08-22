@@ -34,9 +34,6 @@
 			<div class="box-module height100b margin0">
 				<div class="box-title">添加信息</div>
 				<div class="box-content padding15">
-					<div class="Promp_plate btn-green "><b>提示：</b>如果你喜欢我的框架，不妨捐赠，无论金额大小，都非常感谢，同时也是对我努力的回报，同时会更好的完善框架。
-						<span class="iconfont PrompClose">&#xe627</span>
-					</div>
 					<!--个人信息-->
 					<div class="add_content clearfix mt15">
 						<ul class="info_list" id="VerifyTips">
@@ -58,7 +55,7 @@
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>用户名：</label>
-								<span class="info_data"><input data-name="用户名" type="text" name="Required" class="text_input col-sm-4" data-verify="verify" /></span>
+								<span class="info_data"><input data-name="用户名" type="text" name="adminUsername" class="text_input col-sm-4" data-verify="verify" /></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>密码：</label>
@@ -68,36 +65,34 @@
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>再次确认密码：</label>
-								<span class="info_data"><input data-name="确认密码" type="password" name="Required"  class="text_input col-sm-4" data-prompt="confirm" data-verify="verify"/>
+								<span class="info_data"><input data-name="确认密码" type="password" name="adminPassword"  class="text_input col-sm-4" data-prompt="confirm" data-verify="verify"/>
 			        			
 			        			</span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name">性别：</label>
-								<span class="info_data">
-			        			
-		                        <label class="radio relative"><input name="form-field-radio" type="radio" class="ace" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
-								<label class="radio relative"><input name="form-field-radio" type="radio" class="ace"><span class="lbl">男</span></label>&nbsp;&nbsp;
-								<label class="radio relative"><input name="form-field-radio" type="radio" class="ace"><span class="lbl">女</span></label>
-
+								<span class="info_data" >
+									<label class="radio relative"><input name="adminSex" type="radio" class="ace" value="BM" checked="checked"><span class="lbl">保密</span></label>&nbsp;&nbsp;
+									<label class="radio relative"><input name="adminSex" type="radio" class="ace" value="NAN"><span class="lbl">男</span></label>&nbsp;&nbsp;
+									<label class="radio relative"><input name="adminSex" type="radio" class="ace" value="NV"><span class="lbl">女</span></label>
 								</span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name">年龄：</label>
-								<span class="info_data"><input data-name="年龄" name="Required" type="text" name="" class="text_input col-sm-4" /></span>
+								<span class="info_data"><input data-name="年龄" name="adminAge" type="text" name="" class="text_input col-sm-4" /></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>部门：</label>
-								<span class="info_data"><input data-name="部门" name="Required"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
+								<span class="info_data"><input data-name="部门" name="adminDept"  type="text"class="text_input col-sm-4" data-verify="verify"/></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>职位：</label>
-								<span class="info_data"><input data-name="职位" name="Required" type="text"  class="text_input col-sm-4" data-verify="verify"/></span>
+								<span class="info_data"><input data-name="职位" name="adminPosition" type="text"  class="text_input col-sm-4" data-verify="verify"/></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>角色：</label>
 								<span class="info_data">
-									<select class="select Competence_sort col-sm-4 col-xs-12" data-name="角色" name="Required" size="1" id="Competence_sort" data-verify="verify">
+									<select class="select Competence_sort col-sm-4 col-xs-12" data-name="角色" name="adminRole" size="1" id="Competence_sort" data-verify="verify">
 										<option value="0">--选择分类--</option>
 										<option value="1">超级管理员</option>
 										<option value="2">普通管理员</option>
@@ -110,22 +105,22 @@
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>状态：</label>
 								<span class="info_data">
-			        			<label class="radio relative"><input name="form-field-radio1" type="radio" data-id="0" class="ace" checked="checked"><span class="lbl">启用</span></label>&nbsp;&nbsp;
-								<label class="radio relative"><input name="form-field-radio1" type="radio" data-id="1" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
+			        			<label class="radio relative"><input name="adminStatus" type="radio" value="1" data-id="1" class="ace" checked="checked"><span class="lbl">启用</span></label>&nbsp;&nbsp;
+								<label class="radio relative"><input name="adminStatus" type="radio" value="2" data-id="2" class="ace"><span class="lbl">关闭</span></label>&nbsp;&nbsp;
 								</span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>手机：</label>
-								<span class="info_data"><input data-name="手机号码" name="Required" type="text"  class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
+								<span class="info_data"><input data-name="手机号码" name="adminPhone" type="text"  class="text_input col-sm-4" value="" data-prompt="phone" data-verify="verify"/></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name"><em style="color:Red;">*</em>邮箱：</label>
-								<span class="info_data"><input data-name="邮箱" name="Required" type="text"  class="text_input col-sm-4" value="" data-prompt="mailbox" data-verify="verify"/></span>
+								<span class="info_data"><input data-name="邮箱" name="adminEmail" type="text"  class="text_input col-sm-4" value="" data-prompt="mailbox" data-verify="verify"/></span>
 							</li>
 							<li class=" clearfix content_look mb15">
 								<label class="label_name">说明：</label>
 								<span class="info_data">
-									<textarea data-name="说明" name="Required" class="form-textarea textarea-info" id="form_textarea" placeholder=""></textarea>
+									<textarea data-name="说明" name="adminRemark" class="form-textarea textarea-info"placeholder=""></textarea>
 								</span>
 							</li>
 						</ul>
@@ -164,7 +159,34 @@
 	});
 	//提交操作
 	function modifybtn() {
-		new huprompt("VerifyTips");//判断验证
+		console.log(new huprompt("VerifyTips"));
+		var params = {
+			"adminUsername":$("input[name='adminUsername']").val(),
+			"adminPassword":$("input[name='adminPassword']").val(),
+			"adminSex": $("input[name='adminSex']").val(),
+			"adminAge": $("input[name='adminAge']").val(),
+			"adminDept": $("input[name='adminDept']").val(),
+			"adminPosition": $("input[name='adminPosition']").val(),
+			"adminPhone": $("input[name='adminPhone']").val(),
+			"adminEmail": $("input[name='adminEmail']").val(),
+			"adminRemark":$("input[name='adminRemark']").val(),
+			"adminRole": $("input[name='adminRole']").val(),
+			"adminStatus":$("input[name='adminStatus']").val()
+		};
+		$.ajax({
+			url:"http://localhost:8000/admin/add",
+			type: "POST",
+			contentType: "application/json;charset=UTF-8",
+			data: JSON.stringify(params),
+			success: function(ret) {
+				if(ret > 0){
+					alert("添加成功");
+					location.href = "administrator.html";
+				}else{
+					alert("添加失败");
+				}
+			},
+		});
 
 	}
 	 new Wordcount("form_textarea",200);//设置字数

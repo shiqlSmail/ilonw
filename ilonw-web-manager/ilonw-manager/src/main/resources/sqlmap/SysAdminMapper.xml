@@ -17,12 +17,13 @@
     <result column="admin_password" property="adminPassword" jdbcType="VARCHAR" />
     <result column="admin_createtime" property="adminCreatetime" jdbcType="VARCHAR" />
     <result column="admin_updatetime" property="adminUpdatetime" jdbcType="VARCHAR" />
+    <result column="admin_status" property="adminStatus" jdbcType="INTEGER" />
   </resultMap>
 
   <sql id="Base_Column_List" >
     admin_id,admin_code, admin_username, admin_sex, admin_age, admin_dept, admin_position, admin_phone,
     admin_email, admin_role, admin_remark, admin_img, admin_password, admin_createtime, 
-    admin_updatetime
+    admin_updatetime,admin_status
   </sql>
 
   <select id="login" resultMap="BaseResultMap" parameterType="com.ilonw.manager.vo.SysAdminRequest" >
@@ -50,6 +51,9 @@
   <insert id="insertSelective" parameterType="com.ilonw.manager.domain.SysAdminBO" >
     insert into sys_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminCode != null" >
+        admin_code,
+      </if>
       <if test="adminUsername != null" >
         admin_username,
       </if>
@@ -89,8 +93,14 @@
       <if test="adminUpdatetime != null" >
         admin_updatetime,
       </if>
+      <if test="adminStatus != null" >
+        admin_status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminCode != null" >
+        #{adminCode,jdbcType=INTEGER},
+      </if>
       <if test="adminUsername != null" >
         #{adminUsername,jdbcType=VARCHAR},
       </if>
@@ -129,6 +139,9 @@
       </if>
       <if test="adminUpdatetime != null" >
         #{adminUpdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="adminStatus != null" >
+        #{adminStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -173,6 +186,9 @@
       </if>
       <if test="adminUpdatetime != null" >
         admin_updatetime = #{adminUpdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="adminStatus != null" >
+        admin_status = #{adminStatus,jdbcType=INTEGER},
       </if>
     </set>
     where admin_id = #{adminId,jdbcType=INTEGER}
