@@ -32,7 +32,7 @@
     $("#searchBtn").click(function () {
         $("#table").bootstrapTable('destroy');
         $('#table').bootstrapTable({
-            url: "/sms/emailurl?emailName="+$("#emailName").val(),
+            url: "../sms/emailurl?emailName="+$("#emailName").val(),
             /* data: JSON.stringify(params),*/
             /*pagination: true, //分页
             pageSize: 10,

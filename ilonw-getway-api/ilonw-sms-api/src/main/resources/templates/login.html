@@ -14,16 +14,16 @@
     }
 </style>
 <body>
-<img class="bgone" src="/img/1.jpg"/>
-<img class="pic" src="/img/a.png"/>
+<img class="bgone" th:src="@{/img/1.jpg}"/>
+<img class="pic" th:src="@{/img/a.png}"/>
 <div class="table">
     <div class="wel">ILONW短信/邮箱管理系统</div>
     <div class="user">
-        <div id="yonghu" style=""><img src="/img/yhm.png"/></div>
+        <div id="yonghu" style=""><img th:src="@{/img/yhm.png}"/></div>
         <input type="text" name="" placeholder="请输入账号" id="username"/>
     </div>
     <div class="password">
-        <div id="yonghu"><img src="/img/mm.png"/></div>
+        <div id="yonghu"><img th:src="@{/img/mm.png}"/></div>
         <input type="password" name="密码" placeholder="请输入密码" id="password"/>
     </div>
     <input class="btn" type="button" name="登录" value="登录" id="login_btn" onClick="requestServer();"/>
@@ -70,20 +70,20 @@
                 //请求的媒体类型
                 contentType: "application/json;charset=UTF-8",
                 //请求地址
-                url: "/sms/loginVail.htm",
+                url: "../sms/loginVail.htm",
                 //数据，json字符串
                 data: JSON.stringify(params),
                 //请求成功
                 success: function (result) {
                     console.log(result);
 
-                    window.location.href = "/sms/main.htm";
+                    window.location.href = "../sms/main.htm";
                 },
                 //请求失败，包含具体的错误信息
                 error: function (e) {
                     console.log(e.status);
                     console.log(e.responseText);
-                    window.location.href = "/sms/login.htm";
+                    window.location.href = "../sms/login.htm";
                 }
             });
         }

@@ -298,10 +298,10 @@
             return reval;
         },
         loadMenu: function () {
-            var data = [{ "F_ModuleId": "1", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "系统管理", "F_UrlAddress": "/sms/home.htm", "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "11", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "短信验证码", "F_UrlAddress": "/sms/smsList.htm",  "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "12", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "邮件验证码", "F_UrlAddress": "/sms/emailCodeList.htm",  "F_ModifyUserName": "超级管理员" },
-                { "F_ModuleId": "12", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "邮箱激活链接", "F_UrlAddress": "/sms/emailUrlList.htm",  "F_ModifyUserName": "超级管理员" },
+            var data = [{ "F_ModuleId": "1", "F_ParentId": "0", "F_EnCode": "SysManage", "F_FullName": "系统管理", "F_UrlAddress": "../sms/home.htm", "F_ModifyUserName": "超级管理员" },
+                { "F_ModuleId": "11", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "短信验证码", "F_UrlAddress": "../sms/smsList.htm",  "F_ModifyUserName": "超级管理员" },
+                { "F_ModuleId": "12", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "邮件验证码", "F_UrlAddress": "../sms/emailCodeList.htm",  "F_ModifyUserName": "超级管理员" },
+                { "F_ModuleId": "12", "F_ParentId": "1", "F_EnCode": "OrganizeManage", "F_FullName": "邮箱激活链接", "F_UrlAddress": "../sms/emailUrlList.htm",  "F_ModifyUserName": "超级管理员" },
 
 								   ];
             var _html = "";
