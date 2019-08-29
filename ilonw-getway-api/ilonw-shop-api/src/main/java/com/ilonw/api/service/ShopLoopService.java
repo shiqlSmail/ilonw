@@ -2,7 +2,10 @@ package com.ilonw.api.service;
 
 import com.ilonw.api.vo.ShopLoopAddParam;
 import com.ilonw.api.vo.ShopLoopEditParam;
+import com.ilonw.server.bo.shop.ShopLoopBO;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Map;
 
 public interface ShopLoopService {
@@ -20,15 +23,22 @@ public interface ShopLoopService {
 
     /**
      * 新增首页轮播商品
-     * @param param
+     * @param shopLoopAddParam
      * @return
      */
-    Map<String,Object> saveLoopShop(ShopLoopAddParam param);
+    Map<String,Object> saveLoopShop(ShopLoopAddParam shopLoopAddParam);
 
     /**
      * 后台修改轮播图信息
-     * @param param
+     * @param shopLoopEditParam
      * @return
      */
-    Map<String,Object> updateLoopShop(ShopLoopEditParam param);
+    Map<String,Object> updateLoopShop( ShopLoopEditParam shopLoopEditParam) ;
+
+    /**
+     * 删除
+     * @param shopLoopEditParam
+     * @return
+     */
+    Map<String, Object> deleteLoop(ShopLoopEditParam shopLoopEditParam);
 }

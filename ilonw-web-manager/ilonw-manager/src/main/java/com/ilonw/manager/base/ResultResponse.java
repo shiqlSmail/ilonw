@@ -1,5 +1,6 @@
 package com.ilonw.manager.base;
 
+import com.ilonw.manager.http.InterfaceBean;
 import com.server.tools.exceptions.ArgumentException;
 import com.server.tools.result.APIBaseResult;
 import com.server.tools.result.SetAPIResultUtil;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class ResultResponse{
+public class ResultResponse extends InterfaceBean {
 	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	protected APIBaseResult getAPIResult(APIBaseResult result) {

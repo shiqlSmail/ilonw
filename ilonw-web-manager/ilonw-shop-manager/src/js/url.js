@@ -1,3 +1,4 @@
 function url(){
-    return "http://localhost:12000";
+    //return "http://192.168.1.9:10100/ilonw-manager";
+    return "http://localhost:10010";
 }

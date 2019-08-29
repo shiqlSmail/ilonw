@@ -1,5 +1,7 @@
 package com.ilonw.api.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ShopLoopAddParam {
     private String loopName;
 

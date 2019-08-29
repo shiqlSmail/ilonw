@@ -51,4 +51,9 @@ public class ShopLoopFacadeImpl implements ShopLoopFacade {
 	public boolean updateLoopShop(ShopLoopBO BO){
 		return shopLoopService.updateLoopShop(BO);
 	}
+
+	@Override
+	public boolean deleteLoop(ShopLoopBO BO) {
+		return shopLoopService.deleteLoop(BO);
+	}
 }

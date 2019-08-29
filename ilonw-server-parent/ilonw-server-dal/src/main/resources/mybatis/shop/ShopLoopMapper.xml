@@ -37,6 +37,11 @@
         from shop_loop where loop_status = 'NORMAL' order by loop_index desc
     </select>
 
+    <!-- 删除 -->
+    <delete id="deleteLoop" parameterType="com.ilonw.server.bo.shop.ShopLoopBO">
+        delete from shop_loop  where loop_id =  #{loopId,jdbcType=VARCHAR}
+    </delete>
+
     <!-- 新增首页轮播商品 -->
     <insert id="saveLoopShop" parameterType="com.ilonw.server.bo.shop.ShopLoopBO">
         insert into shop_loop

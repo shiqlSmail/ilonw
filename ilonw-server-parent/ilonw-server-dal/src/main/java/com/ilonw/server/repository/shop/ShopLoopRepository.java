@@ -36,4 +36,11 @@ public interface ShopLoopRepository {
 	 * @return
 	 */
 	boolean updateLoopShop(ShopLoopBO BO);
+
+	/**
+	 * 删除
+	 * @param BO
+	 * @return
+	 */
+	boolean deleteLoop(ShopLoopBO BO);
 }

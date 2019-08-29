@@ -33,7 +33,8 @@ public class InterfaceBean {
             System.out.println(strUrls[1]);
 
             if("0".equals(strUrls[1]) || "0" == strUrls[1]){
-                httpRespons = request.sendPost(DESUtil.decipherVal(desUrl),map);
+                //httpRespons = request.sendPost(DESUtil.decipherVal(desUrl),map);
+                httpRespons = request.sendPost(desUrl,map);
             }else{
                 return "接口已停用";
             }

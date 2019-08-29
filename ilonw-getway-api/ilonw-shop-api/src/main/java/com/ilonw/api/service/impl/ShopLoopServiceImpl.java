@@ -28,19 +28,19 @@ public class ShopLoopServiceImpl implements ShopLoopService {
      *
      * @return
      */
-    public Map<String,Object> findLoopShop() {
-        Map<String,Object> map = new HashMap<String,Object>();
+    public Map<String, Object> findLoopShop() {
+        Map<String, Object> map = new HashMap<String, Object>();
 
         List<ShopLoopBO> listBO = shopLoopFacade.findLoopShop();
         map = getSuccessMap();
-        if(null == listBO || listBO.size() == 0){
-            map.put("data","暂无数据");
-        }else{
+        if (null == listBO || listBO.size() == 0) {
+            map.put("data", "暂无数据");
+        } else {
             List<ShopLoopUserResponse> listShopLoopUserResponse = new ArrayList<>();
             for (ShopLoopBO shopLoopBO : listBO) {
                 listShopLoopUserResponse.add(ShopLoopConvert.convertUser(shopLoopBO));
             }
-            map.put("data",listShopLoopUserResponse);
+            map.put("data", listShopLoopUserResponse);
         }
         return map;
     }
@@ -50,14 +50,14 @@ public class ShopLoopServiceImpl implements ShopLoopService {
      *
      * @return
      */
-    public Map<String,Object> findAllLoopShop() {
-        Map<String,Object> map = new HashMap<String,Object>();
+    public Map<String, Object> findAllLoopShop() {
+        Map<String, Object> map = new HashMap<String, Object>();
 
         List<ShopLoopBO> listBO = shopLoopFacade.findAllLoopShop();
         map = getSuccessMap();
-        if(null == listBO || listBO.size() == 0){
-            map.put("data","暂无数据");
-        }else {
+        if (null == listBO || listBO.size() == 0) {
+            map.put("data", "暂无数据");
+        } else {
             List<ShopLoopAdminResponse> listShopLoopAdminResponse = new ArrayList<>();
             for (ShopLoopBO shopLoopBO : listBO) {
                 listShopLoopAdminResponse.add(ShopLoopConvert.convertAdmin(shopLoopBO));
@@ -70,48 +70,56 @@ public class ShopLoopServiceImpl implements ShopLoopService {
     /**
      * 新增首页轮播商品
      *
-     * @param param
+     * @param shopLoopAddParam
      * @return
      */
-    public Map<String,Object> saveLoopShop(ShopLoopAddParam param) {
-        Map<String,Object> map = new HashMap<String,Object>();
-
-        param.setLoopStatus(ShopLoopStatusEunms.NORMAL.getResCode());
-        boolean flag = shopLoopFacade.saveLoopShop(ShopLoopConvert.convertSave(param));
-        if(flag){
+    public Map<String, Object> saveLoopShop(ShopLoopAddParam shopLoopAddParam){
+        shopLoopAddParam.setLoopStatus(ShopLoopStatusEunms.NORMAL.getResCode());
+        boolean flag = shopLoopFacade.saveLoopShop(ShopLoopConvert.convertSave(shopLoopAddParam));
+        if (flag) {
             return getSuccessMap();
-        }else{
+        } else {
             return getFailMap();
         }
     }
+
 
     /**
      * 后台修改轮播图信息
      *
-     * @param param
+     * @param shopLoopEditParam
      * @return
      */
-    public Map<String,Object> updateLoopShop(ShopLoopEditParam param) {
-
-        boolean flag = shopLoopFacade.updateLoopShop(ShopLoopConvert.convertUpdate(param));
-        if(flag){
+    public Map<String, Object> updateLoopShop(ShopLoopEditParam shopLoopEditParam) {
+        boolean flag = shopLoopFacade.updateLoopShop(ShopLoopConvert.convertUpdate(shopLoopEditParam));
+        if (flag) {
             return getSuccessMap();
-        }else{
+        } else {
             return getFailMap();
         }
     }
 
-    public static Map<String,Object> getSuccessMap(){
-        Map<String,Object> map = new HashMap<String,Object>();
+    @Override
+    public Map<String, Object> deleteLoop(ShopLoopEditParam shopLoopEditParam) {
+        boolean flag = shopLoopFacade.deleteLoop(ShopLoopConvert.convertUpdate(shopLoopEditParam));
+        if (flag) {
+            return getSuccessMap();
+        } else {
+            return getFailMap();
+        }
+    }
+
+    public static Map<String, Object> getSuccessMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("resCode", UserEunms.SUCCESS.getResCode());
-        map.put("resMsg",UserEunms.SUCCESS.getResMsg());
+        map.put("resMsg", UserEunms.SUCCESS.getResMsg());
         return map;
     }
 
-    public static Map<String,Object> getFailMap(){
-        Map<String,Object> map = new HashMap<String,Object>();
+    public static Map<String, Object> getFailMap() {
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("resCode", UserEunms.FAIL.getResCode());
-        map.put("resMsg",UserEunms.FAIL.getResMsg());
+        map.put("resMsg", UserEunms.FAIL.getResMsg());
         return map;
     }
 }

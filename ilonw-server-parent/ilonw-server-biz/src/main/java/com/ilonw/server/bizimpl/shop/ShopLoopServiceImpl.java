@@ -53,4 +53,9 @@ public class ShopLoopServiceImpl implements ShopLoopService {
 		BO.setLoopUpdatetime(DateUtil.getDateTime(new Date()));
 		return shopLoopRepository.updateLoopShop(BO);
 	}
+
+	@Override
+	public boolean deleteLoop(ShopLoopBO BO) {
+		return shopLoopRepository.deleteLoop(BO);
+	}
 }

@@ -4,22 +4,14 @@ import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.ShopLoopService;
 import com.ilonw.api.vo.ShopLoopAddParam;
 import com.ilonw.api.vo.ShopLoopEditParam;
-import com.ilonw.api.vo.ShopLoopUserResponse;
-import com.ilonw.server.bo.sms.SysSmsBO;
-import com.ilonw.server.facade.sms.SysSmsFacade;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.annotation.Resources;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -49,20 +41,29 @@ public class ShopLoopController extends BaseController {
     }
 
     @CrossOrigin(origins = "*", maxAge = 3600)
-    @RequestMapping(value = "/saveLoopShop", produces = "application/json", method = {RequestMethod.POST})
+    @RequestMapping(value = "/saveLoopShop",produces = "application/json", method = {RequestMethod.POST})
     @ApiOperation(value="新增轮播图", notes="首页轮播图接口详细描述")
-    public APIBaseResult saveLoopShop(@RequestBody ShopLoopAddParam param, HttpServletRequest request) {
+    public APIBaseResult saveLoopShop(@RequestBody  ShopLoopAddParam shopLoopAddParam, HttpServletRequest request){
         long now = System.currentTimeMillis();
-        Map<String, Object> map = shopLoopService.saveLoopShop(param);
-        return getIntefaceData( request,map, "/saveLoopShop", "/shopLoop", now,  "无参数","新增轮播图");
+        Map<String, Object> map = shopLoopService.saveLoopShop(shopLoopAddParam);
+        return getIntefaceData( request,map, "/saveLoopShop", "/shopLoop", now,  shopLoopAddParam,"新增轮播图");
     }
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/updateLoopShop", produces = "application/json", method = {RequestMethod.POST})
     @ApiOperation(value="更新轮播图显示", notes="首页轮播图接口详细描述")
-    public APIBaseResult updateLoopShop(@RequestBody ShopLoopEditParam param,HttpServletRequest request) {
+    public APIBaseResult updateLoopShop(@RequestBody  ShopLoopEditParam shopLoopEditParam,HttpServletRequest request){
         long now = System.currentTimeMillis();
-        Map<String, Object> map = shopLoopService.updateLoopShop(param);
-        return getIntefaceData( request,map, "/updateLoopShop", "/shopLoop", now,  "无参数","更新轮播图显示");
+        Map<String, Object> map = shopLoopService.updateLoopShop(shopLoopEditParam);
+        return getIntefaceData( request,map, "/updateLoopShop", "/shopLoop", now,  shopLoopEditParam,"更新轮播图显示");
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(value = "/deleteLoopShop", produces = "application/json", method = {RequestMethod.POST})
+    @ApiOperation(value="删除轮播图显示", notes="首页轮播图接口详细描述")
+    public APIBaseResult deleteLoopShop(@RequestBody  ShopLoopEditParam shopLoopEditParam,HttpServletRequest request){
+        long now = System.currentTimeMillis();
+        Map<String, Object> map = shopLoopService.deleteLoop(shopLoopEditParam);
+        return getIntefaceData( request,map, "/deleteLoopShop", "/shopLoop", now,  shopLoopEditParam,"删除轮播图显示");
     }
 }

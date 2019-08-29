@@ -23,7 +23,7 @@ public class ManagerController extends InterfaceBean {
      */
     @RequestMapping(value = "/com",method = RequestMethod.POST)
     public String queryAllUser(@RequestBody Map<String, String> map){
-        String url = map.get("url");
+        String url = map.get("send_url");
         log.info("获取到的URL信息为："+url);
         String response = toSendPost(url,map);
         log.info("返回的数据为："+response);
