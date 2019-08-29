@@ -15,6 +15,11 @@ public class SysIlonwTableFileServiceImpl implements SysIlonwTableFileService {
 	private SysIlonwFileRepository sysIlonwFileRepository;
 
 	@Override
+	public List<TableFileBO> selectFilePath() {
+		return sysIlonwFileRepository.selectFilePath();
+	}
+
+	@Override
 	public void saveFile(TableFileBO tableFileBO) {
 		this.sysIlonwFileRepository.saveFile(tableFileBO);
 	}

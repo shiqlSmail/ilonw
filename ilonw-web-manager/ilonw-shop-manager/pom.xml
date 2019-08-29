@@ -5,11 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ilonw.shop.manager</groupId>
     <artifactId>ilonw-shop-manager</artifactId>
-
     <parent>
         <artifactId>ilonw-web-manager</artifactId>
         <groupId>com.ilonw.web.manager</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
 </project>

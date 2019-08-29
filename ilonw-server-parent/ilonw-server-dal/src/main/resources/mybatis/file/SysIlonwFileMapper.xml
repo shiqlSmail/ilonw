@@ -22,6 +22,10 @@
 		select * from table_file where auther = #{auther,jdbcType=VARCHAR}
 	</select>
 
+    <select id="selectFilePath" resultMap="fileTableResultMap">
+		select file_path,auther from table_file
+	</select>
+
     <!--  useGeneratedKeys="true" keyProperty="Identification" keyColumn="Identification" -->
     <insert id="saveFile" parameterType="com.ilonw.server.bo.file.TableFileBO">
         insert into table_file

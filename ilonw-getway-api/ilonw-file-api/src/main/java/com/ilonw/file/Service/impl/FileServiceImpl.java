@@ -31,6 +31,10 @@ public class FileServiceImpl implements FileService {
     @Value("${ilonw.default.context}")
     private String ilonwDefaultContext;
 
+    @Override
+    public List<TableFileBO> selectFilePath() {
+        return sysIlonwTableFileFacade.selectFilePath();
+    }
 
     @Override
     //@Async
@@ -64,7 +68,7 @@ public class FileServiceImpl implements FileService {
                 TableFileVO vo = new TableFileVO();
                 vo.setIlonwFileContext(bo.getIlonw_file_context());
                // vo.setFileName(localImgProperties+"oss/"+bo.getFile_path()+bo.getFile_new_name());
-                vo.setFileName("file://"+bo.getFile_path()+bo.getFile_new_name());
+                vo.setFileName(ilonwViewImg+"/"+bo.getAuther()+"/"+bo.getFile_path()+bo.getFile_new_name());
                 tableFileVO.add(vo);
             }
         }else{

@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface FileService {
 
+    List<TableFileBO> selectFilePath();
+
     String saveFile(TableFileBO tableFile,String ilonwUserId);
 
     void updateFile(String context, String Identification);

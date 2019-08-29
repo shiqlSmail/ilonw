@@ -5,6 +5,7 @@ import com.ilonw.server.bo.file.TableFileBO;
 import java.util.List;
 
 public interface SysIlonwTableFileFacade {
+    List<TableFileBO> selectFilePath();
 
     public List<TableFileBO> selectFile(TableFileBO tableFileBO);
 

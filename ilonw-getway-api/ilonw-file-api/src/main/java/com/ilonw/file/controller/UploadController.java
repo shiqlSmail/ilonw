@@ -41,10 +41,10 @@ public class UploadController extends BaseController {
 	@ApiOperation(value="多张图片上传接口", notes="文件上传接口详细描述")
 	public String fileUpload(@RequestParam(value = "file",required = true) CommonsMultipartFile files[],HttpSession session) throws IOException{
 		String ilonwUserId = (String)session.getAttribute("userId");
-
+		String datePath = DateUtil.formatDate1(new Date())+"/";
 		TableFileBO tableFile = new TableFileBO();
 		String Identification = "";
-		String path = localImgProperties+ilonwUserId+"/"+DateUtil.formatDate1(new Date())+"/";
+		String path = localImgProperties+ilonwUserId+"/"+datePath;
 		File f = new File(path);
 		if (!f.exists())
 			f.mkdirs();
@@ -72,7 +72,7 @@ public class UploadController extends BaseController {
 				tableFile.setFile_fixname("."+fixname);
 				tableFile.setFile_name(fileName);
 				tableFile.setFile_new_name(newFileName);
-				tableFile.setFile_path(path);
+				tableFile.setFile_path(datePath);
 				tableFile.setFile_size(ImageTools.getImgSize(new File(path+newFileName)));
 				tableFile.setFile_type(fixname);
 				Identification = fileService.saveFile(tableFile,ilonwUserId);
