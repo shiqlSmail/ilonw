@@ -1,9 +1,9 @@
 package com.ilonw.api.vo.convert;
 
-import com.ilonw.api.vo.ShopLoopAddParam;
-import com.ilonw.api.vo.ShopLoopAdminResponse;
-import com.ilonw.api.vo.ShopLoopEditParam;
-import com.ilonw.api.vo.ShopLoopUserResponse;
+import com.ilonw.api.vo.request.ShopLoopAddParam;
+import com.ilonw.api.vo.response.ShopLoopAdminResponse;
+import com.ilonw.api.vo.request.ShopLoopEditParam;
+import com.ilonw.api.vo.response.ShopLoopUserResponse;
 import com.ilonw.server.bo.shop.ShopLoopBO;
 
 public class ShopLoopConvert {

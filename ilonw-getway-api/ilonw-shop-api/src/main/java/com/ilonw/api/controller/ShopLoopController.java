@@ -2,8 +2,8 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.ShopLoopService;
-import com.ilonw.api.vo.ShopLoopAddParam;
-import com.ilonw.api.vo.ShopLoopEditParam;
+import com.ilonw.api.vo.request.ShopLoopAddParam;
+import com.ilonw.api.vo.request.ShopLoopEditParam;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+/**
+ * 轮播图管理
+ */
 @RestController
 @EnableAutoConfiguration
 @RequestMapping(value = "/shopLoop")
-@Api(description = "首页轮播图接口")
+@Api(tags = "ShopLoopController",description = "首页轮播图接口")
 public class ShopLoopController extends BaseController {
     @Autowired
     private ShopLoopService shopLoopService;

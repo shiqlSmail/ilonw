@@ -1,4 +1,4 @@
-package com.ilonw.api.vo;
+package com.ilonw.api.vo.response;
 
 public class ShopLoopUserResponse {
     private String loopId;

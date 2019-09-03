@@ -45,14 +45,14 @@ public class UploadVidoController extends BaseController {
     @ApiOperation(value = "多视频上传接口", notes = "视频上传接口详细描述")
     public String fileUpload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpSession session) {
         String ilonwUserId = (String)session.getAttribute("userId");
-
+        String datePath = DateUtil.formatDate1(new Date())+"/";
         TableFileBO tableFile = new TableFileBO();
         String Identification = "";
         FileUploadTool fileUploadTool = new FileUploadTool();
-        String logoPathDir = localImgProperties+ DateUtil.formatDate1(new Date())+"/";
+        String path = localImgProperties+ilonwUserId+"/"+datePath;
         try {
             if (null != file) {
-                FileEntity entity = fileUploadTool.createFile(file, request,logoPathDir);
+                FileEntity entity = fileUploadTool.createFile(file, request,path);
                 if (entity != null) {
                     String fileName = file.getOriginalFilename();
                     String fixname = fileName.substring(fileName.lastIndexOf(".") + 1);
@@ -63,7 +63,7 @@ public class UploadVidoController extends BaseController {
                     tableFile.setFile_fixname("." + fixname);
                     tableFile.setFile_name(fileName);
                     tableFile.setFile_new_name(newFileName);
-                    tableFile.setFile_path(entity.getPath());
+                    tableFile.setFile_path(datePath);
                     tableFile.setFile_size(entity.getSize());
                     tableFile.setFile_type(fixname);
                     tableFile.setAuther((String)session.getAttribute("userId"));

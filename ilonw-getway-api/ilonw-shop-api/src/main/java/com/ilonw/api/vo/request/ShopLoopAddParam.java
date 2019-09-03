@@ -1,4 +1,4 @@
-package com.ilonw.api.vo;
+package com.ilonw.api.vo.request;
 
 import org.springframework.web.multipart.MultipartFile;
 

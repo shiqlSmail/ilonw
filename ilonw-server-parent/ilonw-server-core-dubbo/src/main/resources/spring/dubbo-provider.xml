@@ -34,4 +34,13 @@
 	<!-- ##########################  商城商品服务注册中心 ###################################### -->
 	<!-- 首页商品轮播图-->
 	<dubbo:service interface="com.ilonw.server.facade.shop.ShopLoopFacade" ref="shopLoopFacade"/>
+
+	<!-- 商品管理-->
+	<dubbo:service interface="com.ilonw.server.facade.shop.ProductFacade" ref="productFacade"/>
+
+	<!-- 商品SKU库存管理-->
+	<dubbo:service interface="com.ilonw.server.facade.shop.SkuStockFacade" ref="skuStockFacade"/>
+
+	<!-- 商品分类管理-->
+	<dubbo:service interface="com.ilonw.server.facade.shop.ProductCategoryFacade" ref="productCategoryFacade"/>
 </beans>

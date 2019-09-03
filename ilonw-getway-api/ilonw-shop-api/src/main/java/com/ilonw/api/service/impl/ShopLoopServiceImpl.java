@@ -1,13 +1,13 @@
 package com.ilonw.api.service.impl;
 
+import com.ilonw.api.base.BaseService;
 import com.ilonw.api.enums.ShopLoopStatusEunms;
 import com.ilonw.api.service.ShopLoopService;
-import com.ilonw.api.vo.ShopLoopAddParam;
-import com.ilonw.api.vo.ShopLoopAdminResponse;
-import com.ilonw.api.vo.ShopLoopEditParam;
-import com.ilonw.api.vo.ShopLoopUserResponse;
+import com.ilonw.api.vo.request.ShopLoopAddParam;
+import com.ilonw.api.vo.response.ShopLoopAdminResponse;
+import com.ilonw.api.vo.request.ShopLoopEditParam;
+import com.ilonw.api.vo.response.ShopLoopUserResponse;
 import com.ilonw.api.vo.convert.ShopLoopConvert;
-import com.ilonw.server.Eunms.UserEunms;
 import com.ilonw.server.bo.shop.ShopLoopBO;
 import com.ilonw.server.facade.shop.ShopLoopFacade;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ShopLoopServiceImpl implements ShopLoopService {
+public class ShopLoopServiceImpl extends BaseService implements ShopLoopService {
     @Resource
     private ShopLoopFacade shopLoopFacade;
 
@@ -107,19 +107,5 @@ public class ShopLoopServiceImpl implements ShopLoopService {
         } else {
             return getFailMap();
         }
-    }
-
-    public static Map<String, Object> getSuccessMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("resCode", UserEunms.SUCCESS.getResCode());
-        map.put("resMsg", UserEunms.SUCCESS.getResMsg());
-        return map;
-    }
-
-    public static Map<String, Object> getFailMap() {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("resCode", UserEunms.FAIL.getResCode());
-        map.put("resMsg", UserEunms.FAIL.getResMsg());
-        return map;
     }
 }

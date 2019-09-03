@@ -1,11 +1,8 @@
 package com.ilonw.api.service;
 
-import com.ilonw.api.vo.ShopLoopAddParam;
-import com.ilonw.api.vo.ShopLoopEditParam;
-import com.ilonw.server.bo.shop.ShopLoopBO;
-import org.springframework.web.multipart.MultipartFile;
+import com.ilonw.api.vo.request.ShopLoopAddParam;
+import com.ilonw.api.vo.request.ShopLoopEditParam;
 
-import java.io.IOException;
 import java.util.Map;
 
 public interface ShopLoopService {

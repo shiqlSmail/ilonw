@@ -15,4 +15,13 @@
 
 	<!-- 首页商品轮播图-->
 	<dubbo:reference interface="com.ilonw.server.facade.shop.ShopLoopFacade" id="shopLoopFacade"/>
+
+	<!-- 商品管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.ProductFacade" id="productFacade"/>
+
+	<!-- 商品SKU库存管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.SkuStockFacade" id="skuStockFacade"/>
+
+	<!-- 商品分类管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.ProductCategoryFacade" id="productCategoryFacade"/>
 </beans>
