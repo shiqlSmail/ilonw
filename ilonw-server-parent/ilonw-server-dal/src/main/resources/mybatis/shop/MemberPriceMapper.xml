@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     id, product_id, member_level_id, member_price, member_level_name
   </sql>
-  <select id="selectByExample" parameterType="com.ilonw.server.bo.shop.MemberPriceExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ilonw.server.bto.shop.MemberPriceExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,7 +93,7 @@
     delete from pms_member_price
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ilonw.server.bo.shop.MemberPriceExample">
+  <delete id="deleteByExample" parameterType="com.ilonw.server.bto.shop.MemberPriceExample">
     delete from pms_member_price
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ilonw.server.bo.shop.MemberPriceExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.ilonw.server.bto.shop.MemberPriceExample" resultType="java.lang.Long">
     select count(*) from pms_member_price
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

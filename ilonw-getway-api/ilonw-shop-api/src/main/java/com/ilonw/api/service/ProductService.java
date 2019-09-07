@@ -1,7 +1,7 @@
 package com.ilonw.api.service;
 
-import com.ilonw.server.bo.shop.ProductParam;
-import com.ilonw.server.bo.shop.ProductQueryParam;
+import com.ilonw.server.bto.shop.ProductParam;
+import com.ilonw.server.bto.shop.ProductQueryParam;
 
 import java.util.List;
 import java.util.Map;

@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev #默认为开发环境
+
+server:
+  port: 10080
+
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+
+logging:
+  level:
+    root: info
+    com.macro.mall: debug
+
+
+

@@ -1,7 +1,7 @@
 package com.ilonw.server.repository.shop;
 
 import com.ilonw.server.bo.shop.ProductCategory;
-import com.ilonw.server.bo.shop.ProductCategoryExample;
+import com.ilonw.server.bto.shop.ProductCategoryExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

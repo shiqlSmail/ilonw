@@ -3,7 +3,7 @@ package com.ilonw.api.service.impl;
 import com.ilonw.api.base.BaseService;
 import com.ilonw.api.service.ProductCategoryService;
 import com.ilonw.server.bo.shop.ProductCategory;
-import com.ilonw.server.bo.shop.ProductCategoryParam;
+import com.ilonw.server.bto.shop.ProductCategoryParam;
 import com.ilonw.server.bo.shop.ProductCategoryWithChildrenItem;
 import com.ilonw.server.facade.shop.ProductCategoryFacade;
 import org.springframework.beans.factory.annotation.Autowired;

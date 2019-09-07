@@ -1,7 +1,7 @@
 package com.ilonw.server.repository.shop;
 
 import com.ilonw.server.bo.shop.SkuStock;
-import com.ilonw.server.bo.shop.SkuStockExample;
+import com.ilonw.server.bto.shop.SkuStockExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

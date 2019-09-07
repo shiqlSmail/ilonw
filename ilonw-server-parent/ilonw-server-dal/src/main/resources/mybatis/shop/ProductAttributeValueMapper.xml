@@ -68,7 +68,7 @@
   <sql id="Base_Column_List">
     id, product_id, product_attribute_id, value
   </sql>
-  <select id="selectByExample" parameterType="com.ilonw.server.bo.shop.ProductAttributeValueExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ilonw.server.bto.shop.ProductAttributeValueExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,7 +92,7 @@
     delete from pms_product_attribute_value
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ilonw.server.bo.shop.ProductAttributeValueExample">
+  <delete id="deleteByExample" parameterType="com.ilonw.server.bto.shop.ProductAttributeValueExample">
     delete from pms_product_attribute_value
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -135,7 +135,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ilonw.server.bo.shop.ProductAttributeValueExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.ilonw.server.bto.shop.ProductAttributeValueExample" resultType="java.lang.Long">
     select count(*) from pms_product_attribute_value
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

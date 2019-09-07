@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, prefrence_area_id, product_id
   </sql>
-  <select id="selectByExample" parameterType="com.ilonw.server.bo.shop.CmsPrefrenceAreaProductRelationExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ilonw.server.bto.shop.CmsPrefrenceAreaProductRelationExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
     delete from cms_prefrence_area_product_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ilonw.server.bo.shop.CmsPrefrenceAreaProductRelationExample">
+  <delete id="deleteByExample" parameterType="com.ilonw.server.bto.shop.CmsPrefrenceAreaProductRelationExample">
     delete from cms_prefrence_area_product_relation
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -126,7 +126,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ilonw.server.bo.shop.CmsPrefrenceAreaProductRelationExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.ilonw.server.bto.shop.CmsPrefrenceAreaProductRelationExample" resultType="java.lang.Long">
     select count(*) from cms_prefrence_area_product_relation
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

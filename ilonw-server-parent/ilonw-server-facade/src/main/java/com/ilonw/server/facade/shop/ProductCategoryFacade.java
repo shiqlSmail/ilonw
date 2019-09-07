@@ -1,9 +1,8 @@
 package com.ilonw.server.facade.shop;
 
 import com.ilonw.server.bo.shop.ProductCategory;
-import com.ilonw.server.bo.shop.ProductCategoryParam;
+import com.ilonw.server.bto.shop.ProductCategoryParam;
 import com.ilonw.server.bo.shop.ProductCategoryWithChildrenItem;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

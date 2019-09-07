@@ -2,8 +2,8 @@ package com.ilonw.api.controller;
 
 import com.ilonw.api.base.BaseController;
 import com.ilonw.api.service.ProductService;
-import com.ilonw.server.bo.shop.ProductParam;
-import com.ilonw.server.bo.shop.ProductQueryParam;
+import com.ilonw.server.bto.shop.ProductParam;
+import com.ilonw.server.bto.shop.ProductQueryParam;
 import com.server.tools.result.APIBaseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

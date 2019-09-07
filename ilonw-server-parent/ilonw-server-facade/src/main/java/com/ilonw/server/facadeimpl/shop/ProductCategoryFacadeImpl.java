@@ -2,7 +2,7 @@ package com.ilonw.server.facadeimpl.shop;
 
 import com.ilonw.server.biz.shop.ProductCategoryService;
 import com.ilonw.server.bo.shop.ProductCategory;
-import com.ilonw.server.bo.shop.ProductCategoryParam;
+import com.ilonw.server.bto.shop.ProductCategoryParam;
 import com.ilonw.server.bo.shop.ProductCategoryWithChildrenItem;
 import com.ilonw.server.facade.shop.ProductCategoryFacade;
 import org.springframework.beans.factory.annotation.Autowired;

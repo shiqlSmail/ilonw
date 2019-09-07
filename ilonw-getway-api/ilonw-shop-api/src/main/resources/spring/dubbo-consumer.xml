@@ -24,4 +24,23 @@
 
 	<!-- 商品分类管理-->
 	<dubbo:reference interface="com.ilonw.server.facade.shop.ProductCategoryFacade" id="productCategoryFacade"/>
+
+	<!-- 商品主页管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.HomeFacade" id="homeFacade"/>
+
+	<!-- 商品促销管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.OmsPromotionFacade" id="omsPromotionFacade"/>
+
+	<!-- 购物车管理-->
+	<dubbo:reference interface="com.ilonw.server.facade.shop.OmsCartItemFacade" id="omsCartItemFacade"/>
+
+	<dubbo:reference interface="com.ilonw.server.facade.shop.UmsMemberCouponFacade" id="umsMemberCouponFacade"/>
+
+	<dubbo:reference interface="com.ilonw.server.facade.shop.UmsMemberReceiveAddressFacade" id="umsMemberReceiveAddressFacade"/>
+
+	<dubbo:reference interface="com.ilonw.server.facade.shop.OmsPortalOrderFacade" id="omsPortalOrderFacade"/>
+
+	<!--<dubbo:reference interface="com.ilonw.server.facade.shop.MemberCollectionFacade" id="memberCollectionFacade"/>
+
+	<dubbo:reference interface="com.ilonw.server.facade.shop.MemberReadHistoryFacade" id="memberReadHistoryFacade"/>-->
 </beans>

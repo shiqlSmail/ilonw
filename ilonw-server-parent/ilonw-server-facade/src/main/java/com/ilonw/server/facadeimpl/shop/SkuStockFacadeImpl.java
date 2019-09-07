@@ -2,11 +2,9 @@ package com.ilonw.server.facadeimpl.shop;
 
 import com.ilonw.server.biz.shop.SkuStockService;
 import com.ilonw.server.bo.shop.SkuStock;
-import com.ilonw.server.bo.shop.SkuStockExample;
 import com.ilonw.server.facade.shop.SkuStockFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 

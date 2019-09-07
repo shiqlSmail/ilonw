@@ -1,7 +1,7 @@
 package com.ilonw.server.repository.shop;
 
 import com.ilonw.server.bo.shop.MemberPrice;
-import com.ilonw.server.bo.shop.MemberPriceExample;
+import com.ilonw.server.bto.shop.MemberPriceExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

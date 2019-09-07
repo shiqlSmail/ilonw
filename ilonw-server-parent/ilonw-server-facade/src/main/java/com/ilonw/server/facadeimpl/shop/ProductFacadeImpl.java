@@ -2,6 +2,9 @@ package com.ilonw.server.facadeimpl.shop;
 
 import com.ilonw.server.biz.shop.ProductService;
 import com.ilonw.server.bo.shop.*;
+import com.ilonw.server.bto.shop.ProductParam;
+import com.ilonw.server.bto.shop.ProductQueryParam;
+import com.ilonw.server.bto.shop.ProductResult;
 import com.ilonw.server.facade.shop.ProductFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

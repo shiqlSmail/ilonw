@@ -1,8 +1,6 @@
 package com.ilonw.api.service;
 
-import com.ilonw.server.bo.shop.ProductCategory;
-import com.ilonw.server.bo.shop.ProductCategoryParam;
-import com.ilonw.server.bo.shop.ProductCategoryWithChildrenItem;
+import com.ilonw.server.bto.shop.ProductCategoryParam;
 
 import java.util.List;
 import java.util.Map;

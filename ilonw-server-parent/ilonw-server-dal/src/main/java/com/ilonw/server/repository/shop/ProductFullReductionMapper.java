@@ -1,7 +1,7 @@
 package com.ilonw.server.repository.shop;
 
 import com.ilonw.server.bo.shop.ProductFullReduction;
-import com.ilonw.server.bo.shop.ProductFullReductionExample;
+import com.ilonw.server.bto.shop.ProductFullReductionExample;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

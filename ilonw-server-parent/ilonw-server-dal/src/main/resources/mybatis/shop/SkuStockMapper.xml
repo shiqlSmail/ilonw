@@ -78,7 +78,7 @@
     id, product_id, sku_code, price, stock, low_stock, sp1, sp2, sp3, pic, sale, promotion_price, 
     lock_stock
   </sql>
-  <select id="selectByExample" parameterType="com.ilonw.server.bo.shop.SkuStockExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ilonw.server.bto.shop.SkuStockExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -102,7 +102,7 @@
     delete from pms_sku_stock
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ilonw.server.bo.shop.SkuStockExample">
+  <delete id="deleteByExample" parameterType="com.ilonw.server.bto.shop.SkuStockExample">
     delete from pms_sku_stock
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -203,7 +203,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ilonw.server.bo.shop.SkuStockExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.ilonw.server.bto.shop.SkuStockExample" resultType="java.lang.Long">
     select count(*) from pms_sku_stock
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

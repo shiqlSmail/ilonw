@@ -1,12 +1,9 @@
 package com.ilonw.server.facade.shop;
 
 import com.ilonw.server.bo.shop.Product;
-import com.ilonw.server.bo.shop.ProductParam;
-import com.ilonw.server.bo.shop.ProductQueryParam;
-import com.ilonw.server.bo.shop.ProductResult;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+import com.ilonw.server.bto.shop.ProductParam;
+import com.ilonw.server.bto.shop.ProductQueryParam;
+import com.ilonw.server.bto.shop.ProductResult;
 
 import java.util.List;
 

@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, subject_id, product_id
   </sql>
-  <select id="selectByExample" parameterType="com.ilonw.server.bo.shop.CmsSubjectProductRelationExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.ilonw.server.bto.shop.CmsSubjectProductRelationExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
     delete from cms_subject_product_relation
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ilonw.server.bo.shop.CmsSubjectProductRelationExample">
+  <delete id="deleteByExample" parameterType="com.ilonw.server.bto.shop.CmsSubjectProductRelationExample">
     delete from cms_subject_product_relation
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -126,7 +126,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ilonw.server.bo.shop.CmsSubjectProductRelationExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.ilonw.server.bto.shop.CmsSubjectProductRelationExample" resultType="java.lang.Long">
     select count(*) from cms_subject_product_relation
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
