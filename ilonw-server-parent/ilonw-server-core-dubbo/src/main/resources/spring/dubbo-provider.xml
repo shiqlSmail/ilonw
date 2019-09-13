@@ -63,7 +63,7 @@
 	<dubbo:service interface="com.ilonw.server.facade.shop.OmsPortalOrderFacade" ref="omsPortalOrderFacade"/>
 
 	<!-- 会员收藏-->
-	<!--<dubbo:service interface="com.ilonw.server.facade.shop.MemberCollectionFacade" ref="memberCollectionFacade"/>-->
+	<dubbo:service interface="com.ilonw.server.facade.shop.MemberCollectionFacade" ref="memberCollectionFacade"/>
 
 	<!-- 会员浏览记录管理-->
 	<!--<dubbo:service interface="com.ilonw.server.facade.shop.MemberReadHistoryFacade" ref="memberReadHistoryFacade"/>-->

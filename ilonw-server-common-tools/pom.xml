@@ -51,6 +51,13 @@
             <version>1.1.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.alibaba.csb.sdk/http-client -->
+        <dependency>
+            <groupId>com.alibaba.csb.sdk</groupId>
+            <artifactId>http-client</artifactId>
+            <version>1.1.5.2</version>
+        </dependency>
+
         <!-- DOM4J -->
         <dependency>
             <groupId>dom4j</groupId>
